@@ -30,9 +30,9 @@
   --vh: 1vh;
   --sticky-h: 86px;
 
-  /* ✅ Impact accent (orange) */
-  --accent:#F97316;   /* orange-500 */
-  --accent2:#EA580C;  /* orange-600 */
+  /* ✅ Impact accent (BLUE) */
+  --accent:#3B82F6;   /* blue-500 */
+  --accent2:#2563EB;  /* blue-600 */
 
   --header-bg:#0B0B0C;
   --header-text:#ffffff;
@@ -49,8 +49,8 @@ body{
   margin:0;
   font-family: Inter, -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Segoe UI", Roboto, Arial, sans-serif;
   background:
-    radial-gradient(1200px 800px at 20% -10%, rgba(249,115,22,.35), transparent 55%),
-    radial-gradient(900px 600px at 110% 30%, rgba(249,115,22,.22), transparent 55%),
+    radial-gradient(1200px 800px at 20% -10%, rgba(59,130,246,.35), transparent 55%),
+    radial-gradient(900px 600px at 110% 30%, rgba(59,130,246,.22), transparent 55%),
     linear-gradient(180deg, var(--panel2), var(--bg));
   color:var(--text);
   min-height: calc(var(--vh) * 100);
@@ -166,7 +166,7 @@ body{
 }
 .btn:active{transform:scale(.98);}
 
-/* ✅ active = orange gradient */
+/* ✅ active = BLUE gradient */
 .btn.active{
   background: linear-gradient(180deg, var(--accent), var(--accent2));
   color: #ffffff;
@@ -450,7 +450,7 @@ textarea.input{height:90px;}
 .sticky-checkout{
   position:fixed;left:0;right:0;bottom: var(--safeB);
   padding:10px 12px;
-  background:rgba(249,115,22,.18);
+  background:rgba(59,130,246,.18);
   backdrop-filter: blur(10px);
   z-index:999;
   border-top:1px solid rgba(255,255,255,.10);
@@ -1812,7 +1812,7 @@ function toggleNeedHelp(){
 function syncNeedHelpUI(){
   const sw = document.getElementById('vipSwitch');
   if(sw){
-    sw.style.background = needHelp ? 'rgba(249,115,22,.55)' : 'rgba(255,255,255,.10)';
+    sw.style.background = needHelp ? 'rgba(59,130,246,.55)' : 'rgba(255,255,255,.10)';
     if(!sw.dataset.init){
       sw.dataset.init='1';
       const dot=document.createElement('div');
