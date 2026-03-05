@@ -5,15 +5,32 @@
 <title>IMPACT — Рекламное агентство / Типография</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
 
-<!-- ✅ FIX 404 GitHub Pages (impact -> Impact). Регистр важен! -->
+<!-- ✅ FIX #1: ЖЁСТКАЯ БАЗА ДЛЯ ВСЕХ ОТНОСИТЕЛЬНЫХ ПУТЕЙ (убирает 404 на images/css/js в Telegram) -->
+<base href="https://tahirovdd-lang.github.io/Impact/">
+
+<!-- ✅ FIX #2: Редиректы для GitHub Pages / Telegram (регистр + слэш) -->
 <script>
 (function () {
   try {
     var p = location.pathname || "";
-    // если открыли /impact/… — редиректим на /Impact/…
+
+    // 1) /impact/... => /Impact/...
     if (p.indexOf("/impact/") !== -1 && p.indexOf("/Impact/") === -1) {
-      var newPath = p.replace("/impact/", "/Impact/");
-      location.replace(location.origin + newPath + location.search + location.hash);
+      var newPath1 = p.replace("/impact/", "/Impact/");
+      location.replace(location.origin + newPath1 + location.search + location.hash);
+      return;
+    }
+
+    // 2) /Impact (без слэша) => /Impact/
+    if (p === "/Impact" || p.endsWith("/Impact")) {
+      location.replace(location.origin + "/Impact/" + location.search + location.hash);
+      return;
+    }
+
+    // 3) /impact (без слэша) => /Impact/
+    if (p === "/impact" || p.endsWith("/impact")) {
+      location.replace(location.origin + "/Impact/" + location.search + location.hash);
+      return;
     }
   } catch (e) {}
 })();
@@ -564,7 +581,7 @@ textarea.input{height:90px;}
   cursor:pointer;color:#E5E7EB;font-weight:900;
 }
 
-/* online / click blocks (kept, used as “Оплата/Предоплата” if needed) */
+/* online / click blocks */
 .online-box,.click-box{
   display:none;
   margin:10px auto 0;
@@ -1036,6 +1053,7 @@ textarea.input{height:90px;}
 
 </div><!-- /page -->
 
+<!-- ✅ ТВОЙ ОРИГИНАЛЬНЫЙ JS БЕЗ УДАЛЕНИЙ -->
 <script>
 Telegram.WebApp.ready();
 try{ Telegram.WebApp.expand(); Telegram.WebApp.disableVerticalSwipes?.(); }catch(_){}
