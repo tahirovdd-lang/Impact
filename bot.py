@@ -19,28 +19,42 @@ BOT_TOKEN = os.getenv("BOT_TOKEN")
 if not BOT_TOKEN:
     raise RuntimeError("❌ BOT_TOKEN не найден. Добавь переменную окружения BOT_TOKEN.")
 
-# ✅ Переименовано на IMPACT
+# ✅ IMPACT (названия)
 BOT_USERNAME = os.getenv("BOT_USERNAME", "impact_bot").replace("@", "").strip().lower()
 ADMIN_ID = int(os.getenv("ADMIN_ID", "6013591658"))
+
+# ⚠️ Укажи свой канал/чат (если не нужен — можешь оставить, команда post_shop просто не будет работать без прав)
 CHANNEL_ID = os.getenv("CHANNEL_ID", "@IMPACT_APP").strip()
 
 def normalize_webapp_url(url: str) -> str:
+    """
+    Делает URL максимально стабильным для Telegram:
+    - всегда приводит GitHub Pages папку (/Impact или /Impact/) к /Impact/index.html
+    - сохраняет query ?v=...
+    - убирает двойные /
+    """
     url = (url or "").strip()
     if not url:
         return url
-    if "github.io" in url:
-        if "?" in url:
-            base, q = url.split("?", 1)
-            q = "?" + q
-        else:
-            base, q = url, ""
-        base = base.rstrip("/")
-        if not base.lower().endswith(".html"):
-            base = base + "/index.html"
-        return base + q
-    return url
 
-# ✅ Поменял на IMPACT URL
+    # отделяем query
+    if "?" in url:
+        base, q = url.split("?", 1)
+        q = "?" + q
+    else:
+        base, q = url, ""
+
+    base = base.strip()
+    # убираем хвостовые /
+    base = base.rstrip("/")
+
+    # ✅ GitHub Pages: если не .html — значит папка, принудительно index.html
+    if "github.io" in base and not base.lower().endswith(".html"):
+        base = base + "/index.html"
+
+    return base + q
+
+# ✅ ВАЖНО: Telegram WebView лучше открывает прямой index.html (без редиректов)
 DEFAULT_WEBAPP = "https://tahirovdd-lang.github.io/Impact/index.html?v=10"
 WEBAPP_URL = normalize_webapp_url(os.getenv("WEBAPP_URL", DEFAULT_WEBAPP))
 
@@ -65,24 +79,28 @@ BTN_OPEN_MULTI = "Ochish • Открыть • Open"
 
 def kb_webapp_reply() -> ReplyKeyboardMarkup:
     return ReplyKeyboardMarkup(
-        keyboard=[[KeyboardButton(text=BTN_OPEN_MULTI, web_app=WebAppInfo(url=WEBAPP_URL))]],
+        keyboard=[
+            [KeyboardButton(text=BTN_OPEN_MULTI, web_app=WebAppInfo(url=WEBAPP_URL))]
+        ],
         resize_keyboard=True
     )
 
 def kb_channel_url() -> InlineKeyboardMarkup:
     return InlineKeyboardMarkup(
-        inline_keyboard=[[InlineKeyboardButton(text=BTN_OPEN_MULTI, url=WEBAPP_URL)]]
+        inline_keyboard=[
+            [InlineKeyboardButton(text=BTN_OPEN_MULTI, url=WEBAPP_URL)]
+        ]
     )
 
 # ====== ТЕКСТ ======
 def welcome_text() -> str:
     return (
         "🇷🇺 Добро пожаловать в <b>IMPACT</b> 🚀\n"
-        "Откройте каталог услуг и оформите заявку — нажмите «Открыть» ниже.\n\n"
+        "Откройте приложение — нажмите «Открыть» ниже.\n\n"
         "🇺🇿 <b>IMPACT</b> 🚀 ga xush kelibsiz!\n"
-        "Xizmatlar katalogini oching va buyurtma bering — pastdagi «Ochish» tugmasini bosing.\n\n"
+        "Ilovani ochish uchun pastdagi «Ochish» tugmasini bosing.\n\n"
         "🇬🇧 Welcome to <b>IMPACT</b> 🚀\n"
-        "Open the services catalog and place a request — tap “Open” below."
+        "Tap “Open” below to launch the app."
     )
 
 @dp.message(CommandStart())
@@ -105,13 +123,16 @@ async def debug_url(message: types.Message):
 
 @dp.message(Command("post_shop"))
 async def post_shop(message: types.Message):
+    """
+    Пост в канал с кнопкой на WebApp (если нужно).
+    """
     if message.from_user.id != ADMIN_ID:
         return await message.answer("⛔️ Нет доступа.")
 
     text = (
-        "🇷🇺 <b>IMPACT</b> 🚀\nНажмите кнопку ниже, чтобы открыть каталог.\n\n"
-        "🇺🇿 <b>IMPACT</b> 🚀\nPastdagi tugma orqali katalogni oching.\n\n"
-        "🇬🇧 <b>IMPACT</b> 🚀\nTap the button below to open the catalog."
+        "🇷🇺 <b>IMPACT</b> 🚀\nНажмите кнопку ниже, чтобы открыть приложение.\n\n"
+        "🇺🇿 <b>IMPACT</b> 🚀\nPastdagi tugma orqali ilovani oching.\n\n"
+        "🇬🇧 <b>IMPACT</b> 🚀\nTap the button below to open the app."
     )
 
     try:
@@ -222,7 +243,7 @@ async def webapp_data(message: types.Message):
         await bot.send_message(ADMIN_ID, admin_text)
         return await message.answer("✅ <b>Сообщение отправлено!</b>\nМы скоро ответим.")
 
-    # ✅ 2) ЗАКАЗ / ЗАЯВКА
+    # ✅ 2) ЗАКАЗ (или заявка)
     if is_order_payload(data):
         lines = build_order_lines(data)
         if not lines:
@@ -249,10 +270,10 @@ async def webapp_data(message: types.Message):
             admin_text += f"\n💬 <b>Комментарий:</b> {comment}"
 
         await bot.send_message(ADMIN_ID, admin_text)
-        return await message.answer("✅ <b>Ваша заявка принята!</b>\n🙏 Спасибо! Мы скоро свяжемся с вами.")
+        return await message.answer("✅ <b>Ваш заказ принят!</b>\n🙏 Спасибо! Мы скоро свяжемся с вами.")
 
     # ✅ 3) если пришло непонятно что — не шлём админу мусор
-    await message.answer("⚠️ Данные не распознаны. Откройте каталог и попробуйте снова.")
+    await message.answer("⚠️ Данные не распознаны. Откройте приложение и попробуйте снова.")
 
 # ====== ЗАПУСК ======
 async def main():
