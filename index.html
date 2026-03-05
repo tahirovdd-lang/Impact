@@ -37,7 +37,6 @@
 </script>
 
 <script src="https://telegram.org/js/telegram-web-app.js"></script>
-
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700;800;900&display=swap" rel="stylesheet">
 
 <style>
@@ -60,7 +59,6 @@
   --r-md:22px;
 
   --vh: 1vh;
-  --sticky-h: 86px;
 
   /* ✅ Impact accent (BLUE) */
   --accent:#3B82F6;   /* blue-500 */
@@ -106,13 +104,13 @@ body{
   position:relative;text-align:center;
   color:var(--header-text);
 }
-/* ✅ logo bigger (height) + bigger inside frame */
 .header img{
   position:absolute;left:12px;
-  width:92px;height:108px;object-fit:contain;
+  width:92px;height:92px; /* ✅ чуть выше */
+  object-fit:contain;
   border-radius:18px;
   background:rgba(255,255,255,.08);
-  padding:4px; /* меньше padding => лого крупнее внутри */
+  padding:6px; /* ✅ меньше паддинг — лого внутри больше */
   border:1px solid rgba(255,255,255,.14);
   box-shadow:0 14px 30px rgba(0,0,0,.55);
 }
@@ -120,12 +118,10 @@ body{
 .brand-wrap{display:flex;flex-direction:column;align-items:center;gap:4px;transform: translateX(16px);}
 
 .brand-title{
-  font-family: Inter, -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Segoe UI", Roboto, Arial, sans-serif;
   font-size:30px;line-height:1;letter-spacing:.6px;font-weight:900;
   color:var(--header-text);
 }
 .brand-title2{
-  font-family: Inter, -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, Arial, sans-serif;
   font-weight:800;
   font-size:14px;
   letter-spacing:1.6px;
@@ -133,7 +129,6 @@ body{
   color:rgba(255,255,255,.82);
 }
 .brand-title3{
-  font-family: Inter, -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, Arial, sans-serif;
   font-weight:900;
   font-size:13px;
   letter-spacing:1.1px;
@@ -180,7 +175,7 @@ body{
 .burger span:nth-child(3){bottom:0;}
 .act-ico{font-size:14px;line-height:1;color:#fff;}
 
-/* top rows */
+/* langs */
 .langs{
   display:flex;
   gap:10px;
@@ -190,8 +185,6 @@ body{
   overflow-x:auto;
   -webkit-overflow-scrolling:touch;
 }
-
-/* base button */
 .btn{
   padding:12px 18px;
   border-radius:28px;
@@ -207,27 +200,12 @@ body{
   flex:0 0 auto;
 }
 .btn:active{transform:scale(.98);}
-
-/* ✅ active = BLUE gradient */
 .btn.active{
   background: linear-gradient(180deg, var(--accent), var(--accent2));
   color: #ffffff;
   border:1px solid rgba(255,255,255,.22);
   box-shadow: 0 14px 26px rgba(0,0,0,.55);
 }
-
-/* category buttons */
-.cat-btn{padding:12px 18px;min-width:132px;font-size:14px;border-radius:999px;display:flex;align-items:center;justify-content:center;gap:10px;}
-.cat-ic{
-  width:26px;height:26px;border-radius:10px;
-  object-fit:cover;
-  border:1px solid rgba(255,255,255,.14);
-  background:rgba(255,255,255,.06);
-  box-shadow:0 10px 18px rgba(0,0,0,.40);
-  flex:0 0 auto;
-}
-
-/* ✅ language buttons narrower + flags */
 .langs .btn{
   min-width:92px;
   padding:10px 12px;
@@ -236,114 +214,156 @@ body{
 }
 .lang-flag{margin-right:8px; font-size:16px; line-height:1;}
 
-/* inputs */
-.input{
-  margin:8px auto;display:block;padding:14px;width:85%;
-  border-radius:22px;font-size:15px;border:1px solid var(--stroke2);
-  background: rgba(17,24,39,.55);
-  box-shadow: 0 10px 22px rgba(0,0,0,.55);
-  outline:none;transition:.15s;
-  color:#fff;
-}
-
-/* categories + products */
-.categories{
-  display:flex;gap:12px;padding:14px;
-  overflow-x:auto;scroll-behavior:smooth;
-  -webkit-overflow-scrolling:touch;
-  overscroll-behavior-x:contain;
-}
-.products{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;padding:12px;}
-.card{
-  border-radius:24px;padding:12px;text-align:center;
-  background: rgba(30,41,59,.60);
-  border:1px solid var(--stroke2);
-  box-shadow: 0 12px 26px rgba(0,0,0,.55);
-  transition:.15s;
-  color:#E5E7EB;
-}
-
-/* ✅ product icons slightly smaller + rounded corners */
-.img{height:168px;display:flex;align-items:center;justify-content:center;margin-bottom:6px;}
-.img img{
-  max-width:152px;
-  max-height:152px;
-  object-fit:cover;
-  transform:scale(1.00);
-  cursor:pointer;
-  border-radius:20px;
-}
-
-.item-name{margin-top:2px;padding:0 6px;font-weight:900;line-height:1.15;min-height:42px;display:flex;align-items:center;justify-content:center;word-break:break-word;}
-
 /* carousels */
-.popular-wrap{width:100%;padding:4px 12px 6px;}
+.popular-wrap{width:100%;padding:6px 12px 8px;}
 .popular-title{width:100%;font-weight:900;padding:8px 2px 10px;display:flex;align-items:center;gap:8px;color:#E5E7EB;}
-.popular-row,.mini-row{display:flex;gap:12px;overflow-x:auto;padding:2px 2px 10px;-webkit-overflow-scrolling:touch;}
+.popular-row{display:flex;gap:12px;overflow-x:auto;padding:2px 2px 10px;-webkit-overflow-scrolling:touch;}
 
-/* ✅ carousel cards */
-.pop-card,.mini-card{
-  min-width:160px;border-radius:24px;padding:12px;
+.pop-card{
+  min-width:180px;border-radius:24px;padding:12px;
   background: rgba(30,41,59,.60);
   border:1px solid var(--stroke2);
   box-shadow: 0 12px 26px rgba(0,0,0,.55);
   cursor:pointer;transition:.15s;position:relative;
   color:#E5E7EB;
 }
-
-/* ✅ carousel images like product + rounded edges */
-.pop-img,.mini-img{
-  height:168px;
+.pop-card:active{transform:scale(.99);}
+.pop-img{
+  height:152px;
   border-radius:20px;
   overflow:hidden;
   display:flex;align-items:center;justify-content:center;
   background: transparent;
-  cursor:pointer;
   margin-bottom:6px;
 }
-.pop-img img,.mini-img img{
-  max-width:152px;
-  max-height:152px;
+.pop-img img{
+  max-width:148px;
+  max-height:148px;
   object-fit:cover;
-  transform:scale(0.94);
+  transform:scale(0.95);
   border-radius:20px;
 }
-
-.pop-name,.mini-name{
+.pop-name{
   margin-top:2px;
   padding:0 6px;
   font-weight:900;
   line-height:1.15;
-  min-height:42px;
+  min-height:44px;
   display:flex;
   align-items:center;
   justify-content:center;
   word-break:break-word;
   text-align:center;
 }
+.pop-cta{
+  margin-top:10px;
+  width:100%;
+  min-width:auto;
+  padding:10px 12px;
+  border-radius:16px;
+  border:1px solid rgba(255,255,255,.14);
+  background: linear-gradient(180deg, var(--accent), var(--accent2));
+  color:#fff;
+  font-weight:900;
+  box-shadow: 0 12px 22px rgba(0,0,0,.55);
+}
+
+/* ✅ консультация (шире и компактнее) */
+.consult-card{
+  width: calc(100% - 24px);
+  margin: 6px 12px 2px;
+  border-radius:24px;
+  padding:14px 14px;
+  background: rgba(30,41,59,.60);
+  border:1px solid rgba(255,255,255,.12);
+  box-shadow: 0 12px 26px rgba(0,0,0,.55);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+}
+.consult-left{display:flex;flex-direction:column;gap:4px;min-width:0;}
+.consult-title{font-weight:900;font-size:16px;color:#fff;}
+.consult-sub{font-weight:800;font-size:12.5px;opacity:.78;color:#E5E7EB;line-height:1.2;}
+.consult-btn{
+  flex:0 0 auto;
+  padding:10px 12px;
+  border-radius:16px;
+  border:1px solid rgba(255,255,255,.14);
+  background: linear-gradient(180deg, var(--accent), var(--accent2));
+  color:#fff;
+  font-weight:900;
+  cursor:pointer;
+  box-shadow: 0 12px 22px rgba(0,0,0,.55);
+  white-space:nowrap;
+}
+.consult-btn:active{transform:scale(.98);}
+
+/* services list (без категорий) */
+.services{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:14px;
+  padding:12px;
+}
+.svc-card{
+  border-radius:24px;
+  padding:12px;
+  text-align:center;
+  background: rgba(30,41,59,.60);
+  border:1px solid var(--stroke2);
+  box-shadow: 0 12px 26px rgba(0,0,0,.55);
+  cursor:pointer;
+  color:#E5E7EB;
+  transition:.15s;
+}
+.svc-card:active{transform:scale(.99);}
+.svc-img{
+  height:148px;
+  display:flex;align-items:center;justify-content:center;
+  margin-bottom:6px;
+  border-radius:20px;
+  overflow:hidden;
+}
+.svc-img img{
+  max-width:148px;
+  max-height:148px;
+  object-fit:cover;
+  border-radius:20px;
+}
+.svc-name{
+  margin-top:2px;
+  padding:0 6px;
+  font-weight:900;
+  line-height:1.15;
+  min-height:44px;
+  display:flex;align-items:center;justify-content:center;
+  word-break:break-word;
+}
 
 /* popup */
-.popup{position:fixed;inset:0;background:rgba(0,0,0,.55);display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:.3s;}
+.popup{position:fixed;inset:0;background:rgba(0,0,0,.55);display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:.3s;z-index:2200;}
 .popup.show{opacity:1;pointer-events:auto;}
 .popup-box{
   background: rgba(15,23,42,.96);
-  padding:26px;border-radius:24px;text-align:center;font-weight:800;border:1px solid rgba(255,255,255,.14);
+  padding:18px 18px;border-radius:22px;text-align:center;font-weight:900;border:1px solid rgba(255,255,255,.14);
   box-shadow:0 14px 26px rgba(0,0,0,.60);
   color:#fff;
+  width:min(420px, 92vw);
 }
 
-/* ✅ image/spec modal */
-.img-modal{
+/* modals */
+.modal{
   position:fixed; inset:0;
   background:rgba(0,0,0,.72);
   display:flex; align-items:center; justify-content:center;
   opacity:0; pointer-events:none;
   transition:.18s;
-  z-index:2000;
+  z-index:2100;
   padding:18px;
 }
-.img-modal.show{opacity:1;pointer-events:auto;}
-.img-modal-box{
+.modal.show{opacity:1;pointer-events:auto;}
+.modal-box{
   width:min(560px, 100%);
   border-radius:22px;
   overflow:hidden;
@@ -351,69 +371,29 @@ body{
   border:1px solid rgba(255,255,255,.14);
   box-shadow:0 18px 44px rgba(0,0,0,.60);
 }
-.img-modal-top{
+.modal-top{
   display:flex; align-items:center; justify-content:space-between;
   gap:10px;
   padding:12px 12px;
   background:rgba(255,255,255,.06);
 }
-.img-modal-title{font-weight:900;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:#fff;}
-.img-modal-close{
+.modal-title{font-weight:900;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:#fff;}
+.modal-close{
   width:38px;height:38px;border:none;border-radius:14px;background:transparent;cursor:pointer;
   font-size:22px;line-height:1;color:rgba(229,231,235,.72);
 }
-
-/* ✅ body: image left, text right */
-.img-modal-body{
-  display:flex;
-  gap:12px;
-  padding:12px;
-}
-.img-modal-left{
-  flex: 0 0 46%;
-  border-radius:18px;
-  overflow:hidden;
-  border:1px solid rgba(255,255,255,.10);
-  background: rgba(255,255,255,.04);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-}
-.img-modal-img{
-  width:100%;
-  max-height:70vh;
-  object-fit:contain;
-  display:block;
-}
-.img-modal-right{
-  flex: 1 1 auto;
-  border-radius:18px;
-  border:1px solid rgba(255,255,255,.10);
-  background: rgba(255,255,255,.04);
-  padding:12px;
-  display:flex;
-  flex-direction:column;
-  gap:10px;
-  min-width:0;
-}
-.spec-row{
-  display:flex;
-  justify-content:space-between;
-  gap:10px;
-  align-items:flex-start;
-  font-weight:900;
-}
-.spec-k{
-  color: rgba(229,231,235,.72);
-  font-weight:900;
-  flex:0 0 auto;
-}
-.spec-v{
+.modal-body{padding:12px;}
+.input{
+  margin:8px 0 0;display:block;padding:14px;width:100%;
+  border-radius:18px;font-size:15px;border:1px solid var(--stroke2);
+  background: rgba(17,24,39,.55);
+  box-shadow: 0 10px 22px rgba(0,0,0,.55);
+  outline:none;transition:.15s;
   color:#fff;
-  text-align:right;
-  word-break:break-word;
-  flex: 1 1 auto;
 }
+.modal-actions{display:flex;gap:10px;margin-top:12px;}
+.modal-actions .btn{min-width:auto;width:100%;border-radius:18px;padding:12px 12px;}
+.btn.secondary{background: rgba(255,255,255,.06); color:#E5E7EB; border:1px solid rgba(255,255,255,.10);}
 
 /* ✅ menu sheet — NOT transparent (solid) */
 .menu-backdrop{position:fixed;inset:0;background:rgba(0,0,0,.55);opacity:0;pointer-events:none;transition:.18s;z-index:1000;}
@@ -446,188 +426,14 @@ body{
 .menu-sub{font-size:12px;opacity:.75;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-top:2px;color:rgba(229,231,235,.75);}
 .menu-right{opacity:.65;font-weight:900;color:rgba(229,231,235,.75);}
 
-/* search */
-.search-title{display:none;width:100%;padding:10px 14px 0;font-weight:900;color:#E5E7EB;}
-.search-title.show{display:block;}
-.search-wrap{display:none;position:relative;padding:10px 12px 6px;gap:10px;align-items:center;}
-.search-wrap.show{display:flex;}
-.search-wrap .input{width:100%;margin:0;}
-.search-clear{
-  position:absolute;right:20px;top:50%;transform:translateY(-50%);
-  width:32px;height:32px;border-radius:12px;
-  display:flex;align-items:center;justify-content:center;
-  background:rgba(255,255,255,.06);
+.about-box{display:none; padding:6px 4px 10px;}
+.about-inner{
   border:1px solid rgba(255,255,255,.10);
-  cursor:pointer;color:#E5E7EB;font-weight:900;
-}
-
-/* ✅ SUBCATS BOTTOM SHEET */
-.sub-backdrop{
-  position:fixed; inset:0;
-  background: rgba(0,0,0,.55);
-  opacity:0; pointer-events:none;
-  transition:.18s;
-  z-index:1100;
-}
-.sub-backdrop.show{opacity:1;pointer-events:auto;}
-.sub-sheet{
-  position:fixed; left:0; right:0; bottom:-100%;
-  background: #0B0F14;
-  color:#fff;
-  border-top-left-radius:22px;border-top-right-radius:22px;
-  border:1px solid rgba(255,255,255,.12);
-  box-shadow:0 18px 40px rgba(0,0,0,.70);
-  transition:.22s;
-  z-index:1110;
-  padding:10px 12px 14px;
-  max-height: 76vh;
-  overflow:auto;
-  -webkit-overflow-scrolling:touch;
-}
-.sub-sheet.show{bottom:0;}
-.sub-head{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:2px 4px 10px;}
-.sub-head b{font-size:16px;}
-.sub-close{width:38px;height:38px;border:none;border-radius:12px;background:transparent;cursor:pointer;font-size:22px;line-height:1;color:rgba(229,231,235,.72);}
-.sub-grid{
-  display:grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap:10px;
-  padding:4px 2px 2px;
-}
-.sub-icbtn{
-  border:1px solid rgba(255,255,255,.10);
-  background: rgba(17,24,39,.55);
-  border-radius:18px;
-  padding:10px 8px;
-  box-shadow: 0 12px 24px rgba(0,0,0,.55);
-  cursor:pointer;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  gap:6px;
-  min-height:84px;
-  text-align:center;
-  font-weight:900;
-  color:#E5E7EB;
-  transition:.15s;
-}
-.sub-icbtn:active{transform:scale(.98);}
-.sub-icbtn.active{
-  background: linear-gradient(180deg, var(--accent), var(--accent2));
-  color:#fff;
-  border:1px solid rgba(255,255,255,.22);
-}
-.sub-emoji{font-size:22px;line-height:1;display:flex;align-items:center;justify-content:center;}
-.sub-logo{
-  width:28px;height:28px;border-radius:12px;
-  object-fit:cover;
-  border:1px solid rgba(255,255,255,.14);
-  background:rgba(255,255,255,.06);
-  box-shadow:0 10px 18px rgba(0,0,0,.40);
-}
-.sub-txt{font-size:11px;line-height:1.15;word-break:break-word;opacity:.95;}
-
-/* ✅ Consultation wide + shorter card */
-.consult-wide{
-  width:100%;
-  display:flex;
-  justify-content:center;
-}
-.consult-btn{
-  width:100%;
-  border-radius:18px;
-  padding:10px 14px;            /* ниже по высоте */
-  min-height:54px;              /* короткая */
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:12px;
-  border:1px solid rgba(255,255,255,.12);
-  background: linear-gradient(180deg, rgba(59,130,246,.38), rgba(37,99,235,.28));
-  box-shadow: 0 14px 26px rgba(0,0,0,.55);
-  cursor:pointer;
-  user-select:none;
-}
-.consult-btn:active{transform:scale(.99);}
-.consult-left{display:flex;align-items:center;gap:10px;min-width:0;}
-.consult-ic{
-  width:36px;height:36px;border-radius:14px;
-  display:flex;align-items:center;justify-content:center;
-  background: rgba(255,255,255,.10);
-  border:1px solid rgba(255,255,255,.14);
-  flex:0 0 auto;
-}
-.consult-txt{display:flex;flex-direction:column;min-width:0;}
-.consult-title{font-weight:900;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:#fff;}
-.consult-sub{font-size:12px;font-weight:800;opacity:.78;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:rgba(229,231,235,.85);}
-.consult-right{font-weight:900;opacity:.8;color:rgba(229,231,235,.85);}
-
-/* ✅ consultation modal */
-.consult-modal{
-  position:fixed; inset:0;
-  background:rgba(0,0,0,.72);
-  display:flex; align-items:center; justify-content:center;
-  opacity:0; pointer-events:none;
-  transition:.18s;
-  z-index:2100;
-  padding:18px;
-}
-.consult-modal.show{opacity:1;pointer-events:auto;}
-.consult-box{
-  width:min(560px, 100%);
-  border-radius:22px;
-  overflow:hidden;
-  background: rgba(15,23,42,.96);
-  border:1px solid rgba(255,255,255,.14);
-  box-shadow:0 18px 44px rgba(0,0,0,.60);
-}
-.consult-top{
-  display:flex; align-items:center; justify-content:space-between;
-  gap:10px;
-  padding:12px 12px;
-  background:rgba(255,255,255,.06);
-}
-.consult-top b{font-size:15px;}
-.consult-close{
-  width:38px;height:38px;border:none;border-radius:14px;background:transparent;cursor:pointer;
-  font-size:22px;line-height:1;color:rgba(229,231,235,.72);
-}
-.consult-body{padding:12px;}
-.consult-input{
-  width:100%;
-  margin:0;
-  padding:12px 14px;
   border-radius:16px;
-  border:1px solid rgba(255,255,255,.10);
-  background:rgba(17,24,39,.55);
-  font-weight:900;
-  outline:none;
-  color:#fff;
-}
-.consult-actions{margin-top:10px;display:flex;gap:10px;}
-.consult-actions .btn{min-width:auto;flex:1 1 auto;border-radius:16px;padding:12px 12px;}
-.consult-actions .btn.primary{
-  background: linear-gradient(180deg, var(--accent), var(--accent2));
-  color:#fff;
-  border:1px solid rgba(255,255,255,.18);
-}
-.consult-hint{margin-top:10px;font-size:12px;opacity:.78;font-weight:800;color:#E5E7EB;line-height:1.35;}
-
-@media (max-width:520px){
-  .img-modal-body{flex-direction:column;}
-  .img-modal-left{flex:0 0 auto;}
-}
-
-/* ✅ iPhone adaptation */
-@supports (-webkit-touch-callout: none){
-  body{
-    padding-top: calc(var(--safeT) + 2px);
-    padding-bottom: calc(18px + var(--safeB));
-  }
-  .header{
-    padding-top: calc(14px + var(--safeT));
-  }
+  overflow:hidden;
+  background:rgba(255,255,255,.06);
+  padding:12px;
+  color:#E5E7EB;
 }
 
 @media (max-width:420px){
@@ -635,40 +441,24 @@ body{
   .brand-title2{font-size:13px;}
   .brand-wrap{transform: translateX(10px);}
   .header{padding:14px 10px 24px;}
-  .input{width:92%;}
-  .products{gap:14px;}
-  .sub-grid{grid-template-columns: repeat(3, minmax(0, 1fr));}
+  .services{gap:12px;}
 }
 @media (max-width:360px){
-  .header img{width:86px;height:102px;left:10px;}
+  .header img{width:86px;height:86px;left:10px;}
   .brand-title{font-size:26px;}
   .brand-title2{font-size:12px;letter-spacing:1.3px;}
   .brand-phone a{font-size:13px;}
-  .btn{min-width:108px;padding:12px 16px;}
-  .cat-btn{min-width:126px;padding:12px 16px;font-size:13px;}
   .langs .btn{min-width:86px;padding:10px 10px;font-size:13px;}
-  .welcome{font-size:12px;padding:6px 9px;}
-  .sub-grid{grid-template-columns: repeat(3, minmax(0, 1fr));}
+  .consult-title{font-size:15px;}
+  .consult-sub{font-size:12px;}
 }
 </style>
 </head>
 
 <body>
 
-<!-- ✅ Файлы изображений (JPG) которые надо загрузить в папку images:
+<!-- ✅ Файлы изображений которые надо загрузить в папку images:
   logo.png
-  print_business_cards.jpg
-  print_flyers.jpg
-  print_banners.jpg
-  print_stickers.jpg
-  print_catalogs.jpg
-  design_logo.jpg
-  design_brandbook.jpg
-  design_social.jpg
-  ads_smm.jpg
-  ads_target.jpg
-  ads_outdoor.jpg
-  other_services.jpg
 -->
 
 <div class="header">
@@ -694,9 +484,6 @@ body{
     <div class="act-btn" onclick="openHeaderLocation()" title="Маршрут">
       <span class="act-ico">📍</span>
     </div>
-    <div class="act-btn" onclick="toggleSearch()" title="Поиск">
-      <span class="act-ico">🔍</span>
-    </div>
   </div>
 </div>
 
@@ -712,9 +499,6 @@ body{
   </div>
 
   <div class="menu-list">
-
-    <!-- ✅ УБРАЛИ: Выбрать точку -->
-
     <a class="menu-item" href="tel:+998937289004" onclick="closeTopMenu()">
       <div class="menu-left">
         <div class="menu-ic">📞</div>
@@ -726,9 +510,6 @@ body{
       <div class="menu-right">›</div>
     </a>
 
-    <!-- ✅ УБРАЛИ: консультацию из бургера -->
-
-    <!-- ✅ Instagram один: @impactreklama -->
     <a class="menu-item" href="#" onclick="openInstagram(event)">
       <div class="menu-left">
         <div class="menu-ic">📸</div>
@@ -740,7 +521,6 @@ body{
       <div class="menu-right">›</div>
     </a>
 
-    <!-- ✅ Telegram channel: @impactreklama -->
     <a class="menu-item" href="#" onclick="openTelegram(event)">
       <div class="menu-left">
         <div class="menu-ic">✈️</div>
@@ -774,8 +554,8 @@ body{
       <div class="menu-right">›</div>
     </div>
 
-    <div id="aboutWrap" style="display:none; padding:6px 4px 10px;">
-      <div style="border:1px solid rgba(255,255,255,.10); border-radius:16px; overflow:hidden; background:rgba(255,255,255,.06); padding:12px; color:#E5E7EB;">
+    <div class="about-box" id="aboutWrap">
+      <div class="about-inner">
         <div style="font-weight:900; margin-bottom:6px;" id="aboutAddrLabel">📍 Адрес</div>
         <div style="font-weight:900; color:#fff; opacity:.92; line-height:1.25;" id="aboutAddrText"></div>
 
@@ -806,24 +586,6 @@ body{
   </div>
 </div>
 
-<!-- ✅ Subcategories Bottom Sheet -->
-<div class="sub-backdrop" id="subBackdrop" onclick="closeSubcats()"></div>
-<div class="sub-sheet" id="subSheet">
-  <div class="menu-handle"></div>
-  <div class="sub-head">
-    <b id="subTitle">Подкатегории</b>
-    <button class="sub-close" onclick="closeSubcats()">×</button>
-  </div>
-  <div class="sub-grid" id="subGrid"></div>
-</div>
-
-<!-- ✅ Search -->
-<div class="search-title" id="searchTitle">Результаты поиска</div>
-<div class="search-wrap" id="searchWrap">
-  <input id="searchInput" class="input" placeholder="Поиск..." oninput="searchProducts()" onkeydown="onSearchKey(event)">
-  <div class="search-clear" onclick="clearSearch()" title="Очистить">✖</div>
-</div>
-
 <!-- languages -->
 <div class="langs">
   <button class="btn" id="langRU" onclick="setLang('ru',this)"><span class="lang-flag">🇷🇺</span>RU</button>
@@ -832,76 +594,73 @@ body{
   <button class="btn" id="langTJ" onclick="setLang('tj',this)"><span class="lang-flag">🇹🇯</span>TJ</button>
 </div>
 
-<!-- ✅ ВМЕСТО АКЦИИ: Консультация (шире и ниже) -->
-<div class="popular-wrap" id="consultWrap">
-  <div class="popular-title" id="consultTitle">💬 Консультация</div>
-  <div class="consult-wide">
-    <div class="consult-btn" onclick="openConsultModal()">
-      <div class="consult-left">
-        <div class="consult-ic">💬</div>
-        <div class="consult-txt">
-          <div class="consult-title" id="consultBtnTitle">Написать менеджеру</div>
-          <div class="consult-sub" id="consultBtnSub">Например: 1000шт визиток</div>
-        </div>
-      </div>
-      <div class="consult-right">›</div>
-    </div>
+<!-- ✅ Консультация (сверху, шире) -->
+<div class="consult-card" onclick="openConsultModal()">
+  <div class="consult-left">
+    <div class="consult-title" id="consultTitle">💬 Консультация</div>
+    <div class="consult-sub" id="consultSub">Например: 1000 шт визиток</div>
   </div>
+  <button class="consult-btn" type="button" onclick="openConsultModal(event)" id="consultBtn">Написать</button>
 </div>
 
-<!-- ✅ Популярное оставили -->
+<!-- ✅ Карусель Популярное (оставили) -->
 <div class="popular-wrap" id="popularWrap">
   <div class="popular-title" id="popularTitle">🔥 Популярное</div>
   <div class="popular-row" id="popularRow"></div>
 </div>
 
-<!-- ✅ УБРАЛИ: рекомендуем / giftWrap -->
+<!-- ✅ Список услуг (без категорий) -->
+<div class="services" id="services"></div>
 
-<input id="phone" class="input" style="display:none" />
-
-<div class="categories" id="cats"></div>
-<div class="products" id="products"></div>
-
+<!-- toast -->
 <div class="popup" id="popup"><div class="popup-box" id="popupText">✅</div></div>
 
-<!-- ✅ Consultation modal -->
-<div class="consult-modal" id="consultModal" onclick="closeConsultModal(event)">
-  <div class="consult-box" onclick="event.stopPropagation()">
-    <div class="consult-top">
-      <b id="consultModalTitle">💬 Консультация</b>
-      <button class="consult-close" onclick="closeConsultModal(event)">×</button>
+<!-- service modal -->
+<div class="modal" id="svcModal" onclick="closeSvcModal(event)">
+  <div class="modal-box" onclick="event.stopPropagation()">
+    <div class="modal-top">
+      <div class="modal-title" id="svcModalTitle">Услуга</div>
+      <button class="modal-close" onclick="closeSvcModal(event)">×</button>
     </div>
-    <div class="consult-body">
-      <input class="consult-input" id="consultInput" placeholder="Например: 1000шт визиток">
-      <div class="consult-actions">
-        <button class="btn primary" type="button" onclick="sendConsultRequest(event)" id="consultSendBtn">Отправить</button>
-        <button class="btn" type="button" onclick="closeConsultModal(event)" id="consultCloseBtn">Закрыть</button>
+    <div class="modal-body">
+      <div style="display:flex;gap:12px;align-items:center;">
+        <div style="flex:0 0 42%;border-radius:18px;overflow:hidden;border:1px solid rgba(255,255,255,.10);background:rgba(255,255,255,.04);display:flex;align-items:center;justify-content:center;">
+          <img id="svcModalImg" src="images/logo.png" alt="" style="width:100%;max-height:40vh;object-fit:contain;display:block;">
+        </div>
+        <div style="flex:1 1 auto;border-radius:18px;border:1px solid rgba(255,255,255,.10);background:rgba(255,255,255,.04);padding:12px;">
+          <div style="font-weight:900;color:#fff;line-height:1.25;" id="svcModalText">—</div>
+          <div style="margin-top:10px;font-weight:800;opacity:.75;color:#E5E7EB;" id="svcModalHint">
+            Нажмите «Запросить» и напишите детали.
+          </div>
+        </div>
       </div>
-      <div class="consult-hint" id="consultHint">Запрос уйдёт администратору.</div>
+
+      <div class="modal-actions">
+        <button class="btn" type="button" onclick="openConsultModalFromService(event)" id="svcAskBtn">Запросить</button>
+        <button class="btn secondary" type="button" onclick="closeSvcModal(event)" id="svcCloseBtn">Закрыть</button>
+      </div>
     </div>
   </div>
 </div>
 
-<!-- ✅ image/spec modal -->
-<div class="img-modal" id="imgModal" onclick="closeImgModal(event)">
-  <div class="img-modal-box" onclick="event.stopPropagation()">
-    <div class="img-modal-top">
-      <div class="img-modal-title" id="imgModalTitle">Фото</div>
-      <button class="img-modal-close" onclick="closeImgModal(event)">×</button>
+<!-- consult modal -->
+<div class="modal" id="consultModal" onclick="closeConsultModal(event)">
+  <div class="modal-box" onclick="event.stopPropagation()">
+    <div class="modal-top">
+      <div class="modal-title" id="consultModalTitle">Консультация</div>
+      <button class="modal-close" onclick="closeConsultModal(event)">×</button>
     </div>
-
-    <div class="img-modal-body">
-      <div class="img-modal-left">
-        <img class="img-modal-img" id="imgModalImg" src="" alt="">
+    <div class="modal-body">
+      <div style="font-weight:900;color:#fff;opacity:.92;" id="consultModalText">
+        Напишите запрос — отправим админу.
       </div>
-
-      <div class="img-modal-right" id="specBox">
-        <div class="spec-row"><div class="spec-k" id="kModel">Услуга</div><div class="spec-v" id="specModel">—</div></div>
-        <div class="spec-row"><div class="spec-k" id="kRegion">Срок</div><div class="spec-v" id="specRegion">—</div></div>
-        <div class="spec-row"><div class="spec-k" id="kColor">Формат</div><div class="spec-v" id="specColor">—</div></div>
-        <div class="spec-row"><div class="spec-k" id="kMemory">Тираж</div><div class="spec-v" id="specMemory">—</div></div>
-        <div class="spec-row"><div class="spec-k" id="kBattery">Материал</div><div class="spec-v" id="specBattery">—</div></div>
-        <div class="spec-row"><div class="spec-k" id="kUzime">Дизайн</div><div class="spec-v" id="specUzime">—</div></div>
+      <input class="input" id="consultInput" placeholder="Например: 1000 шт визиток + дизайн + срок 1 день">
+      <div class="modal-actions">
+        <button class="btn" type="button" onclick="sendConsult(event)" id="consultSendBtn">Отправить</button>
+        <button class="btn secondary" type="button" onclick="closeConsultModal(event)" id="consultCancelBtn">Отмена</button>
+      </div>
+      <div style="margin-top:8px;font-size:12px;opacity:.75;font-weight:800;color:#E5E7EB;" id="consultHint">
+        Запрос уйдёт администратору.
       </div>
     </div>
   </div>
@@ -909,7 +668,7 @@ body{
 
 </div><!-- /page -->
 
-<!-- ✅ ТВОЙ JS (без удаления стиля/меню) + правки по логике -->
+<!-- ✅ ТВОЙ ОРИГИНАЛЬНЫЙ JS (оставлен и адаптирован без удаления стилей/меню) -->
 <script>
 Telegram.WebApp.ready();
 try{ Telegram.WebApp.expand(); Telegram.WebApp.disableVerticalSwipes?.(); }catch(_){}
@@ -923,6 +682,7 @@ window.addEventListener('orientationchange', ()=>setTimeout(setVH, 250), {passiv
 const YA_ORG_URL = "https://yandex.uz/maps/org/19531164088/?ll=66.959954%2C39.646835&z=17.08";
 const HEADER_LOCATION_URL = YA_ORG_URL;
 const REVIEW_URL = YA_ORG_URL;
+
 const ADMIN_ID = 6013591658;
 
 /* ✅ PHONES */
@@ -933,10 +693,17 @@ const PHONE1_TEL = "tel:+998937289004";
 const INSTAGRAM_URL = "https://www.instagram.com/impactreklama/";
 const TELEGRAM_URL  = "https://t.me/impactreklama";
 
-/* ✅ FIXED ADDRESS + HOURS */
+/* ✅ ADDRESS / HOURS */
 const ADDRESS_TEXT = "г. Самарканд, Ул. Абдурахман Жомий 67";
 const ABOUT_HOURS = "09:00–21:00";
 
+/* ✅ Telegram user */
+const tgUser = Telegram.WebApp.initDataUnsafe?.user || {};
+const tg_username = tgUser.username || "";
+const tg_first_name = tgUser.first_name || "";
+const tg_id = tgUser.id || "";
+
+/* helpers */
 function openLink(url){
   try{Telegram.WebApp.openLink(url);}catch(_){window.open(url,'_blank');}
 }
@@ -946,12 +713,10 @@ function openReview(e){
   closeTopMenu();
   openLink(REVIEW_URL);
 }
-function openRouteFromAbout(e){
-  try{e?.preventDefault?.();e?.stopPropagation?.();}catch(_){}
+function openRouteFromAbout(e){ try{e.preventDefault();e.stopPropagation();}catch(_){}
   openLink(HEADER_LOCATION_URL);
 }
-function callPhone(e){
-  try{e.preventDefault();e.stopPropagation();}catch(_){}
+function callPhone(e){ try{e.preventDefault();e.stopPropagation();}catch(_){}
   try{Telegram.WebApp.openLink(PHONE1_TEL);}catch(_){window.location.href=PHONE1_TEL;}
 }
 function openInstagram(e){
@@ -965,482 +730,14 @@ function openTelegram(e){
   openLink(TELEGRAM_URL);
 }
 
-const tgUser = Telegram.WebApp.initDataUnsafe?.user || {};
-const tg_username = tgUser.username || "";
-const tg_first_name = tgUser.first_name || "";
-const tg_id = tgUser.id || "";
-
-/* ✅ 4 languages */
-const UI = {
-  ru:{
-    menu:'Меню',
-    callTitle:'Позвонить', callSub: PHONE1_DISPLAY,
-    instaSub:'Открыть Instagram',
-    tgSub:'Открыть Telegram канал',
-    reviewTitle:'Оставить отзыв', reviewSub:'Яндекс Карты',
-    aboutTitle:'О нас', aboutSub:'Адрес, телефоны, график',
-    aboutAddr:'📍 Адрес', aboutRoute:'📍 Построить маршрут',
-    aboutPhone:'📞 Телефон', aboutHours:'🕒 График работы',
-    searchResults:'Результаты поиска',
-    searchPh:'Поиск...',
-    popular:'🔥 Популярное',
-    welcome:'👋 Добро пожаловать',
-    brandSub1:'РЕКЛАМНОЕ АГЕНТСТВО',
-    brandSub2:'ТИПОГРАФИЯ • ПОЛИГРАФИЯ',
-    subcats:'Подкатегории',
-    nothingFound:'Ничего не найдено',
-    noItems:'Пока нет услуг в этой подкатегории',
-
-    consultTitle:'💬 Консультация',
-    consultBtnTitle:'Написать менеджеру',
-    consultBtnSub:'Например: 1000шт визиток',
-    consultModalTitle:'💬 Консультация',
-    consultPh:'Например: 1000шт визиток',
-    consultSend:'Отправить',
-    consultClose:'Закрыть',
-    consultHint:'Запрос уйдёт администратору.',
-    consultSent:'✅ Запрос отправлен',
-
-    kModel:'Услуга',
-    kRegion:'Срок',
-    kColor:'Формат',
-    kMemory:'Тираж',
-    kBattery:'Материал',
-    kUzime:'Дизайн'
-  },
-  uz:{
-    menu:'Menyu',
-    callTitle:"Qo'ng'iroq qilish", callSub: PHONE1_DISPLAY,
-    instaSub:"Instagramni ochish",
-    tgSub:"Telegram kanalni ochish",
-    reviewTitle:'Fikr qoldirish', reviewSub:'Yandex Xaritalar',
-    aboutTitle:'Biz haqimizda', aboutSub:'Manzil, telefonlar, ish vaqti',
-    aboutAddr:'📍 Manzil', aboutRoute:"📍 Yo‘l ko‘rsatish",
-    aboutPhone:'📞 Telefon', aboutHours:'🕒 Ish vaqti',
-    searchResults:'Qidiruv natijalari',
-    searchPh:'Qidirish...',
-    popular:'🔥 Ommabop',
-    welcome:'👋 Xush kelibsiz',
-    brandSub1:'REKLAMA AGENTLIGI',
-    brandSub2:'TIPOGRAFIYA • POLIGRAFIYA',
-    subcats:'Subkategoriyalar',
-    nothingFound:'Hech narsa topilmadi',
-    noItems:"Bu subkategoriyada hozircha xizmat yo‘q",
-
-    consultTitle:'💬 Konsultatsiya',
-    consultBtnTitle:'Menejerga yozish',
-    consultBtnSub:'Masalan: 1000 dona vizitka',
-    consultModalTitle:'💬 Konsultatsiya',
-    consultPh:'Masalan: 1000 dona vizitka',
-    consultSend:'Yuborish',
-    consultClose:'Yopish',
-    consultHint:'So‘rov adminstratorga yuboriladi.',
-    consultSent:'✅ So‘rov yuborildi',
-
-    kModel:'Xizmat',
-    kRegion:'Muddat',
-    kColor:'Format',
-    kMemory:'Tiraj',
-    kBattery:'Material',
-    kUzime:'Dizayn'
-  },
-  en:{
-    menu:'Menu',
-    callTitle:'Call', callSub: PHONE1_DISPLAY,
-    instaSub:'Open Instagram',
-    tgSub:'Open Telegram channel',
-    reviewTitle:'Leave a review', reviewSub:'Yandex Maps',
-    aboutTitle:'About us', aboutSub:'Address, phones, hours',
-    aboutAddr:'📍 Address', aboutRoute:'📍 Get directions',
-    aboutPhone:'📞 Phone', aboutHours:'🕒 Working hours',
-    searchResults:'Search results',
-    searchPh:'Search...',
-    popular:'🔥 Popular',
-    welcome:'👋 Welcome',
-    brandSub1:'ADVERTISING AGENCY',
-    brandSub2:'PRINTING • PRINT PRODUCTS',
-    subcats:'Subcategories',
-    nothingFound:'Nothing found',
-    noItems:'No services in this subcategory yet',
-
-    consultTitle:'💬 Consultation',
-    consultBtnTitle:'Message manager',
-    consultBtnSub:'E.g.: 1000 business cards',
-    consultModalTitle:'💬 Consultation',
-    consultPh:'E.g.: 1000 business cards',
-    consultSend:'Send',
-    consultClose:'Close',
-    consultHint:'Request will be sent to admin.',
-    consultSent:'✅ Request sent',
-
-    kModel:'Service',
-    kRegion:'Deadline',
-    kColor:'Format',
-    kMemory:'Quantity',
-    kBattery:'Material',
-    kUzime:'Design'
-  },
-  tj:{
-    menu:'Меню',
-    callTitle:'Занг задан', callSub: PHONE1_DISPLAY,
-    instaSub:'Кушодани Instagram',
-    tgSub:'Кушодани канали Telegram',
-    reviewTitle:'Бозхурд мондан', reviewSub:'Yandex Maps',
-    aboutTitle:'Дар бораи мо', aboutSub:'Суроға, телефонҳо, соатҳо',
-    aboutAddr:'📍 Суроға', aboutRoute:'📍 Масир',
-    aboutPhone:'📞 Телефон', aboutHours:'🕒 Соатҳои корӣ',
-    searchResults:'Натиҷаҳои ҷустуҷӯ',
-    searchPh:'Ҷустуҷӯ...',
-    popular:'🔥 Машҳур',
-    welcome:'👋 Хуш омадед',
-    brandSub1:'АГЕНТИИ РЕКЛАМА',
-    brandSub2:'ТИПОГРАФИЯ • ПОЛИГРАФИЯ',
-    subcats:'Зеркатегорияҳо',
-    nothingFound:'Ҳеҷ чиз ёфт нашуд',
-    noItems:'Ҳоло дар ин зеркатегория хизмат нест',
-
-    consultTitle:'💬 Машварат',
-    consultBtnTitle:'Ба менеҷер нависед',
-    consultBtnSub:'Масалан: 1000 дона визитка',
-    consultModalTitle:'💬 Машварат',
-    consultPh:'Масалан: 1000 дона визитка',
-    consultSend:'Фиристодан',
-    consultClose:'Пӯшидан',
-    consultHint:'Дархост ба админ меравад.',
-    consultSent:'✅ Дархост фиристода шуд',
-
-    kModel:'Хизмат',
-    kRegion:'Муҳлат',
-    kColor:'Формат',
-    kMemory:'Тираж',
-    kBattery:'Мавод',
-    kUzime:'Дизайн'
-  }
-};
-
-/* ✅ Categories (иконки временно logo.png) */
-const CATS = {
-  ru:{printing:'Типография', poly:'Полиграфия', ads:'Реклама', design:'Дизайн', branding:'Брендинг', other:'Услуги'},
-  uz:{printing:'Tipografiya', poly:'Poligrafiya', ads:'Reklama', design:'Dizayn', branding:'Brending', other:'Xizmatlar'},
-  en:{printing:'Printing', poly:'Print products', ads:'Advertising', design:'Design', branding:'Branding', other:'Services'},
-  tj:{printing:'Типография', poly:'Полиграфия', ads:'Реклама', design:'Дизайн', branding:'Брендинг', other:'Хизматҳо'}
-};
-
-const SUBCATS = {
-  printing: [
-    {k:'bizcards', ru:'Визитки', uz:'Vizitka', en:'Business cards', tj:'Визиткаҳо'},
-    {k:'flyers',  ru:'Листовки', uz:'Flyer',   en:'Flyers',         tj:'Листовкаҳо'},
-    {k:'stickers',ru:'Наклейки', uz:'Stiker',  en:'Stickers',       tj:'Наклейкаҳо'},
-    {k:'catalogs',ru:'Каталоги', uz:'Katalog', en:'Catalogs',       tj:'Каталогҳо'}
-  ],
-  poly: [
-    {k:'brochures', ru:'Буклеты', uz:'Buklet', en:'Brochures', tj:'Буклетҳо'},
-    {k:'posters',   ru:'Плакаты', uz:'Plakat', en:'Posters',   tj:'Плакатҳо'},
-    {k:'packages',  ru:'Пакеты',  uz:'Paket',  en:'Bags',      tj:'Пакетҳо'},
-    {k:'forms',     ru:'Бланки',  uz:'Blank',  en:'Forms',     tj:'Бланкҳо'}
-  ],
-  ads: [
-    {k:'smm',     ru:'SMM',              uz:'SMM',    en:'SMM',          tj:'SMM'},
-    {k:'target',  ru:'Таргет',           uz:'Target', en:'Target ads',   tj:'Таргет'},
-    {k:'outdoor', ru:'Наружная реклама', uz:'Tashqi', en:'Outdoor',      tj:'Рекламаи беруна'},
-    {k:'promo',   ru:'Промо-материалы',  uz:'Promo',  en:'Promo',        tj:'Промо-материалҳо'}
-  ],
-  design: [
-    {k:'logo',     ru:'Логотип',          uz:'Logo',      en:'Logo',          tj:'Логотип'},
-    {k:'brandbook',ru:'Брендбук',         uz:'Brendbuk',  en:'Brand book',    tj:'Брендбук'},
-    {k:'social',   ru:'Дизайн соцсетей',  uz:'SMM dizayn',en:'Social design', tj:'Дизайни шабакаҳо'},
-    {k:'pack',     ru:'Упаковка',         uz:'Upakovka',  en:'Packaging',     tj:'Бастабандӣ'}
-  ],
-  branding: [
-    {k:'naming',   ru:'Нейминг',    uz:'Naming',     en:'Naming',     tj:'Нейминг'},
-    {k:'identity', ru:'Айдентика',  uz:'Identika',   en:'Identity',   tj:'Айдентика'},
-    {k:'guide',    ru:'Гайдлайн',   uz:'Guideline',  en:'Guidelines', tj:'Гайдлайн'},
-    {k:'strategy', ru:'Стратегия',  uz:'Strategiya', en:'Strategy',   tj:'Стратегия'}
-  ],
-  other: [
-    {k:'install', ru:'Монтаж',        uz:'Montaj',  en:'Installation', tj:'Монтаж'},
-    {k:'delivery',ru:'Доставка',      uz:'Yetkazish',en:'Delivery',    tj:'Расонидан'},
-    {k:'consult', ru:'Консультация',  uz:'Konsult', en:'Consultation', tj:'Машварат'},
-    {k:'other_services',ru:'Другое',  uz:'Boshqa',  en:'Other',        tj:'Дигар'}
-  ]
-};
-
-function mkName(ru, uz, en, tj){ return {ru, uz, en, tj}; }
-function imgOrDefault(path){ return path || 'images/logo.png'; }
-
-const SPEC_DEFAULTS = { deadline: "1–2 дня", format: "По запросу", qty: "По запросу", material: "По запросу", design: "Опционально" };
-
-/* ✅ SERVICES MENU (оставили) */
-const MENU = { printing:[], poly:[], ads:[], design:[], branding:[], other:[] };
-
-function addService(cat, sub, img, nameRu, nameUz, nameEn, nameTj, spec){
-  MENU[cat].push({
-    id:`${cat}_${sub}_${MENU[cat].length}`,
-    sub,
-    img: imgOrDefault(img),
-    n: mkName(nameRu, nameUz, nameEn, nameTj),
-    spec:{
-      model: nameEn,
-      region: spec?.deadline || SPEC_DEFAULTS.deadline,
-      color: spec?.format   || SPEC_DEFAULTS.format,
-      memory: spec?.qty     || SPEC_DEFAULTS.qty,
-      battery: spec?.material || SPEC_DEFAULTS.material,
-      uzime: spec?.design || SPEC_DEFAULTS.design
-    }
-  });
-}
-
-/* printing */
-addService('printing','bizcards','images/print_business_cards.jpg','Визитки','Vizitkalar','Business cards','Визиткаҳо',{deadline:'1 день', format:'90×50', qty:'от 100 шт', material:'мелованная бумага', design:'по желанию'});
-addService('printing','flyers','images/print_flyers.jpg','Листовки','Flyer','Flyers','Листовкаҳо',{deadline:'1 день', format:'A6/A5', qty:'от 500 шт', material:'мелованная бумага', design:'по желанию'});
-addService('printing','stickers','images/print_stickers.jpg','Наклейки','Stiker','Stickers','Наклейкаҳо',{deadline:'1–2 дня', format:'по макету', qty:'от 50–100 шт', material:'винил/бумага', design:'по желанию'});
-addService('printing','catalogs','images/print_catalogs.jpg','Каталоги','Katalog','Catalogs','Каталогҳо',{deadline:'3–5 дней', format:'A4/A5', qty:'от 50 шт', material:'по запросу', design:'по желанию'});
-
-/* poly */
-addService('poly','brochures','images/print_catalogs.jpg','Буклеты','Buklet','Brochures','Буклетҳо',{deadline:'1–2 дня', format:'A4 (fold)', qty:'от 200 шт', material:'мелованная бумага', design:'по желанию'});
-addService('poly','posters','images/print_banners.jpg','Плакаты','Plakat','Posters','Плакатҳо',{deadline:'1 день', format:'A3/A2', qty:'от 10 шт', material:'плакатная бумага', design:'по желанию'});
-addService('poly','packages','images/other_services.jpg','Пакеты с логотипом','Paket','Branded bags','Пакетҳо бо логотип',{deadline:'3–7 дней', format:'S/M/L', qty:'от 100 шт', material:'крафт/пластик', design:'обязательно'});
-addService('poly','forms','images/other_services.jpg','Бланки/счета','Blank','Forms & invoices','Бланкҳо/ҳисобҳо',{deadline:'1 день', format:'A4', qty:'от 100 шт', material:'офисная бумага', design:'по желанию'});
-
-/* ads */
-addService('ads','smm','images/ads_smm.jpg','SMM ведение (месяц)','SMM (oy)','SMM management (month)','SMM (моҳ)',{deadline:'—', format:'контент-план', qty:'—', material:'—', design:'включено'});
-addService('ads','target','images/ads_target.jpg','Таргет настройка','Target','Target ads setup','Танзими таргет',{deadline:'1–2 дня', format:'Meta/Google', qty:'—', material:'—', design:'креативы по запросу'});
-addService('ads','outdoor','images/ads_outdoor.jpg','Наружная реклама','Tashqi reklama','Outdoor advertising','Рекламаи беруна',{deadline:'3–10 дней', format:'баннер/щит', qty:'—', material:'печать+монтаж', design:'по желанию'});
-addService('ads','promo','images/other_services.jpg','Промо-материалы','Promo','Promo materials','Промо-материалҳо',{deadline:'2–5 дней', format:'по запросу', qty:'по запросу', material:'по запросу', design:'по желанию'});
-
-/* design */
-addService('design','logo','images/design_logo.jpg','Логотип','Logo','Logo','Логотип',{deadline:'2–5 дней', format:'AI/PNG/PDF', qty:'—', material:'—', design:'включено'});
-addService('design','brandbook','images/design_brandbook.jpg','Брендбук','Brendbuk','Brand book','Брендбук',{deadline:'7–14 дней', format:'PDF', qty:'—', material:'—', design:'включено'});
-addService('design','social','images/design_social.jpg','Дизайн для соцсетей','SMM dizayn','Social design','Дизайни шабакаҳо',{deadline:'2–4 дня', format:'post/story', qty:'10–20', material:'—', design:'включено'});
-addService('design','pack','images/other_services.jpg','Дизайн упаковки','Upakovka','Packaging design','Дизайни бастабандӣ',{deadline:'3–7 дней', format:'по макету', qty:'—', material:'—', design:'включено'});
-
-/* branding */
-addService('branding','naming','images/other_services.jpg','Нейминг','Naming','Naming','Нейминг',{deadline:'3–7 дней', format:'варианты', qty:'—', material:'—', design:'—'});
-addService('branding','identity','images/other_services.jpg','Айдентика','Identika','Identity','Айдентика',{deadline:'7–14 дней', format:'гайд', qty:'—', material:'—', design:'включено'});
-addService('branding','guide','images/other_services.jpg','Гайдлайн','Guideline','Guidelines','Гайдлайн',{deadline:'7–10 дней', format:'PDF', qty:'—', material:'—', design:'включено'});
-addService('branding','strategy','images/other_services.jpg','Маркетинг стратегия','Strategiya','Marketing strategy','Стратегияи маркетинг',{deadline:'10–20 дней', format:'документ', qty:'—', material:'—', design:'—'});
-
-/* other */
-addService('other','install','images/other_services.jpg','Монтаж','Montaj','Installation','Монтаж',{deadline:'по записи', format:'—', qty:'—', material:'по запросу', design:'—'});
-addService('other','delivery','images/other_services.jpg','Доставка','Yetkazish','Delivery','Расонидан',{deadline:'в течение дня', format:'—', qty:'—', material:'—', design:'—'});
-addService('other','consult','images/other_services.jpg','Консультация','Konsultatsiya','Consultation','Машварат',{deadline:'быстро', format:'—', qty:'—', material:'—', design:'—'});
-addService('other','other_services','images/other_services.jpg','Другие услуги','Boshqa','Other services','Хизматҳои дигар',{deadline:'по запросу', format:'—', qty:'—', material:'—', design:'—'});
-
-const ITEM_INDEX = {};
-for (const c in MENU){ MENU[c].forEach(it => ITEM_INDEX[it.id]=it); }
-
-/* ✅ Popular left */
-const POPULAR = [
-  MENU.printing.find(x=>x.sub==='bizcards')?.id,
-  MENU.design.find(x=>x.sub==='logo')?.id,
-  MENU.ads.find(x=>x.sub==='target')?.id
-].filter(Boolean);
-
-let lang='ru',
-    category = localStorage.getItem('impact_cat') || 'printing',
-    subcat   = localStorage.getItem('impact_subcat') || (SUBCATS[category]?.[0]?.k || '');
-
-if(!MENU[category]) category='printing';
-if(!SUBCATS[category]?.some(s=>s.k===subcat)) subcat = (SUBCATS[category]?.[0]?.k || '');
-
-function escapeHtml(s){return String(s).replace(/[&<>"']/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));}
-function nameOf(id){
-  const it = ITEM_INDEX[id];
-  const nm = it?.n;
-  if(!nm) return id;
-  return (nm[lang] || nm.ru || nm.en || id);
-}
-
-/* ✅ SEARCH */
-function isSearchOpen(){ return searchWrap.classList.contains('show'); }
-function toggleSearch(){ isSearchOpen()?closeSearch():openSearch(); }
-function openSearch(){
-  closeTopMenu();
-  searchWrap.classList.add('show');
-  searchTitle.classList.add('show');
-  searchInput.value='';
-  searchInput.placeholder = UI[lang].searchPh;
-  searchInput.focus();
-  searchProducts();
-}
-function closeSearch(){
-  searchWrap.classList.remove('show');
-  searchTitle.classList.remove('show');
-  searchInput.value='';
-  renderProducts();
-}
-function clearSearch(){ closeSearch(); }
-function onSearchKey(e){ if(e.key==='Enter') closeSearch(); }
-
-function matchesQuery(it,q){
-  if(!q) return true;
-  const all=[it.n?.ru,it.n?.uz,it.n?.en,it.n?.tj,String(it.id||''),String(it.sub||'')].filter(Boolean).join(' ').toLowerCase();
-  return all.includes(q);
-}
-function searchProducts(){
-  const q=(searchInput.value||'').trim().toLowerCase();
-  products.innerHTML='';
-  if(!q){ renderProducts(); return; }
-
-  let found=0;
-  for(const c in MENU){
-    MENU[c].forEach(it=>{
-      if(matchesQuery(it,q)){
-        products.innerHTML += cardHTML(it);
-        found++;
-      }
-    });
-  }
-  if(found===0){
-    products.innerHTML=`<div style="grid-column:1/-1;text-align:center;padding:18px;font-weight:900;opacity:.9;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.10);border-radius:18px;color:#E5E7EB;">
-      ${UI[lang].nothingFound}
-    </div>`;
-  }
-}
-
 /* menu */
-function openTopMenu(){ closeSearch(); menuBackdrop.classList.add('show'); menuSheet.classList.add('show'); }
+function openTopMenu(){ menuBackdrop.classList.add('show'); menuSheet.classList.add('show'); }
 function closeTopMenu(){ menuBackdrop.classList.remove('show'); menuSheet.classList.remove('show'); }
 
-/* categories */
-function renderCats(){
-  cats.innerHTML='';
-  for(const k in MENU){
-    const label = (CATS[lang][k]||k);
-    cats.innerHTML += `
-      <button class="btn cat-btn ${k===category?'active':''}" onclick="onCategoryClick('${k}')">
-        <img class="cat-ic" src="images/logo.png" alt="" onerror="this.onerror=null;this.src='images/logo.png'">
-        <span>${escapeHtml(label)}</span>
-      </button>`;
-  }
-}
-function onCategoryClick(k){
-  category=k;
-  localStorage.setItem('impact_cat', category);
-  subcat = (SUBCATS[category]?.[0]?.k || '');
-  localStorage.setItem('impact_subcat', subcat);
-
-  renderCats();
-  openSubcats();
-  renderSubcatsSheet();
-  if(!isSearchOpen()) renderProducts();
-}
-
-/* subcats */
-function subTitleForCat(){
-  const catName = (CATS[lang]?.[category] || category);
-  return `${UI[lang].subcats}: ${catName}`;
-}
-function openSubcats(){
-  subTitle.innerText = subTitleForCat();
-  subBackdrop.classList.add('show');
-  subSheet.classList.add('show');
-  Telegram.WebApp.HapticFeedback?.impactOccurred?.('light');
-}
-function closeSubcats(){
-  subBackdrop.classList.remove('show');
-  subSheet.classList.remove('show');
-}
-function subLabel(s){
-  if(lang==='uz') return s.uz;
-  if(lang==='en') return s.en;
-  if(lang==='tj') return s.tj || s.ru;
-  return s.ru;
-}
-function renderSubcatsSheet(){
-  subTitle.innerText = subTitleForCat();
-  subGrid.innerHTML='';
-  (SUBCATS[category]||[]).forEach(s=>{
-    const active = (s.k===subcat);
-    subGrid.innerHTML += `
-      <button class="sub-icbtn ${active?'active':''}" onclick="pickSubcat('${s.k}')">
-        <div class="sub-emoji">
-          <img class="sub-logo" src="images/logo.png" alt="" onerror="this.onerror=null;this.src='images/logo.png'">
-        </div>
-        <div class="sub-txt">${escapeHtml(subLabel(s))}</div>
-      </button>
-    `;
-  });
-}
-function pickSubcat(k){
-  subcat=k;
-  localStorage.setItem('impact_subcat', subcat);
-  renderSubcatsSheet();
-  if(!isSearchOpen()) renderProducts();
-  closeSubcats();
-  Telegram.WebApp.HapticFeedback?.notificationOccurred?.('success');
-}
-
-/* cards (✅ убрали цену и + -) */
-function cardHTML(it){
-  const id=it.id;
-  return `
-  <div class="card" onclick="openImage(event,'${id}')">
-    <div class="img"><img src="${it.img}" onerror="this.src='images/logo.png'"></div>
-    <div class="item-name">${escapeHtml(nameOf(id))}</div>
-  </div>`;
-}
-
-function renderProducts(){
-  products.innerHTML='';
-
-  const list=(MENU[category]||[]).filter(it=>{
-    if(!subcat) return true;
-    return String(it.sub||'') === String(subcat);
-  });
-
-  if(!list.length){
-    products.innerHTML = `<div style="grid-column:1/-1;text-align:center;padding:18px;font-weight:900;opacity:.9;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.10);border-radius:18px;color:#E5E7EB;">
-      ${UI[lang].noItems}
-    </div>`;
-    return;
-  }
-
-  list.forEach(it=>{
-    products.innerHTML += cardHTML(it);
-  });
-}
-
-/* popular (✅ без цены и счетчиков) */
-function popCardHTML(it){
-  const id=it.id;
-  return `
-  <div class="pop-card" onclick="openImage(event,'${id}')">
-    <div class="pop-img"><img src="${it.img}" onerror="this.src='images/logo.png'"></div>
-    <div class="pop-name">${escapeHtml(nameOf(id))}</div>
-  </div>`;
-}
-function renderPopular(){
-  popularRow.innerHTML='';
-  POPULAR.forEach(id=>{
-    const it=ITEM_INDEX[id]; if(!it) return;
-    popularRow.innerHTML += popCardHTML(it);
-  });
-}
-
-/* image modal */
-function openImage(e,id){
-  try{e.preventDefault();e.stopPropagation();}catch(_){}
-  const it = ITEM_INDEX[id];
-
-  imgModalTitle.innerText = nameOf(id);
-  imgModalImg.src = it?.img || 'images/logo.png';
-  imgModalImg.onerror=function(){this.onerror=null;this.src='images/logo.png';};
-
-  const spec = it?.spec || {};
-  document.getElementById('specModel').innerText   = spec.model   || nameOf(id) || '—';
-  document.getElementById('specRegion').innerText  = spec.region  || '—';
-  document.getElementById('specColor').innerText   = spec.color   || '—';
-  document.getElementById('specMemory').innerText  = spec.memory  || '—';
-  document.getElementById('specBattery').innerText = spec.battery || '—';
-  document.getElementById('specUzime').innerText   = spec.uzime   || '—';
-
-  imgModal.classList.add('show');
-}
-function closeImgModal(e){
-  try{e.preventDefault();e.stopPropagation();}catch(_){}
-  imgModal.classList.remove('show');
-  imgModalImg.src='';
+/* about */
+function toggleAbout(){
+  const w=document.getElementById('aboutWrap');
+  w.style.display=(w.style.display==='none'||!w.style.display)?'block':'none';
 }
 
 /* toasts */
@@ -1452,49 +749,255 @@ function showToast(t){
   toastTimer=setTimeout(()=>popup.classList.remove('show'), 1200);
 }
 
-/* about */
-function toggleAbout(){
-  const w=document.getElementById('aboutWrap');
-  w.style.display=(w.style.display==='none'||!w.style.display)?'block':'none';
+/* UI translations */
+const UI = {
+  ru:{
+    menu:'Меню',
+    callTitle:'Позвонить', callSub: PHONE1_DISPLAY,
+    instaSub:'Открыть Instagram',
+    tgSub:'Открыть Telegram канал',
+    reviewTitle:'Оставить отзыв', reviewSub:'Яндекс Карты',
+    aboutTitle:'О нас', aboutSub:'Адрес, телефоны, график',
+    aboutAddr:'📍 Адрес', aboutRoute:'📍 Построить маршрут',
+    aboutPhone:'📞 Телефон', aboutHours:'🕒 График работы',
+    welcome:'👋 Добро пожаловать',
+    brandSub1:'РЕКЛАМНОЕ АГЕНТСТВО',
+    brandSub2:'ТИПОГРАФИЯ • ПОЛИГРАФИЯ',
+    popular:'🔥 Популярное',
+    consult:'💬 Консультация',
+    consultSub:'Например: 1000 шт визиток',
+    consultBtn:'Написать',
+    consultModalTitle:'Консультация',
+    consultModalText:'Напишите запрос — отправим админу.',
+    consultPh:'Например: 1000 шт визиток + дизайн + срок 1 день',
+    consultSend:'Отправить',
+    consultCancel:'Отмена',
+    consultHint:'Запрос уйдёт администратору.',
+    svcAsk:'Запросить',
+    svcClose:'Закрыть',
+    svcHint:'Нажмите «Запросить» и напишите детали.'
+  },
+  uz:{
+    menu:'Menyu',
+    callTitle:"Qo'ng'iroq qilish", callSub: PHONE1_DISPLAY,
+    instaSub:"Instagramni ochish",
+    tgSub:"Telegram kanalni ochish",
+    reviewTitle:'Fikr qoldirish', reviewSub:'Yandex Xaritalar',
+    aboutTitle:'Biz haqimizda', aboutSub:'Manzil, telefonlar, ish vaqti',
+    aboutAddr:'📍 Manzil', aboutRoute:"📍 Yo‘l ko‘rsatish",
+    aboutPhone:'📞 Telefon', aboutHours:'🕒 Ish vaqti',
+    welcome:'👋 Xush kelibsiz',
+    brandSub1:'REKLAMA AGENTLIGI',
+    brandSub2:'TIPOGRAFIYA • POLIGRAFIYA',
+    popular:'🔥 Ommabop',
+    consult:'💬 Konsultatsiya',
+    consultSub:'Masalan: 1000 dona vizitka',
+    consultBtn:'Yozish',
+    consultModalTitle:'Konsultatsiya',
+    consultModalText:'So‘rov yozing — adminga yuboramiz.',
+    consultPh:'Masalan: 1000 dona vizitka + dizayn + muddat 1 kun',
+    consultSend:'Yuborish',
+    consultCancel:'Bekor',
+    consultHint:'So‘rov administratorga yuboriladi.',
+    svcAsk:'So‘rash',
+    svcClose:'Yopish',
+    svcHint:"«So‘rash»ni bosing va tafsilotlarni yozing."
+  },
+  en:{
+    menu:'Menu',
+    callTitle:'Call', callSub: PHONE1_DISPLAY,
+    instaSub:'Open Instagram',
+    tgSub:'Open Telegram channel',
+    reviewTitle:'Leave a review', reviewSub:'Yandex Maps',
+    aboutTitle:'About us', aboutSub:'Address, phones, hours',
+    aboutAddr:'📍 Address', aboutRoute:'📍 Get directions',
+    aboutPhone:'📞 Phone', aboutHours:'🕒 Working hours',
+    welcome:'👋 Welcome',
+    brandSub1:'ADVERTISING AGENCY',
+    brandSub2:'PRINTING • PRINT PRODUCTS',
+    popular:'🔥 Popular',
+    consult:'💬 Consultation',
+    consultSub:'Example: 1000 business cards',
+    consultBtn:'Message',
+    consultModalTitle:'Consultation',
+    consultModalText:'Write a request — we send it to admin.',
+    consultPh:'Example: 1000 business cards + design + deadline 1 day',
+    consultSend:'Send',
+    consultCancel:'Cancel',
+    consultHint:'Request will be sent to admin.',
+    svcAsk:'Request',
+    svcClose:'Close',
+    svcHint:'Tap “Request” and write details.'
+  },
+  tj:{
+    menu:'Меню',
+    callTitle:'Занг задан', callSub: PHONE1_DISPLAY,
+    instaSub:'Instagram-ро кушоед',
+    tgSub:'Канали Telegram-ро кушоед',
+    reviewTitle:'Баҳогузорӣ гузоштан', reviewSub:'Yandex Харитаҳо',
+    aboutTitle:'Дар бораи мо', aboutSub:'Суроға, телефон, соатҳо',
+    aboutAddr:'📍 Суроға', aboutRoute:'📍 Роҳнамоӣ',
+    aboutPhone:'📞 Телефон', aboutHours:'🕒 Соатҳои корӣ',
+    welcome:'👋 Хуш омадед',
+    brandSub1:'АГЕНТИИ РЕКЛАМА',
+    brandSub2:'ТИПОГРАФИЯ • ПОЛИГРАФИЯ',
+    popular:'🔥 Маъмул',
+    consult:'💬 Машварат',
+    consultSub:'Масалан: 1000 дона визитка',
+    consultBtn:'Навиштан',
+    consultModalTitle:'Машварат',
+    consultModalText:'Дархост нависед — ба админ мефиристем.',
+    consultPh:'Масалан: 1000 дона визитка + дизайн + муҳлат 1 рӯз',
+    consultSend:'Фиристодан',
+    consultCancel:'Бекор',
+    consultHint:'Дархост ба администратор меравад.',
+    svcAsk:'Дархост',
+    svcClose:'Пӯшидан',
+    svcHint:'«Дархост»-ро пахш кунед ва тафсилот нависед.'
+  }
+};
+
+let lang = 'ru';
+
+/* ✅ SERVICES (без категорий) */
+const SERVICES = [
+  {k:'oracal', ru:'Оракал', uz:"Orakal", en:'Oracal', tj:'Оракал'},
+  {k:'oracal_grid', ru:'Сетка Оракал', uz:"Orakal setka", en:'Oracal mesh', tj:'Сеткаи Оракал'},
+  {k:'banner', ru:'Банер', uz:"Banner", en:'Banner', tj:'Баннер'},
+  {k:'gift_logo', ru:'Подарочный набор с Лого', uz:"Logo bilan sovg‘a to‘plami", en:'Gift set with logo', tj:'Маҷмӯаи туҳфа бо логотип'},
+  {k:'signs', ru:'Таблички', uz:"Lavhalar", en:'Signs / plates', tj:'Табличкаҳо'},
+  {k:'stella', ru:'Стелла', uz:"Stella", en:'Stella', tj:'Стелла'},
+  {k:'3d_letters', ru:'Наружные объёмные буквы', uz:"Tashqi 3D harflar", en:'Outdoor 3D letters', tj:'Ҳарфҳои ҳаҷмии берунӣ'},
+  {k:'lightbox', ru:'Лайт бокс', uz:"Light box", en:'Lightbox', tj:'Лайтбокс'},
+  {k:'billboard', ru:'Билборд', uz:"Bilbord", en:'Billboard', tj:'Билборд'},
+  {k:'uv_print', ru:'УФ печать', uz:"UV bosma", en:'UV printing', tj:'Чопи УФ'},
+  {k:'badge_staff', ru:'Бейджи для персонала', uz:"Xodimlar uchun beydj", en:'Staff badges', tj:'Бейдж барои кормандон'},
+  {k:'badge_lanyard', ru:'Бейджи на шнурке', uz:"Shnurli beydj", en:'Badges with lanyard', tj:'Бейдж бо шнур'},
+  {k:'logo_design', ru:'Дизайн вашего Лого', uz:"Logo dizayni", en:'Your logo design', tj:'Дизайни логотипи шумо'},
+  {k:'graphic_design', ru:'Графический дизайн', uz:"Grafik dizayn", en:'Graphic design', tj:'Дизайни графикӣ'},
+  {k:'auto_branding', ru:'Авто Брендинг', uz:"Avto brending", en:'Car branding', tj:'Брендинги авто'},
+  {k:'flyer', ru:'Флаер Листовка', uz:"Flaer / listovka", en:'Flyer / leaflet', tj:'Флаер / варақа'}
+];
+
+function svcName(s){
+  if(lang==='uz') return s.uz || s.ru;
+  if(lang==='en') return s.en || s.ru;
+  if(lang==='tj') return s.tj || s.ru;
+  return s.ru;
 }
 
-/* ✅ Consultation: modal + send to admin */
-function openConsultModal(){
-  closeTopMenu();
+function escapeHtml(s){return String(s).replace(/[&<>"']/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));}
+
+/* Popular carousel items */
+const POPULAR_KEYS = ['banner','3d_letters','lightbox','uv_print','logo_design'];
+
+function renderPopular(){
+  popularRow.innerHTML='';
+  const popularList = SERVICES.filter(s => POPULAR_KEYS.includes(s.k));
+  popularList.forEach(s=>{
+    popularRow.innerHTML += `
+      <div class="pop-card" onclick="openServiceByKey('${s.k}')">
+        <div class="pop-img"><img src="images/logo.png" onerror="this.onerror=null;this.src='images/logo.png'"></div>
+        <div class="pop-name">${escapeHtml(svcName(s))}</div>
+        <button class="pop-cta" type="button" onclick="openServiceByKey('${s.k}'); event.stopPropagation();">Подробнее</button>
+      </div>
+    `;
+  });
+}
+
+function renderServices(){
+  services.innerHTML='';
+  SERVICES.forEach(s=>{
+    services.innerHTML += `
+      <div class="svc-card" onclick="openServiceByKey('${s.k}')">
+        <div class="svc-img"><img src="images/logo.png" onerror="this.onerror=null;this.src='images/logo.png'"></div>
+        <div class="svc-name">${escapeHtml(svcName(s))}</div>
+      </div>
+    `;
+  });
+}
+
+/* service modal */
+let currentServiceKey = '';
+function openServiceByKey(k){
+  const s = SERVICES.find(x=>x.k===k);
+  if(!s) return;
+  currentServiceKey = k;
+  svcModalTitle.innerText = svcName(s);
+  svcModalImg.src = 'images/logo.png';
+  svcModalText.innerText = svcName(s);
+  svcModalHint.innerText = UI[lang].svcHint;
+  svcAskBtn.innerText = UI[lang].svcAsk;
+  svcCloseBtn.innerText = UI[lang].svcClose;
+  svcModal.classList.add('show');
+  Telegram.WebApp.HapticFeedback?.impactOccurred?.('light');
+}
+function closeSvcModal(e){
+  try{e?.preventDefault?.();e?.stopPropagation?.();}catch(_){}
+  svcModal.classList.remove('show');
+}
+function openConsultModalFromService(e){
+  try{e?.preventDefault?.();e?.stopPropagation?.();}catch(_){}
+  const s = SERVICES.find(x=>x.k===currentServiceKey);
+  closeSvcModal();
+  openConsultModal(null, s ? svcName(s) : '');
+}
+
+/* consultation modal */
+function openConsultModal(e, prefText){
+  try{e?.preventDefault?.();e?.stopPropagation?.();}catch(_){}
   consultModal.classList.add('show');
-  consultInput.value='';
+  consultModalTitle.innerText = UI[lang].consultModalTitle;
+
+  const t = (typeof prefText === 'string' && prefText.trim()) ? prefText.trim() : '';
+  consultModalText.innerText = UI[lang].consultModalText;
   consultInput.placeholder = UI[lang].consultPh;
-  setTimeout(()=>consultInput.focus(), 120);
+
+  if(t){
+    consultInput.value = t + " — ";
+    setTimeout(()=>{ try{ consultInput.focus(); consultInput.setSelectionRange(consultInput.value.length, consultInput.value.length);}catch(_){ } }, 50);
+  }else{
+    consultInput.value = '';
+    setTimeout(()=>{ try{ consultInput.focus(); }catch(_){ } }, 50);
+  }
+
+  consultSendBtn.innerText = UI[lang].consultSend;
+  consultCancelBtn.innerText = UI[lang].consultCancel;
+  consultHint.innerText = UI[lang].consultHint;
+
   Telegram.WebApp.HapticFeedback?.impactOccurred?.('light');
 }
 function closeConsultModal(e){
   try{e?.preventDefault?.();e?.stopPropagation?.();}catch(_){}
   consultModal.classList.remove('show');
 }
-function sendConsultRequest(e){
+function sendConsult(e){
   try{e?.preventDefault?.();e?.stopPropagation?.();}catch(_){}
-  const text = (consultInput.value||'').trim();
+  const text = (consultInput.value || '').trim();
   if(!text){
-    showToast(lang==='ru'?'Напишите запрос':lang==='uz'?'So‘rov yozing':lang==='tj'?'Дархост нависед':'Type your request');
+    showToast(lang==='ru'?'Напишите запрос':lang==='uz'?'So‘rov yozing':lang==='tj'?'Дархост нависед':'Type a request');
     return;
   }
+
   const payload = {
     action:'consultation',
     to_admin_id: ADMIN_ID,
     brand:'IMPACT',
-    address: ADDRESS_TEXT,
-    hours: ABOUT_HOURS,
     tg:{id:tg_id,username:tg_username,first_name:tg_first_name},
     text,
     time: new Date().toISOString(),
     lang
   };
+
   try{
-    Telegram.WebApp.sendData(JSON.stringify(payload));
     Telegram.WebApp.HapticFeedback?.notificationOccurred?.('success');
-  }catch(_){}
-  showToast(UI[lang].consultSent);
-  closeConsultModal();
+    Telegram.WebApp.sendData(JSON.stringify(payload));
+    showToast(lang==='ru'?'✅ Отправлено':lang==='uz'?'✅ Yuborildi':lang==='tj'?'✅ Фиристода шуд':'✅ Sent');
+    closeConsultModal();
+  }catch(_){
+    showToast("✅");
+    closeConsultModal();
+  }
 }
 
 /* welcome */
@@ -1523,6 +1026,7 @@ function applyUI(){
 
   mAboutTitle.innerText = UI[lang].aboutTitle;
   mAboutSub.innerText   = UI[lang].aboutSub;
+
   aboutAddrLabel.innerText  = UI[lang].aboutAddr;
   aboutRouteBtn.innerText   = UI[lang].aboutRoute;
   aboutPhoneLabel.innerText = UI[lang].aboutPhone;
@@ -1532,47 +1036,33 @@ function applyUI(){
   aboutAddrText.innerText = ADDRESS_TEXT;
 
   aboutDescText.innerHTML =
-    (lang==='ru' ? `IMPACT — рекламное агентство в Самарканде.<br>Типография, полиграфия, дизайн, брендинг, SMM и таргет.<br><br><b>📍 Адрес:</b> ${ADDRESS_TEXT}<br><b>🕒 График:</b> ${ABOUT_HOURS}`
-    : lang==='uz' ? `IMPACT — Samarqandda reklama agentligi.<br>Tipografiya, poligrafiya, dizayn, brending, SMM va target.<br><br><b>📍 Manzil:</b> ${ADDRESS_TEXT}<br><b>🕒 Ish vaqti:</b> ${ABOUT_HOURS}`
-    : lang==='tj' ? `IMPACT — агентии реклама дар Самарқанд.<br>Типография, полиграфия, дизайн, брендинг, SMM ва таргет.<br><br><b>📍 Суроға:</b> ${ADDRESS_TEXT}<br><b>🕒 Соатҳо:</b> ${ABOUT_HOURS}`
-    : `IMPACT — advertising agency in Samarkand.<br>Printing, design, branding, SMM and target ads.<br><br><b>📍 Address:</b> ${ADDRESS_TEXT}<br><b>🕒 Hours:</b> ${ABOUT_HOURS}`);
+    (lang==='ru' ? `IMPACT — рекламное агентство в Самарканде.<br>Типография, полиграфия, дизайн, брендинг, наружная реклама и печать.<br><br><b>📍 Адрес:</b> ${ADDRESS_TEXT}<br><b>🕒 График:</b> ${ABOUT_HOURS}`
+    : lang==='uz' ? `IMPACT — Samarqandda reklama agentligi.<br>Tipografiya, poligrafiya, dizayn, brending, tashqi reklama va bosma xizmatlar.<br><br><b>📍 Manzil:</b> ${ADDRESS_TEXT}<br><b>🕒 Ish vaqti:</b> ${ABOUT_HOURS}`
+    : lang==='tj' ? `IMPACT — агентии реклама дар Самарқанд.<br>Типография, полиграфия, дизайн, брендинг, рекламаи берунӣ ва чоп.<br><br><b>📍 Суроға:</b> ${ADDRESS_TEXT}<br><b>🕒 Соатҳо:</b> ${ABOUT_HOURS}`
+    : `IMPACT — advertising agency in Samarkand.<br>Printing, design, branding, outdoor advertising and print services.<br><br><b>📍 Address:</b> ${ADDRESS_TEXT}<br><b>🕒 Hours:</b> ${ABOUT_HOURS}`);
 
-  searchTitle.innerText = UI[lang].searchResults;
-  searchInput.placeholder = UI[lang].searchPh;
-
-  consultTitle.innerText = UI[lang].consultTitle;
-  consultBtnTitle.innerText = UI[lang].consultBtnTitle;
-  consultBtnSub.innerText = UI[lang].consultBtnSub;
-  consultModalTitle.innerText = UI[lang].consultModalTitle;
-  consultInput.placeholder = UI[lang].consultPh;
-  consultSendBtn.innerText = UI[lang].consultSend;
-  consultCloseBtn.innerText = UI[lang].consultClose;
-  consultHint.innerText = UI[lang].consultHint;
+  branchTitle.innerText  = UI[lang].brandSub1;
+  branchTitle2.innerText = UI[lang].brandSub2;
 
   popularTitle.innerText = UI[lang].popular;
 
-  const headerSub1 = document.getElementById('branchTitle');
-  const headerSub2 = document.getElementById('branchTitle2');
-  if(headerSub1) headerSub1.innerText = UI[lang].brandSub1;
-  if(headerSub2) headerSub2.innerText = UI[lang].brandSub2;
+  consultTitle.innerText = UI[lang].consult;
+  consultSub.innerText   = UI[lang].consultSub;
+  consultBtn.innerText   = UI[lang].consultBtn;
 
-  /* spec labels */
-  document.getElementById('kModel').innerText = UI[lang].kModel;
-  document.getElementById('kRegion').innerText = UI[lang].kRegion;
-  document.getElementById('kColor').innerText = UI[lang].kColor;
-  document.getElementById('kMemory').innerText = UI[lang].kMemory;
-  document.getElementById('kBattery').innerText = UI[lang].kBattery;
-  document.getElementById('kUzime').innerText = UI[lang].kUzime;
+  consultModalTitle.innerText = UI[lang].consultModalTitle;
+  consultModalText.innerText  = UI[lang].consultModalText;
+  consultInput.placeholder    = UI[lang].consultPh;
+  consultSendBtn.innerText    = UI[lang].consultSend;
+  consultCancelBtn.innerText  = UI[lang].consultCancel;
+  consultHint.innerText       = UI[lang].consultHint;
 
   renderWelcome();
-  renderCats();
-  renderSubcatsSheet();
   renderPopular();
-
-  if(isSearchOpen()) searchProducts(); else renderProducts();
+  renderServices();
 }
 
-/* language */
+/* lang switch */
 function setLang(l,btn){
   lang=l;
   document.querySelectorAll('.langs .btn').forEach(b=>b.classList.remove('active'));
@@ -1586,28 +1076,10 @@ try{
   Telegram.WebApp.setBackgroundColor?.('#000000');
 }catch(_){}
 
-lang='ru';
 document.querySelectorAll('.langs .btn').forEach(b=>b.classList.remove('active'));
 document.getElementById('langRU')?.classList.add('active');
 
-phone.value = localStorage.getItem('impact_phone') || PHONE1_DISPLAY;
-phone.addEventListener('input',()=>localStorage.setItem('impact_phone',phone.value));
-
-renderCats();
-renderPopular();
 applyUI();
-
-closeSearch();
-
-/* tap active category => open subcats */
-cats.addEventListener('click', (e)=>{
-  const b = e.target.closest('.cat-btn');
-  if(!b) return;
-  if(b.classList.contains('active')){
-    renderSubcatsSheet();
-    openSubcats();
-  }
-});
 </script>
 </body>
 </html>
