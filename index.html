@@ -90,7 +90,7 @@ body{
   overflow-x:hidden;
   -webkit-overflow-scrolling: touch;
   overscroll-behavior-y: none;
-  padding-bottom: calc(var(--sticky-h) + 16px + var(--safeB));
+  padding-bottom: 16px;
   padding-top: var(--safeT);
   -webkit-text-size-adjust:100%;
 }
@@ -108,10 +108,10 @@ body{
 }
 .header img{
   position:absolute;left:12px;
-  width:84px;height:84px;object-fit:contain;
+  width:96px;height:96px;object-fit:contain;
   border-radius:18px;
   background:rgba(255,255,255,.08);
-  padding:8px;
+  padding:6px;
   border:1px solid rgba(255,255,255,.14);
   box-shadow:0 14px 30px rgba(0,0,0,.55);
 }
@@ -245,13 +245,6 @@ body{
   color:#fff;
 }
 
-/* ✅ payments narrower */
-.payments .btn{
-  min-width:92px !important;
-  padding:10px 12px !important;
-  border-radius:22px !important;
-}
-
 /* categories + products */
 .categories{
   display:flex;gap:12px;padding:14px;
@@ -281,51 +274,37 @@ body{
 }
 
 .item-name{margin-top:2px;padding:0 6px;font-weight:900;line-height:1.15;min-height:42px;display:flex;align-items:center;justify-content:center;word-break:break-word;}
-.price{font-weight:900;color:var(--accent);margin-top:6px;}
-.price small{font-weight:800;opacity:.75;margin-left:4px;color:rgba(229,231,235,.75);}
-.counter{display:flex;justify-content:center;gap:10px;margin-top:8px;align-items:center;}
-.counter button{
-  width:32px;height:32px;border-radius:50%;cursor:pointer;border:1px solid rgba(255,255,255,.14);
-  background: linear-gradient(180deg, var(--accent), var(--accent2));
-  color:#fff;font-size:18px;font-weight:900;box-shadow:0 12px 24px rgba(0,0,0,.55);
-  transition:.15s;
-}
-.counter button:active{transform:scale(.96);}
 
 /* carousels */
 .popular-wrap{width:100%;padding:4px 12px 6px;}
 .popular-title{width:100%;font-weight:900;padding:8px 2px 10px;display:flex;align-items:center;gap:8px;color:#E5E7EB;}
-.popular-row,.mini-row{display:flex;gap:12px;overflow-x:auto;padding:2px 2px 10px;-webkit-overflow-scrolling:touch;}
+.popular-row{display:flex;gap:12px;overflow-x:auto;padding:2px 2px 10px;-webkit-overflow-scrolling:touch;}
 
 /* ✅ carousel cards */
-.pop-card,.mini-card{
-  min-width:160px;border-radius:24px;padding:12px;
+.pop-card{
+  min-width:220px;border-radius:24px;padding:14px;
   background: rgba(30,41,59,.60);
   border:1px solid var(--stroke2);
   box-shadow: 0 12px 26px rgba(0,0,0,.55);
   cursor:pointer;transition:.15s;position:relative;
   color:#E5E7EB;
 }
-
-/* ✅ carousel images like product + rounded edges + “отдоли” */
-.pop-img,.mini-img{
+.pop-img{
   height:168px;
   border-radius:20px;
   overflow:hidden;
   display:flex;align-items:center;justify-content:center;
   background: transparent;
   cursor:pointer;
-  margin-bottom:6px;
+  margin-bottom:8px;
 }
-.pop-img img,.mini-img img{
+.pop-img img{
   max-width:152px;
   max-height:152px;
   object-fit:cover;
   transform:scale(0.94);
   border-radius:20px;
 }
-
-/* ✅ text blocks align with normal */
 .pop-name{
   margin-top:2px;
   padding:0 6px;
@@ -338,63 +317,6 @@ body{
   word-break:break-word;
   text-align:center;
 }
-.pop-price,.mini-price{
-  font-weight:900;
-  color:var(--accent);
-  margin-top:6px;
-  text-align:center;
-}
-.pop-counter,.mini-counter{display:flex;align-items:center;justify-content:center;gap:10px;margin-top:8px;}
-.pop-counter button,.mini-counter button{
-  width:32px;height:32px;border-radius:50%;cursor:pointer;border:1px solid rgba(255,255,255,.14);
-  background: linear-gradient(180deg, var(--accent), var(--accent2));
-  color:#fff;font-size:18px;font-weight:900;box-shadow:0 12px 24px rgba(0,0,0,.55);
-}
-.pop-counter button:active,.mini-counter button:active{transform:scale(.96);}
-.pop-counter span,.mini-counter span{font-weight:900; min-width:18px; text-align:center;}
-
-.mini-card{min-width:160px;border-radius:24px;}
-.mini-name{
-  margin-top:2px;
-  padding:0 6px;
-  font-weight:900;
-  line-height:1.15;
-  min-height:42px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  word-break:break-word;
-  text-align:center;
-}
-
-/* cart */
-.cart{
-  background: rgba(30,41,59,.60);
-  color:#E5E7EB;
-  margin:12px;padding:16px;border-radius:24px;border:1px solid var(--stroke2);
-  box-shadow: 0 12px 26px rgba(0,0,0,.55);
-}
-textarea.input{height:90px;}
-.order-btn{
-  width:100%;
-  padding:18px;
-  margin-top:14px;
-  border-radius:24px;
-  cursor:pointer;
-  color:#ffffff;
-  font-size:17px;
-  font-weight:900;
-  border:1px solid rgba(255,255,255,.18);
-  background: linear-gradient(180deg, var(--accent), var(--accent2));
-  box-shadow: 0 14px 26px rgba(0,0,0,.55);
-  position:relative;
-  z-index:2;
-  scroll-margin-bottom: calc(var(--sticky-h) + 24px);
-}
-#cartBox{
-  scroll-margin-bottom: calc(var(--sticky-h) + 24px);
-  padding-bottom: calc(16px + var(--sticky-h) + var(--safeB));
-}
 
 /* popup */
 .popup{position:fixed;inset:0;background:rgba(0,0,0,.55);display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:.3s;}
@@ -404,125 +326,6 @@ textarea.input{height:90px;}
   padding:26px;border-radius:24px;text-align:center;font-weight:800;border:1px solid rgba(255,255,255,.14);
   box-shadow:0 14px 26px rgba(0,0,0,.60);
   color:#fff;
-}
-
-/* ✅ image/spec modal */
-.img-modal{
-  position:fixed; inset:0;
-  background:rgba(0,0,0,.72);
-  display:flex; align-items:center; justify-content:center;
-  opacity:0; pointer-events:none;
-  transition:.18s;
-  z-index:2000;
-  padding:18px;
-}
-.img-modal.show{opacity:1;pointer-events:auto;}
-.img-modal-box{
-  width:min(560px, 100%);
-  border-radius:22px;
-  overflow:hidden;
-  background: rgba(15,23,42,.96);
-  border:1px solid rgba(255,255,255,.14);
-  box-shadow:0 18px 44px rgba(0,0,0,.60);
-}
-.img-modal-top{
-  display:flex; align-items:center; justify-content:space-between;
-  gap:10px;
-  padding:12px 12px;
-  background:rgba(255,255,255,.06);
-}
-.img-modal-title{font-weight:900;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:#fff;}
-.img-modal-close{
-  width:38px;height:38px;border:none;border-radius:14px;background:transparent;cursor:pointer;
-  font-size:22px;line-height:1;color:rgba(229,231,235,.72);
-}
-
-/* ✅ body: image left, text right (top->bottom) */
-.img-modal-body{
-  display:flex;
-  gap:12px;
-  padding:12px;
-}
-.img-modal-left{
-  flex: 0 0 46%;
-  border-radius:18px;
-  overflow:hidden;
-  border:1px solid rgba(255,255,255,.10);
-  background: rgba(255,255,255,.04);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-}
-.img-modal-img{
-  width:100%;
-  max-height:70vh;
-  object-fit:contain;
-  display:block;
-}
-.img-modal-right{
-  flex: 1 1 auto;
-  border-radius:18px;
-  border:1px solid rgba(255,255,255,.10);
-  background: rgba(255,255,255,.04);
-  padding:12px;
-  display:flex;
-  flex-direction:column;
-  gap:10px;
-  min-width:0;
-}
-.spec-row{
-  display:flex;
-  justify-content:space-between;
-  gap:10px;
-  align-items:flex-start;
-  font-weight:900;
-}
-.spec-k{
-  color: rgba(229,231,235,.72);
-  font-weight:900;
-  flex:0 0 auto;
-}
-.spec-v{
-  color:#fff;
-  text-align:right;
-  word-break:break-word;
-  flex: 1 1 auto;
-}
-.spec-price{
-  margin-top:2px;
-  padding-top:10px;
-  border-top:1px solid rgba(255,255,255,.10);
-}
-.spec-price .spec-v{ color: var(--accent); }
-
-/* sticky */
-.sticky-checkout{
-  position:fixed;left:0;right:0;bottom: var(--safeB);
-  padding:10px 12px;
-  background:rgba(59,130,246,.18);
-  backdrop-filter: blur(10px);
-  z-index:999;
-  border-top:1px solid rgba(255,255,255,.10);
-  height: var(--sticky-h);
-  display:flex;
-  align-items:center;
-}
-.sticky-inner{
-  max-width:520px;margin:0 auto;border-radius:18px;padding:10px 12px;
-  background: rgba(15,23,42,.72);
-  border:1px solid rgba(255,255,255,.12);
-  box-shadow: 0 14px 26px rgba(0,0,0,.60);
-  display:flex;align-items:center;justify-content:space-between;gap:12px;
-  width:100%;
-  color:#fff;
-}
-.sticky-sum{font-weight:900;line-height:1.1;}
-.sticky-sum small{display:block;font-weight:800;opacity:.75;margin-top:2px;color:rgba(229,231,235,.75);}
-.sticky-btn{
-  padding:12px 14px;border-radius:16px;border:1px solid rgba(255,255,255,.18);
-  background:linear-gradient(180deg, var(--accent), var(--accent2));
-  color:#fff;font-weight:900;cursor:pointer;
-  box-shadow: 0 14px 26px rgba(0,0,0,.60);
 }
 
 /* ✅ menu sheet — NOT transparent (solid) */
@@ -556,33 +359,6 @@ textarea.input{height:90px;}
 .menu-sub{font-size:12px;opacity:.75;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-top:2px;color:rgba(229,231,235,.75);}
 .menu-right{opacity:.65;font-weight:900;color:rgba(229,231,235,.75);}
 
-/* branch selector */
-.branch-box{display:none;padding:6px 4px 10px;}
-.branch-inner{border:1px solid rgba(255,255,255,.10);border-radius:16px;overflow:hidden;background:rgba(255,255,255,.06);padding:12px;}
-.branch-grid{display:grid;grid-template-columns:1fr;gap:10px;}
-.branch-btn{
-  width:100%;
-  min-width:auto;
-  border-radius:16px;
-  padding:14px 14px;
-  border:1px solid rgba(255,255,255,.10);
-  background: rgba(17,24,39,.55);
-  box-shadow:0 12px 24px rgba(0,0,0,.55);
-  font-weight:900;
-  cursor:pointer;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:12px;
-  color:#E5E7EB;
-}
-.branch-btn small{font-weight:800;opacity:.72;color:rgba(229,231,235,.75);}
-.branch-btn.active{
-  background: linear-gradient(180deg, var(--accent), var(--accent2));
-  color:#fff;
-  border:1px solid rgba(255,255,255,.22);
-}
-
 /* search */
 .search-title{display:none;width:100%;padding:10px 14px 0;font-weight:900;color:#E5E7EB;}
 .search-title.show{display:block;}
@@ -597,33 +373,6 @@ textarea.input{height:90px;}
   border:1px solid rgba(255,255,255,.10);
   cursor:pointer;color:#E5E7EB;font-weight:900;
 }
-
-/* online / click blocks */
-.online-box,.click-box{
-  display:none;
-  margin:10px auto 0;
-  width:85%;
-  border:1px solid rgba(255,255,255,.10);
-  border-radius:18px;
-  background:rgba(255,255,255,.06);
-  padding:12px;
-  color:#E5E7EB;
-}
-.online-row{display:flex;justify-content:space-between;gap:10px;align-items:center;margin-top:8px;}
-.online-label{font-weight:900;color:#E5E7EB;}
-.online-val{font-weight:900;color:var(--accent);word-break:break-word;}
-.click-title{font-weight:900;margin-bottom:8px;color:#E5E7EB;}
-.click-qr{
-  width:100%;
-  border-radius:18px;
-  overflow:hidden;
-  border:1px solid rgba(255,255,255,.10);
-  background: rgba(17,24,39,.55);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-}
-.click-qr img{width:100%;max-width:360px;height:auto;display:block;}
 
 /* ✅ SUBCATS BOTTOM SHEET */
 .sub-backdrop{
@@ -682,7 +431,6 @@ textarea.input{height:90px;}
   color:#fff;
   border:1px solid rgba(255,255,255,.22);
 }
-.sub-emoji{font-size:22px;line-height:1;display:flex;align-items:center;justify-content:center;}
 .sub-logo{
   width:28px;height:28px;border-radius:12px;
   object-fit:cover;
@@ -692,24 +440,46 @@ textarea.input{height:90px;}
 }
 .sub-txt{font-size:11px;line-height:1.15;word-break:break-word;opacity:.95;}
 
-@media (max-width:520px){
-  .img-modal-body{flex-direction:column;}
-  .img-modal-left{flex:0 0 auto;}
-}
+.hide{display:none!important;}
 
-/* ✅ iPhone adaptation */
-@supports (-webkit-touch-callout: none){
-  body{
-    padding-top: calc(var(--safeT) + 2px);
-    padding-bottom: calc(var(--sticky-h) + 18px + var(--safeB));
-  }
-  .header{
-    padding-top: calc(14px + var(--safeT));
-  }
-  .sticky-checkout{
-    bottom: var(--safeB);
-    padding-bottom: calc(10px + var(--safeB));
-  }
+/* ✅ Consultation modal */
+.consult-modal{
+  position:fixed; inset:0;
+  background:rgba(0,0,0,.65);
+  display:flex; align-items:center; justify-content:center;
+  opacity:0; pointer-events:none;
+  transition:.18s;
+  z-index:2000;
+  padding:18px;
+}
+.consult-modal.show{opacity:1;pointer-events:auto;}
+.consult-box{
+  width:min(520px, 100%);
+  border-radius:22px;
+  overflow:hidden;
+  background: rgba(15,23,42,.96);
+  border:1px solid rgba(255,255,255,.14);
+  box-shadow:0 18px 44px rgba(0,0,0,.60);
+}
+.consult-top{
+  display:flex; align-items:center; justify-content:space-between;
+  gap:10px;
+  padding:12px 12px;
+  background:rgba(255,255,255,.06);
+}
+.consult-title{font-weight:900;color:#fff;}
+.consult-close{
+  width:38px;height:38px;border:none;border-radius:14px;background:transparent;cursor:pointer;
+  font-size:22px;line-height:1;color:rgba(229,231,235,.72);
+}
+.consult-body{padding:14px;}
+.consult-hint{font-size:12px;opacity:.78;font-weight:800;color:#E5E7EB;line-height:1.35;margin-top:10px;}
+.consult-actions{display:flex;gap:10px;margin-top:12px;}
+.consult-actions .btn{min-width:auto;flex:1 1 auto;}
+.consult-actions .btn.secondary{
+  background:rgba(255,255,255,.06);
+  color:#E5E7EB;
+  border:1px solid rgba(255,255,255,.10);
 }
 
 @media (max-width:420px){
@@ -719,12 +489,10 @@ textarea.input{height:90px;}
   .header{padding:14px 10px 24px;}
   .input{width:92%;}
   .products{gap:14px;}
-  .online-box{width:92%;}
-  .click-box{width:92%;}
   .sub-grid{grid-template-columns: repeat(3, minmax(0, 1fr));}
 }
 @media (max-width:360px){
-  .header img{width:76px;height:76px;left:10px;}
+  .header img{width:88px;height:88px;left:10px;}
   .brand-title{font-size:26px;}
   .brand-title2{font-size:12px;letter-spacing:1.3px;}
   .brand-phone a{font-size:13px;}
@@ -733,16 +501,14 @@ textarea.input{height:90px;}
   .langs .btn{min-width:86px;padding:10px 10px;font-size:13px;}
   .welcome{font-size:12px;padding:6px 9px;}
   .sub-grid{grid-template-columns: repeat(3, minmax(0, 1fr));}
-  .payments .btn{min-width:86px !important; padding:10px 10px !important;}
 }
 </style>
 </head>
 
 <body>
 
-<!-- ✅ Файлы изображений (JPG) которые надо загрузить в папку images:
+<!-- ✅ Файлы изображений (JPG/PNG) которые надо загрузить в папку images:
   logo.png
-  qr_click.jpg
   print_business_cards.jpg
   print_flyers.jpg
   print_banners.jpg
@@ -763,13 +529,11 @@ textarea.input{height:90px;}
   <div class="brand-wrap">
     <div class="brand-title">IMPACT</div>
 
-    <!-- ✅ Шапка: 1) Рекламное агентство 2) Типография • Полиграфия -->
     <div class="brand-title2" id="branchTitle">РЕКЛАМНОЕ АГЕНТСТВО</div>
     <div class="brand-title3" id="branchTitle2">ТИПОГРАФИЯ • ПОЛИГРАФИЯ</div>
 
     <div class="welcome" id="welcomeLine" style="display:none;"></div>
 
-    <!-- ✅ Телефон в шапке -->
     <div class="brand-phone">
       <a href="tel:+998937289004" onclick="callPhone(event)">+998 (93) 728-90-04</a>
     </div>
@@ -801,7 +565,8 @@ textarea.input{height:90px;}
 
   <div class="menu-list">
 
-    <div class="menu-item" onclick="toggleBranch()" role="button">
+    <!-- ❌ Убрали "Выбрать точку" из бургера (не удаляем меню, просто скрываем) -->
+    <div class="menu-item hide" id="menuBranchItem" onclick="toggleBranch()" role="button">
       <div class="menu-left">
         <div class="menu-ic">🏬</div>
         <div class="menu-txt">
@@ -812,7 +577,7 @@ textarea.input{height:90px;}
       <div class="menu-right">›</div>
     </div>
 
-    <div class="branch-box" id="branchWrap">
+    <div class="branch-box hide" id="branchWrap">
       <div class="branch-inner">
         <div class="branch-grid">
           <button class="branch-btn" id="branchMakon" onclick="chooseBranchAndRoute('main', event)">
@@ -838,7 +603,8 @@ textarea.input{height:90px;}
       <div class="menu-right">›</div>
     </a>
 
-    <div class="menu-item" onclick="toggleVip()" role="button">
+    <!-- ❌ Убрали консультацию из бургера (не удаляем меню, просто скрываем) -->
+    <div class="menu-item hide" id="menuVipItem" onclick="toggleVip()" role="button">
       <div class="menu-left">
         <div class="menu-ic">💬</div>
         <div class="menu-txt">
@@ -849,7 +615,7 @@ textarea.input{height:90px;}
       <div class="menu-right">›</div>
     </div>
 
-    <div class="vip-box" id="vipWrap" style="display:none; padding:6px 4px 10px;">
+    <div class="vip-box hide" id="vipWrap" style="display:none; padding:6px 4px 10px;">
       <div class="vip-inner" style="border:1px solid rgba(255,255,255,.10);border-radius:16px;overflow:hidden;background:rgba(255,255,255,.06);padding:12px;">
         <div class="toggle-row" onclick="toggleNeedHelp()" style="display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 10px;border-radius:14px;background:rgba(17,24,39,.55);border:1px solid rgba(255,255,255,.10);">
           <div class="toggle-left" style="display:flex;flex-direction:column;gap:2px;">
@@ -940,7 +706,7 @@ textarea.input{height:90px;}
         <div style="height:12px;"></div>
 
         <div style="font-weight:900; margin-bottom:6px;" id="aboutHoursLabel">🕒 График работы</div>
-        <div style="font-weight:900; color:#fff; opacity:.92;" id="aboutHoursText">09:00–20:00</div>
+        <div style="font-weight:900; color:#fff; opacity:.92;" id="aboutHoursText">09:00–21:00</div>
 
         <div style="margin-top:10px;padding:12px;border-radius:14px;border:1px solid rgba(255,255,255,.10);background:rgba(17,24,39,.55);font-weight:800;line-height:1.28;color:#E5E7EB;" id="aboutDescText"></div>
       </div>
@@ -971,31 +737,41 @@ textarea.input{height:90px;}
 <div class="langs">
   <button class="btn" id="langRU" onclick="setLang('ru',this)"><span class="lang-flag">🇷🇺</span>RU</button>
   <button class="btn" id="langUZ" onclick="setLang('uz',this)"><span class="lang-flag">🇺🇿</span>UZ</button>
+  <button class="btn" id="langTJ" onclick="setLang('tj',this)"><span class="lang-flag">🇹🇯</span>TJ</button>
   <button class="btn" id="langEN" onclick="setLang('en',this)"><span class="lang-flag">🇬🇧</span>EN</button>
 </div>
 
-<!-- ✅ Акция -->
-<div class="popular-wrap" id="saleWrap">
+<!-- ✅ ВМЕСТО "АКЦИИ" → "КОНСУЛЬТАЦИЯ" -->
+<div class="popular-wrap" id="consultWrap">
+  <div class="popular-title" id="consultTitle">💬 Консультация</div>
+  <div class="popular-row" id="consultRow"></div>
+</div>
+
+<!-- ❌ Акция убрана -->
+<div class="popular-wrap hide" id="saleWrap">
   <div class="popular-title" id="saleTitle">💥 Акция</div>
   <div class="popular-row" id="saleRow"></div>
 </div>
 
+<!-- ✅ Популярное оставили -->
 <div class="popular-wrap" id="popularWrap">
   <div class="popular-title" id="popularTitle">🔥 Популярное</div>
   <div class="popular-row" id="popularRow"></div>
 </div>
 
-<div class="popular-wrap" id="giftWrap">
+<!-- ❌ Рекомендуем убрали -->
+<div class="popular-wrap hide" id="giftWrap">
   <div class="popular-title" id="giftTitle">⭐ Рекомендуем</div>
-  <div class="mini-row" id="giftRow"></div>
+  <div class="popular-row" id="giftRow"></div>
 </div>
 
-<input id="phone" class="input" style="display:none" />
+<input id="phone" class="input hide" />
 
 <div class="categories" id="cats"></div>
 <div class="products" id="products"></div>
 
-<div class="cart" id="cartBox">
+<!-- ❌ Корзину / оплату / оформить заявку убрали (не удаляем, просто скрываем) -->
+<div class="cart hide" id="cartBox">
   <b id="cartTitle"></b>: <span id="total">0</span> <span id="sumWord">сум</span>
   <div style="margin-top:10px; font-weight:900;">
     <span id="totalLabel">Итого</span>: <span id="grandTotal">0</span> <span id="sumWord2">сум</span>
@@ -1009,33 +785,8 @@ textarea.input{height:90px;}
     <button class="btn" id="payOnline" onclick="setPayment('online')"></button>
   </div>
 
-  <div class="click-box" id="clickBox">
-    <div class="click-title" id="clickTitle">CLICK QR</div>
-    <div class="click-qr">
-      <img id="clickQrImg" src="images/qr_click.jpg" alt="CLICK QR" onerror="this.onerror=null;this.src='images/logo.png'">
-    </div>
-    <div style="margin-top:8px; font-size:12px; opacity:.75;" id="clickHint">
-      Отсканируйте QR в приложении CLICK, затем нажмите «Оформить заказ».
-    </div>
-  </div>
-
-  <div class="online-box" id="onlineBox">
-    <div class="online-label" id="recipLabel">Получатель</div>
-    <div class="online-row">
-      <div class="online-val" id="recipVal">IMPACT</div>
-      <button class="btn" type="button" onclick="copyText('IMPACT')" id="copyRecip" style="min-width:auto;padding:10px 12px;border-radius:14px;">Копировать</button>
-    </div>
-
-    <div class="online-label" style="margin-top:10px;" id="cardLabel">Карта</div>
-    <div class="online-row">
-      <div class="online-val" id="cardVal">0000 0000 0000 0000</div>
-      <button class="btn" type="button" onclick="copyText('0000000000000000')" id="copyCard" style="min-width:auto;padding:10px 12px;border-radius:14px;">Копировать</button>
-    </div>
-
-    <div style="margin-top:8px; font-size:12px; opacity:.75;" id="onlineHint">
-      После оплаты нажмите «Оформить заказ» и напишите в комментарии “Оплатил(а)”.
-    </div>
-  </div>
+  <div class="click-box" id="clickBox"></div>
+  <div class="online-box" id="onlineBox"></div>
 
   <button class="order-btn" id="orderBtn" onclick="sendOrder()"></button>
   <div style="height: 12px;"></div>
@@ -1043,32 +794,26 @@ textarea.input{height:90px;}
 
 <div class="popup" id="popup"><div class="popup-box" id="popupText">✅</div></div>
 
-<div class="img-modal" id="imgModal" onclick="closeImgModal(event)">
-  <div class="img-modal-box" onclick="event.stopPropagation()">
-    <div class="img-modal-top">
-      <div class="img-modal-title" id="imgModalTitle">Фото</div>
-      <button class="img-modal-close" onclick="closeImgModal(event)">×</button>
+<!-- ✅ Consultation modal -->
+<div class="consult-modal" id="consultModal" onclick="closeConsultModal(event)">
+  <div class="consult-box" onclick="event.stopPropagation()">
+    <div class="consult-top">
+      <div class="consult-title" id="consultModalTitle">💬 Консультация</div>
+      <button class="consult-close" onclick="closeConsultModal(event)">×</button>
     </div>
-
-    <div class="img-modal-body">
-      <div class="img-modal-left">
-        <img class="img-modal-img" id="imgModalImg" src="" alt="">
+    <div class="consult-body">
+      <input id="consultInput" class="input" style="width:100%;margin:0;" placeholder="Например 1000шт визиток">
+      <div class="consult-actions">
+        <button class="btn active" type="button" onclick="sendConsultFromCarousel(event)" id="consultSendBtn">Отправить админу</button>
+        <button class="btn secondary" type="button" onclick="closeConsultModal(event)" id="consultCancelBtn">Отмена</button>
       </div>
-
-      <div class="img-modal-right" id="specBox">
-        <div class="spec-row"><div class="spec-k" id="kModel">Услуга</div><div class="spec-v" id="specModel">—</div></div>
-        <div class="spec-row"><div class="spec-k" id="kRegion">Срок</div><div class="spec-v" id="specRegion">—</div></div>
-        <div class="spec-row"><div class="spec-k" id="kColor">Формат</div><div class="spec-v" id="specColor">—</div></div>
-        <div class="spec-row"><div class="spec-k" id="kMemory">Тираж</div><div class="spec-v" id="specMemory">—</div></div>
-        <div class="spec-row"><div class="spec-k" id="kBattery">Материал</div><div class="spec-v" id="specBattery">—</div></div>
-        <div class="spec-row"><div class="spec-k" id="kUzime">Дизайн</div><div class="spec-v" id="specUzime">—</div></div>
-        <div class="spec-row spec-price"><div class="spec-k" id="kPrice">Цена</div><div class="spec-v" id="specPrice">—</div></div>
-      </div>
+      <div class="consult-hint" id="consultHint">Запрос уйдёт администратору. Мы ответим вам в Telegram.</div>
     </div>
   </div>
 </div>
 
-<div class="sticky-checkout" id="stickyBar">
+<!-- ❌ sticky bar убрали -->
+<div class="sticky-checkout hide" id="stickyBar">
   <div class="sticky-inner">
     <div class="sticky-sum">
       <span id="stickyTotal">0</span> <small id="sumCurrency">сум</small>
@@ -1079,7 +824,7 @@ textarea.input{height:90px;}
 
 </div><!-- /page -->
 
-<!-- ✅ ТВОЙ ОРИГИНАЛЬНЫЙ JS БЕЗ УДАЛЕНИЙ -->
+<!-- ✅ ТВОЙ ОРИГИНАЛЬНЫЙ JS БЕЗ УДАЛЕНИЙ (только правки по требованиям) -->
 <script>
 Telegram.WebApp.ready();
 try{ Telegram.WebApp.expand(); Telegram.WebApp.disableVerticalSwipes?.(); }catch(_){}
@@ -1089,108 +834,44 @@ setVH();
 window.addEventListener('resize', setVH, {passive:true});
 window.addEventListener('orientationchange', ()=>setTimeout(setVH, 250), {passive:true});
 
-function syncStickyHeight(){
-  const el = document.getElementById('stickyBar');
-  if(!el) return;
-  const h = Math.ceil(el.getBoundingClientRect().height || 86);
-  document.documentElement.style.setProperty('--sticky-h', h + 'px');
-}
-window.addEventListener('resize', ()=>setTimeout(syncStickyHeight, 50), {passive:true});
-window.addEventListener('orientationchange', ()=>setTimeout(syncStickyHeight, 250), {passive:true});
-
 /* ✅ LINKS + ADMIN */
-const HEADER_LOCATION_URL = "https://yandex.uz/maps/?text=Impact%20типография%20Самарканд";
-const REVIEW_URL = "https://yandex.uz/maps/?text=Impact%20типография%20отзывы";
+const YA_ORG_URL = "https://yandex.uz/maps/org/19531164088/?ll=66.959954%2C39.646835&z=17.08";
+const HEADER_LOCATION_URL = YA_ORG_URL;
+const REVIEW_URL = YA_ORG_URL;
 const ADMIN_ID = 6013591658;
 
-/* ✅ PHONES (обновлено) */
+/* ✅ PHONES */
 const PHONE1_DISPLAY = "+998 (93) 728-90-04";
 const PHONE1_TEL = "tel:+998937289004";
 
-/* ✅ SOCIAL (обновлено) */
+/* ✅ SOCIAL */
 const INSTAGRAM_URL = "https://www.instagram.com/impactreklama/";
 const TELEGRAM_URL  = "https://t.me/impactreklama";
 
-/* ✅ BRANCHES */
-const BRANCHES = {
-  main:{
-    titleRU:"Главный офис", titleUZ:"Bosh ofis", titleEN:"Main office",
-    addressRU:"г. Самарканд, ул. (укажите адрес)",
-    addressUZ:"Samarqand, (manzilni yozing)",
-    addressEN:"Samarkand, (add address)"
-  },
-  pickup:{
-    titleRU:"Пункт выдачи", titleUZ:"Topshirish punkti", titleEN:"Pickup point",
-    addressRU:"г. Самарканд, ул. (укажите адрес)",
-    addressUZ:"Samarqand, (manzilni yozing)",
-    addressEN:"Samarkand, (add address)"
-  }
-};
+/* ✅ Адрес/часы (обновлено как ты дал) */
+const MAIN_ADDRESS_RU = "г. Самарканд, Ул. Абдурахман Жомий 67";
+const MAIN_ADDRESS_UZ = "Samarqand, Abdurahmon Jomiy ko'chasi 67";
+const MAIN_ADDRESS_TJ = "ш. Самарқанд, кӯч. Абдураҳмон Ҷомӣ 67";
+const MAIN_ADDRESS_EN = "Samarkand, Abdurahmon Jomiy st. 67";
+const ABOUT_HOURS = "09:00–21:00";
 
-let branch = localStorage.getItem('impact_branch') || 'main';
-if(!BRANCHES[branch]) branch='main';
-
-function yandexSearchUrl(query){
-  const q = encodeURIComponent(query || '');
-  return `https://yandex.uz/maps/?text=${q}`;
-}
 function openLink(url){
   try{Telegram.WebApp.openLink(url);}catch(_){window.open(url,'_blank');}
 }
-function openHeaderLocation(){ openLink(yandexSearchUrl(branchAddressForLang())); }
+function openHeaderLocation(){ openLink(HEADER_LOCATION_URL); }
 function openReview(e){
   try{e?.preventDefault?.();e?.stopPropagation?.();}catch(_){}
   closeTopMenu();
   openLink(REVIEW_URL);
 }
-function branchAddressForLang(){
-  const b = BRANCHES[branch];
-  if(lang==='uz') return b.addressUZ;
-  if(lang==='en') return b.addressEN;
-  return b.addressRU;
+function openRouteFromAbout(e){
+  try{e.preventDefault();e.stopPropagation();}catch(_){}
+  openLink(HEADER_LOCATION_URL);
 }
-function branchTitleForLang(){
-  const b = BRANCHES[branch];
-  if(lang==='uz') return b.titleUZ;
-  if(lang==='en') return b.titleEN;
-  return b.titleRU;
-}
-function openRouteByBranch(){ openLink(yandexSearchUrl(branchAddressForLang())); }
-function openRouteFromAbout(e){ try{e.preventDefault();e.stopPropagation();}catch(_){}
-  openRouteByBranch();
-}
-function chooseBranchAndRoute(code, e){
-  try{e?.preventDefault?.();e?.stopPropagation?.();}catch(_){}
-  if(!BRANCHES[code]) return;
-  branch = code;
-  localStorage.setItem('impact_branch', branch);
-  syncBranchUI();
-  applyBranchToUI();
-  closeTopMenu();
-  openRouteByBranch();
-  Telegram.WebApp.HapticFeedback?.notificationOccurred?.('success');
-}
-function callPhone(e){ try{e.preventDefault();e.stopPropagation();}catch(_){}
+function callPhone(e){
+  try{e.preventDefault();e.stopPropagation();}catch(_){}
   try{Telegram.WebApp.openLink(PHONE1_TEL);}catch(_){window.location.href=PHONE1_TEL;}
 }
-function copyText(t){
-  const text = String(t || "");
-  if(!text) return;
-  try{
-    if(navigator.clipboard && navigator.clipboard.writeText){
-      navigator.clipboard.writeText(text);
-    }else{
-      const ta = document.createElement('textarea');
-      ta.value = text;
-      ta.style.position='fixed'; ta.style.left='-9999px';
-      document.body.appendChild(ta);
-      ta.select(); document.execCommand('copy');
-      document.body.removeChild(ta);
-    }
-    Telegram.WebApp.HapticFeedback?.notificationOccurred?.('success');
-  }catch(_){}
-}
-
 function openInstagram(e){
   try{e?.preventDefault?.();e?.stopPropagation?.();}catch(_){}
   closeTopMenu();
@@ -1202,22 +883,17 @@ function openTelegram(e){
   openLink(TELEGRAM_URL);
 }
 
+/* ✅ TG user */
 const tgUser = Telegram.WebApp.initDataUnsafe?.user || {};
 const tg_username = tgUser.username || "";
 const tg_first_name = tgUser.first_name || "";
 const tg_id = tgUser.id || "";
 
-/* ✅ 3 languages */
+/* ✅ 4 languages (добавили таджикский tj) */
 const UI = {
   ru:{
     menu:'Меню',
-    branchPick:'Выбрать точку', branchSub:'Главный офис / Пункт выдачи',
     callTitle:'Позвонить', callSub: PHONE1_DISPLAY,
-    vipTitle:'Консультация', vipSub:'Задайте вопрос — отправим менеджеру',
-    vipToggleTitle:'Нужна консультация', vipToggleSub:'Включите, чтобы отправить запрос',
-    vipCall:'💬 Написать менеджеру', vipClose:'Закрыть', vipHint:'Запрос уйдёт менеджеру.',
-    vipPh:'Ваш вопрос (например: визитки 1000 шт + дизайн?)',
-    consultSent:'✅ Запрос отправлен',
     instaSub:'Открыть Instagram',
     tgSub:'Открыть Telegram канал',
     reviewTitle:'Оставить отзыв', reviewSub:'Яндекс Карты',
@@ -1226,42 +902,23 @@ const UI = {
     aboutPhone:'📞 Телефон', aboutHours:'🕒 График работы',
     searchResults:'Результаты поиска',
     searchPh:'Поиск...',
-    sale:'💥 Акция',
-    popular:'🔥 Популярное', gift:'⭐ Рекомендуем',
-    cart:'🛒 Корзина', total:'Итого', order:'Оформить заявку', comment:'✍️ Комментарий (тираж/формат/срок)',
-    cash:'🧾 Оффлайн', click:'💳 CLICK', online:'💳 Онлайн',
-    sum:'сум',
-    recip:'Получатель', card:'Карта', copy:'Копировать',
-    onlineHint:'После оплаты нажмите «Оформить заявку» и напишите в комментарии “Оплатил(а)”.',
-    empty:'Корзина пустая',
-    clickTitle:'CLICK QR',
-    clickHint:'Отсканируйте QR в приложении CLICK, затем нажмите «Оформить заявку».',
+    popular:'🔥 Популярное',
+    consult:'💬 Консультация',
+    consultPh:'Например 1000шт визиток',
+    consultSend:'Отправить админу',
+    consultCancel:'Отмена',
+    consultSent:'✅ Запрос отправлен',
+    consultEmpty:'Напишите текст запроса',
     welcome:'👋 Добро пожаловать',
     brandSub1:'РЕКЛАМНОЕ АГЕНТСТВО',
     brandSub2:'ТИПОГРАФИЯ • ПОЛИГРАФИЯ',
     subcats:'Подкатегории',
-    priceAsk:'Цена уточняется',
     nothingFound:'Ничего не найдено',
-    noItems:'Пока нет услуг в этой подкатегории',
-
-    /* spec labels */
-    kModel:'Услуга',
-    kRegion:'Срок',
-    kColor:'Формат',
-    kMemory:'Тираж',
-    kBattery:'Материал',
-    kUzime:'Дизайн',
-    kPrice:'Цена'
+    noItems:'Пока нет услуг в этой подкатегории'
   },
   uz:{
     menu:'Menyu',
-    branchPick:'Nuqtani tanlash', branchSub:'Bosh ofis / Topshirish punkti',
     callTitle:"Qo'ng'iroq qilish", callSub: PHONE1_DISPLAY,
-    vipTitle:'Konsultatsiya', vipSub:'Savol bering — menejerga yuboramiz',
-    vipToggleTitle:'Konsultatsiya kerak', vipToggleSub:'Yoqing — so‘rov yuborasiz',
-    vipCall:'💬 Menejerga yozish', vipClose:'Yopish', vipHint:'So‘rov menejerga yuboriladi.',
-    vipPh:'Savolingiz (masalan: vizitka 1000 dona + dizayn?)',
-    consultSent:'✅ So‘rov yuborildi',
     instaSub:"Instagramni ochish",
     tgSub:"Telegram kanalni ochish",
     reviewTitle:'Fikr qoldirish', reviewSub:'Yandex Xaritalar',
@@ -1270,41 +927,48 @@ const UI = {
     aboutPhone:'📞 Telefon', aboutHours:'🕒 Ish vaqti',
     searchResults:'Qidiruv natijalari',
     searchPh:'Qidirish...',
-    sale:'💥 Aksiya',
-    popular:'🔥 Ommabop', gift:'⭐ Tavsiya',
-    cart:'🛒 Savat', total:'Jami', order:'Ariza yuborish', comment:'✍️ Izoh (tiraj/format/muddat)',
-    cash:'🧾 Oflayn', click:'💳 CLICK', online:'💳 Onlayn',
-    sum:"so‘m",
-    recip:'Qabul qiluvchi', card:'Karta', copy:'Nusxa',
-    onlineHint:'To‘lovdan so‘ng “Ariza yuborish”ni bosing va izohga “To‘ladim” deb yozing.',
-    empty:"Savat bo‘sh",
-    clickTitle:'CLICK QR',
-    clickHint:"CLICK ilovasida QR ni skaner qiling, so‘ng “Ariza yuborish”ni bosing.",
+    popular:'🔥 Ommabop',
+    consult:'💬 Konsultatsiya',
+    consultPh:'Masalan 1000 ta vizitka',
+    consultSend:'Adminga yuborish',
+    consultCancel:'Bekor qilish',
+    consultSent:'✅ So‘rov yuborildi',
+    consultEmpty:'So‘rov matnini yozing',
     welcome:'👋 Xush kelibsiz',
     brandSub1:'REKLAMA AGENTLIGI',
     brandSub2:'TIPOGRAFIYA • POLIGRAFIYA',
     subcats:'Subkategoriyalar',
-    priceAsk:'Narx kelishiladi',
     nothingFound:'Hech narsa topilmadi',
-    noItems:"Bu subkategoriyada hozircha xizmat yo‘q",
-
-    kModel:'Xizmat',
-    kRegion:'Muddat',
-    kColor:'Format',
-    kMemory:'Tiraj',
-    kBattery:'Material',
-    kUzime:'Dizayn',
-    kPrice:'Narx'
+    noItems:"Bu subkategoriyada hozircha xizmat yo‘q"
+  },
+  tj:{
+    menu:'Меню',
+    callTitle:'Занг заданан', callSub: PHONE1_DISPLAY,
+    instaSub:'Instagram-ро кушодан',
+    tgSub:'Канали Telegram-ро кушодан',
+    reviewTitle:'Баҳо гузоштан', reviewSub:'Yandex Maps',
+    aboutTitle:'Дар бораи мо', aboutSub:'Суроға, телефонҳо, соатҳо',
+    aboutAddr:'📍 Суроға', aboutRoute:'📍 Масир',
+    aboutPhone:'📞 Телефон', aboutHours:'🕒 Соатҳои кор',
+    searchResults:'Натиҷаҳои ҷустуҷӯ',
+    searchPh:'Ҷустуҷӯ...',
+    popular:'🔥 Машҳур',
+    consult:'💬 Машварат',
+    consultPh:'Масалан 1000дона визитка',
+    consultSend:'Ба админ фиристодан',
+    consultCancel:'Бекор кардан',
+    consultSent:'✅ Дархост фиристода шуд',
+    consultEmpty:'Матни дархостро нависед',
+    welcome:'👋 Хуш омадед',
+    brandSub1:'АГЕНТИИ РЕКЛАМА',
+    brandSub2:'ТИПОГРАФИЯ • ПОЛИГРАФИЯ',
+    subcats:'Зеркатегорияҳо',
+    nothingFound:'Ҳеҷ чиз ёфт нашуд',
+    noItems:'Дар ин зеркатегория ҳоло хизмат нест'
   },
   en:{
     menu:'Menu',
-    branchPick:'Choose point', branchSub:'Main office / Pickup point',
     callTitle:'Call', callSub: PHONE1_DISPLAY,
-    vipTitle:'Consultation', vipSub:'Ask a question — we notify manager',
-    vipToggleTitle:'Need consultation', vipToggleSub:'Enable to send request',
-    vipCall:'💬 Message manager', vipClose:'Close', vipHint:'Request will be sent to manager.',
-    vipPh:'Your question (e.g. business cards 1000 pcs + design?)',
-    consultSent:'✅ Request sent',
     instaSub:'Open Instagram',
     tgSub:'Open Telegram channel',
     reviewTitle:'Leave a review', reviewSub:'Yandex Maps',
@@ -1313,131 +977,85 @@ const UI = {
     aboutPhone:'📞 Phone', aboutHours:'🕒 Working hours',
     searchResults:'Search results',
     searchPh:'Search...',
-    sale:'💥 Promo',
-    popular:'🔥 Popular', gift:'⭐ Recommended',
-    cart:'🛒 Cart', total:'Total', order:'Send request', comment:'✍️ Comment (qty/size/deadline)',
-    cash:'🧾 Offline', click:'💳 CLICK', online:'💳 Online',
-    sum:'sum',
-    recip:'Recipient', card:'Card', copy:'Copy',
-    onlineHint:'After payment press “Send request” and write “Paid” in comment.',
-    empty:'Cart is empty',
-    clickTitle:'CLICK QR',
-    clickHint:'Scan the QR in CLICK app, then press “Send request”.',
+    popular:'🔥 Popular',
+    consult:'💬 Consultation',
+    consultPh:'For example: 1000 business cards',
+    consultSend:'Send to admin',
+    consultCancel:'Cancel',
+    consultSent:'✅ Request sent',
+    consultEmpty:'Type your request',
     welcome:'👋 Welcome',
     brandSub1:'ADVERTISING AGENCY',
     brandSub2:'PRINTING • PRINT PRODUCTS',
     subcats:'Subcategories',
-    priceAsk:'Ask price',
     nothingFound:'Nothing found',
-    noItems:'No services in this subcategory yet',
-
-    kModel:'Service',
-    kRegion:'Deadline',
-    kColor:'Format',
-    kMemory:'Quantity',
-    kBattery:'Material',
-    kUzime:'Design',
-    kPrice:'Price'
+    noItems:'No services in this subcategory yet'
   }
 };
 
-const ABOUT_HOURS = "09:00–20:00";
-
-/* ✅ Categories (убрали emoji — теперь будет фото-лого временно) */
+/* ✅ Categories (фото-лого временно) */
 const CATS = {
   ru:{printing:'Типография', poly:'Полиграфия', ads:'Реклама', design:'Дизайн', branding:'Брендинг', other:'Услуги'},
   uz:{printing:'Tipografiya', poly:'Poligrafiya', ads:'Reklama', design:'Dizayn', branding:'Brending', other:'Xizmatlar'},
+  tj:{printing:'Типография', poly:'Полиграфия', ads:'Реклама', design:'Дизайн', branding:'Брендинг', other:'Хизматҳо'},
   en:{printing:'Printing', poly:'Print products', ads:'Advertising', design:'Design', branding:'Branding', other:'Services'}
 };
 
-/* ✅ Subcategories (emoji оставили в данных, но в UI временно показываем logo.png) */
+/* ✅ Subcategories */
 const SUBCATS = {
   printing: [
-    {k:'bizcards', e:'💳', ru:'Визитки', uz:'Vizitka', en:'Business cards'},
-    {k:'flyers', e:'🧾', ru:'Листовки', uz:'Flyer', en:'Flyers'},
-    {k:'stickers', e:'🏷️', ru:'Наклейки', uz:'Stiker', en:'Stickers'},
-    {k:'catalogs', e:'📒', ru:'Каталоги', uz:'Katalog', en:'Catalogs'}
+    {k:'bizcards', e:'💳', ru:'Визитки', uz:'Vizitka', tj:'Визитка', en:'Business cards'},
+    {k:'flyers', e:'🧾', ru:'Листовки', uz:'Flyer', tj:'Лифлет', en:'Flyers'},
+    {k:'stickers', e:'🏷️', ru:'Наклейки', uz:'Stiker', tj:'Стикер', en:'Stickers'},
+    {k:'catalogs', e:'📒', ru:'Каталоги', uz:'Katalog', tj:'Каталог', en:'Catalogs'}
   ],
   poly: [
-    {k:'brochures', e:'📘', ru:'Буклеты', uz:'Buklet', en:'Brochures'},
-    {k:'posters', e:'🪧', ru:'Плакаты', uz:'Plakat', en:'Posters'},
-    {k:'packages', e:'🛍️', ru:'Пакеты', uz:'Paket', en:'Bags'},
-    {k:'forms', e:'📑', ru:'Бланки', uz:'Blank', en:'Forms'}
+    {k:'brochures', e:'📘', ru:'Буклеты', uz:'Buklet', tj:'Буклет', en:'Brochures'},
+    {k:'posters', e:'🪧', ru:'Плакаты', uz:'Plakat', tj:'Плакат', en:'Posters'},
+    {k:'packages', e:'🛍️', ru:'Пакеты', uz:'Paket', tj:'Халта', en:'Bags'},
+    {k:'forms', e:'📑', ru:'Бланки', uz:'Blank', tj:'Бланк', en:'Forms'}
   ],
   ads: [
-    {k:'smm', e:'📱', ru:'SMM', uz:'SMM', en:'SMM'},
-    {k:'target', e:'🎯', ru:'Таргет', uz:'Target', en:'Target ads'},
-    {k:'outdoor', e:'🗺️', ru:'Наружная реклама', uz:'Tashqi reklama', en:'Outdoor'},
-    {k:'promo', e:'🎪', ru:'Промо-материалы', uz:'Promo', en:'Promo materials'}
+    {k:'smm', e:'📱', ru:'SMM', uz:'SMM', tj:'SMM', en:'SMM'},
+    {k:'target', e:'🎯', ru:'Таргет', uz:'Target', tj:'Таргет', en:'Target ads'},
+    {k:'outdoor', e:'🗺️', ru:'Наружная реклама', uz:'Tashqi reklama', tj:'Рекламаи берунӣ', en:'Outdoor'},
+    {k:'promo', e:'🎪', ru:'Промо-материалы', uz:'Promo', tj:'Промо', en:'Promo materials'}
   ],
   design: [
-    {k:'logo', e:'🧠', ru:'Логотип', uz:'Logo', en:'Logo'},
-    {k:'brandbook', e:'📕', ru:'Брендбук', uz:'Brendbuk', en:'Brand book'},
-    {k:'social', e:'🧩', ru:'Дизайн соцсетей', uz:'SMM dizayn', en:'Social design'},
-    {k:'pack', e:'📦', ru:'Упаковка', uz:'Upakovka', en:'Packaging'}
+    {k:'logo', e:'🧠', ru:'Логотип', uz:'Logo', tj:'Логотип', en:'Logo'},
+    {k:'brandbook', e:'📕', ru:'Брендбук', uz:'Brendbuk', tj:'Брендбук', en:'Brand book'},
+    {k:'social', e:'🧩', ru:'Дизайн соцсетей', uz:'SMM dizayn', tj:'Дизайни шабакаҳо', en:'Social design'},
+    {k:'pack', e:'📦', ru:'Упаковка', uz:'Upakovka', tj:'Бастабандӣ', en:'Packaging'}
   ],
   branding: [
-    {k:'naming', e:'✍️', ru:'Нейминг', uz:'Naming', en:'Naming'},
-    {k:'identity', e:'🧬', ru:'Айдентика', uz:'Identika', en:'Identity'},
-    {k:'guide', e:'📗', ru:'Гайдлайн', uz:'Guideline', en:'Guidelines'},
-    {k:'strategy', e:'🧭', ru:'Стратегия', uz:'Strategiya', en:'Strategy'}
+    {k:'naming', e:'✍️', ru:'Нейминг', uz:'Naming', tj:'Нейминг', en:'Naming'},
+    {k:'identity', e:'🧬', ru:'Айдентика', uz:'Identika', tj:'Айдентика', en:'Identity'},
+    {k:'guide', e:'📗', ru:'Гайдлайн', uz:'Guideline', tj:'Гайдлайн', en:'Guidelines'},
+    {k:'strategy', e:'🧭', ru:'Стратегия', uz:'Strategiya', tj:'Стратегия', en:'Strategy'}
   ],
   other: [
-    {k:'install', e:'🧰', ru:'Монтаж', uz:'Montaj', en:'Installation'},
-    {k:'delivery', e:'🚚', ru:'Доставка', uz:'Yetkazish', en:'Delivery'},
-    {k:'consult', e:'💬', ru:'Консультация', uz:'Konsultatsiya', en:'Consultation'},
-    {k:'other_services', e:'✨', ru:'Другое', uz:'Boshqa', en:'Other'}
+    {k:'install', e:'🧰', ru:'Монтаж', uz:'Montaj', tj:'Монтаж', en:'Installation'},
+    {k:'delivery', e:'🚚', ru:'Доставка', uz:'Yetkazish', tj:'Расондан', en:'Delivery'},
+    {k:'consult', e:'💬', ru:'Консультация', uz:'Konsultatsiya', tj:'Машварат', en:'Consultation'},
+    {k:'other_services', e:'✨', ru:'Другое', uz:'Boshqa', tj:'Дигар', en:'Other'}
   ]
 };
 
-/* ✅ Price list (can be edited) */
-const PRICE = {
-  bizcards: {std: 120000, prem: 180000},
-  flyers: {a6: 90000, a5: 140000},
-  stickers: {small: 80000, big: 160000},
-  catalogs: {base: 350000},
-
-  brochures: {a4: 160000},
-  posters: {a3: 120000},
-  packages: {base: 220000},
-  forms: {base: 110000},
-
-  smm: {month: 1500000},
-  target: {setup: 500000},
-  outdoor: {base: 900000},
-  promo: {base: 250000},
-
-  logo: {base: 700000},
-  brandbook: {base: 2500000},
-  social: {pack: 600000},
-  pack: {base: 900000},
-
-  naming: {base: 800000},
-  identity: {base: 1800000},
-  guide: {base: 1200000},
-  strategy: {base: 2200000},
-
-  install: {base: 300000},
-  delivery: {base: 50000},
-  consult: {base: 0},
-  other_services: {base: 0}
-};
-
-function mkName(ru, uz, en){ return {ru, uz, en}; }
+function mkName(ru, uz, en, tj){ return {ru, uz, en, tj}; }
 function imgOrDefault(path){ return path || 'images/logo.png'; }
 
 const SPEC_DEFAULTS = { deadline: "1–2 дня", format: "По запросу", qty: "По запросу", material: "По запросу", design: "Опционально" };
 
-/* ✅ SERVICES MENU */
+/* ✅ SERVICES MENU (цены оставили в данных, но UI их не показывает) */
 const MENU = { printing:[], poly:[], ads:[], design:[], branding:[], other:[] };
 
-function addService(cat, sub, img, nameRu, nameUz, nameEn, basePrice, spec){
+function addService(cat, sub, img, nameRu, nameUz, nameEn, basePrice, spec, nameTj){
   MENU[cat].push({
     id:`${cat}_${sub}_${MENU[cat].length}`,
     sub,
     p:Number(basePrice)||0,
     img: imgOrDefault(img),
-    n: mkName(nameRu, nameUz, nameEn),
+    n: mkName(nameRu, nameUz, nameEn, nameTj || nameRu),
     spec:{
       model: nameEn,
       region: spec?.deadline || SPEC_DEFAULTS.deadline,
@@ -1450,43 +1068,43 @@ function addService(cat, sub, img, nameRu, nameUz, nameEn, basePrice, spec){
 }
 
 /* printing */
-addService('printing','bizcards','images/print_business_cards.jpg','Визитки','Vizitkalar','Business cards', PRICE.bizcards.std, {deadline:'1 день', format:'90×50', qty:'от 100 шт', material:'мелованная бумага', design:'по желанию'});
-addService('printing','bizcards','images/print_business_cards.jpg','Визитки Премиум','Premium vizitka','Premium business cards', PRICE.bizcards.prem, {deadline:'1–2 дня', format:'90×50', qty:'от 100 шт', material:'плотный картон', design:'по желанию'});
-addService('printing','flyers','images/print_flyers.jpg','Листовки A6','A6 flyer','Flyers A6', PRICE.flyers.a6, {deadline:'1 день', format:'A6', qty:'от 500 шт', material:'мелованная бумага', design:'по желанию'});
-addService('printing','flyers','images/print_flyers.jpg','Листовки A5','A5 flyer','Flyers A5', PRICE.flyers.a5, {deadline:'1 день', format:'A5', qty:'от 500 шт', material:'мелованная бумага', design:'по желанию'});
-addService('printing','stickers','images/print_stickers.jpg','Наклейки (малые)','Kichik stikerlar','Stickers (small)', PRICE.stickers.small, {deadline:'1–2 дня', format:'по макету', qty:'от 100 шт', material:'винил/бумага', design:'по желанию'});
-addService('printing','stickers','images/print_stickers.jpg','Наклейки (большие)','Katta stikerlar','Stickers (large)', PRICE.stickers.big, {deadline:'1–2 дня', format:'по макету', qty:'от 50 шт', material:'винил', design:'по желанию'});
-addService('printing','catalogs','images/print_catalogs.jpg','Каталоги','Kataloglar','Catalogs', PRICE.catalogs.base, {deadline:'3–5 дней', format:'A4/A5', qty:'от 50 шт', material:'по запросу', design:'по желанию'});
+addService('printing','bizcards','images/print_business_cards.jpg','Визитки','Vizitkalar','Business cards', 0, {deadline:'1 день', format:'90×50', qty:'от 100 шт', material:'мелованная бумага', design:'по желанию'}, 'Визитка');
+addService('printing','bizcards','images/print_business_cards.jpg','Визитки Премиум','Premium vizitka','Premium business cards', 0, {deadline:'1–2 дня', format:'90×50', qty:'от 100 шт', material:'плотный картон', design:'по желанию'}, 'Визитка Премиум');
+addService('printing','flyers','images/print_flyers.jpg','Листовки A6','A6 flyer','Flyers A6', 0, {deadline:'1 день', format:'A6', qty:'от 500 шт', material:'мелованная бумага', design:'по желанию'}, 'Лифлет A6');
+addService('printing','flyers','images/print_flyers.jpg','Листовки A5','A5 flyer','Flyers A5', 0, {deadline:'1 день', format:'A5', qty:'от 500 шт', material:'мелованная бумага', design:'по желанию'}, 'Лифлет A5');
+addService('printing','stickers','images/print_stickers.jpg','Наклейки (малые)','Kichik stikerlar','Stickers (small)', 0, {deadline:'1–2 дня', format:'по макету', qty:'от 100 шт', material:'винил/бумага', design:'по желанию'}, 'Стикер (хурд)');
+addService('printing','stickers','images/print_stickers.jpg','Наклейки (большие)','Katta stikerlar','Stickers (large)', 0, {deadline:'1–2 дня', format:'по макету', qty:'от 50 шт', material:'винил', design:'по желанию'}, 'Стикер (калон)');
+addService('printing','catalogs','images/print_catalogs.jpg','Каталоги','Kataloglar','Catalogs', 0, {deadline:'3–5 дней', format:'A4/A5', qty:'от 50 шт', material:'по запросу', design:'по желанию'}, 'Каталог');
 
 /* poly */
-addService('poly','brochures','images/print_catalogs.jpg','Буклеты','Bukletlar','Brochures', PRICE.brochures.a4, {deadline:'1–2 дня', format:'A4 (fold)', qty:'от 200 шт', material:'мелованная бумага', design:'по желанию'});
-addService('poly','posters','images/print_banners.jpg','Плакаты','Plakatlar','Posters', PRICE.posters.a3, {deadline:'1 день', format:'A3/A2', qty:'от 10 шт', material:'плакатная бумага', design:'по желанию'});
-addService('poly','packages','images/other_services.jpg','Пакеты с логотипом','Logotipli paketlar','Branded bags', PRICE.packages.base, {deadline:'3–7 дней', format:'S/M/L', qty:'от 100 шт', material:'крафт/пластик', design:'обязательно'});
-addService('poly','forms','images/other_services.jpg','Бланки/счета','Blanklar','Forms & invoices', PRICE.forms.base, {deadline:'1 день', format:'A4', qty:'от 100 шт', material:'офисная бумага', design:'по желанию'});
+addService('poly','brochures','images/print_catalogs.jpg','Буклеты','Bukletlar','Brochures', 0, {deadline:'1–2 дня', format:'A4 (fold)', qty:'от 200 шт', material:'мелованная бумага', design:'по желанию'}, 'Буклет');
+addService('poly','posters','images/print_banners.jpg','Плакаты','Plakatlar','Posters', 0, {deadline:'1 день', format:'A3/A2', qty:'от 10 шт', material:'плакатная бумага', design:'по желанию'}, 'Плакат');
+addService('poly','packages','images/other_services.jpg','Пакеты с логотипом','Logotipli paketlar','Branded bags', 0, {deadline:'3–7 дней', format:'S/M/L', qty:'от 100 шт', material:'крафт/пластик', design:'обязательно'}, 'Халта бо логотип');
+addService('poly','forms','images/other_services.jpg','Бланки/счета','Blanklar','Forms & invoices', 0, {deadline:'1 день', format:'A4', qty:'от 100 шт', material:'офисная бумага', design:'по желанию'}, 'Бланк/ҳисоб');
 
 /* ads */
-addService('ads','smm','images/ads_smm.jpg','SMM ведение (месяц)','SMM (oy)','SMM management (month)', PRICE.smm.month, {deadline:'—', format:'контент-план', qty:'—', material:'—', design:'включено'});
-addService('ads','target','images/ads_target.jpg','Таргет настройка','Target sozlash','Target ads setup', PRICE.target.setup, {deadline:'1–2 дня', format:'Meta/Google', qty:'—', material:'—', design:'креативы по запросу'});
-addService('ads','outdoor','images/ads_outdoor.jpg','Наружная реклама','Tashqi reklama','Outdoor advertising', PRICE.outdoor.base, {deadline:'3–10 дней', format:'баннер/щит', qty:'—', material:'печать+монтаж', design:'по желанию'});
-addService('ads','promo','images/other_services.jpg','Промо-материалы','Promo materiallar','Promo materials', PRICE.promo.base, {deadline:'2–5 дней', format:'по запросу', qty:'по запросу', material:'по запросу', design:'по желанию'});
+addService('ads','smm','images/ads_smm.jpg','SMM ведение (месяц)','SMM (oy)','SMM management (month)', 0, {deadline:'—', format:'контент-план', qty:'—', material:'—', design:'включено'}, 'SMM (моҳ)');
+addService('ads','target','images/ads_target.jpg','Таргет настройка','Target sozlash','Target ads setup', 0, {deadline:'1–2 дня', format:'Meta/Google', qty:'—', material:'—', design:'креативы по запросу'}, 'Таргет танзим');
+addService('ads','outdoor','images/ads_outdoor.jpg','Наружная реклама','Tashqi reklama','Outdoor advertising', 0, {deadline:'3–10 дней', format:'баннер/щит', qty:'—', material:'печать+монтаж', design:'по желанию'}, 'Рекламаи берунӣ');
+addService('ads','promo','images/other_services.jpg','Промо-материалы','Promo materiallar','Promo materials', 0, {deadline:'2–5 дней', format:'по запросу', qty:'по запросу', material:'по запросу', design:'по желанию'}, 'Промо');
 
 /* design */
-addService('design','logo','images/design_logo.jpg','Логотип','Logo','Logo', PRICE.logo.base, {deadline:'2–5 дней', format:'AI/PNG/PDF', qty:'—', material:'—', design:'включено'});
-addService('design','brandbook','images/design_brandbook.jpg','Брендбук','Brendbuk','Brand book', PRICE.brandbook.base, {deadline:'7–14 дней', format:'PDF', qty:'—', material:'—', design:'включено'});
-addService('design','social','images/design_social.jpg','Дизайн для соцсетей (пакет)','SMM dizayn (paket)','Social design (pack)', PRICE.social.pack, {deadline:'2–4 дня', format:'post/story', qty:'10–20', material:'—', design:'включено'});
-addService('design','pack','images/other_services.jpg','Дизайн упаковки','Upakovka dizayni','Packaging design', PRICE.pack.base, {deadline:'3–7 дней', format:'по макету', qty:'—', material:'—', design:'включено'});
+addService('design','logo','images/design_logo.jpg','Логотип','Logo','Logo', 0, {deadline:'2–5 дней', format:'AI/PNG/PDF', qty:'—', material:'—', design:'включено'}, 'Логотип');
+addService('design','brandbook','images/design_brandbook.jpg','Брендбук','Brendbuk','Brand book', 0, {deadline:'7–14 дней', format:'PDF', qty:'—', material:'—', design:'включено'}, 'Брендбук');
+addService('design','social','images/design_social.jpg','Дизайн для соцсетей (пакет)','SMM dizayn (paket)','Social design (pack)', 0, {deadline:'2–4 дня', format:'post/story', qty:'10–20', material:'—', design:'включено'}, 'Дизайни шабакаҳо (пакет)');
+addService('design','pack','images/other_services.jpg','Дизайн упаковки','Upakovka dizayni','Packaging design', 0, {deadline:'3–7 дней', format:'по макету', qty:'—', material:'—', design:'включено'}, 'Дизайни бастабандӣ');
 
 /* branding */
-addService('branding','naming','images/other_services.jpg','Нейминг','Naming','Naming', PRICE.naming.base, {deadline:'3–7 дней', format:'варианты', qty:'—', material:'—', design:'—'});
-addService('branding','identity','images/other_services.jpg','Айдентика','Identika','Identity', PRICE.identity.base, {deadline:'7–14 дней', format:'гайд', qty:'—', material:'—', design:'включено'});
-addService('branding','guide','images/other_services.jpg','Гайдлайн','Guideline','Guidelines', PRICE.guide.base, {deadline:'7–10 дней', format:'PDF', qty:'—', material:'—', design:'включено'});
-addService('branding','strategy','images/other_services.jpg','Маркетинг стратегия','Strategiya','Marketing strategy', PRICE.strategy.base, {deadline:'10–20 дней', format:'документ', qty:'—', material:'—', design:'—'});
+addService('branding','naming','images/other_services.jpg','Нейминг','Naming','Naming', 0, {deadline:'3–7 дней', format:'варианты', qty:'—', material:'—', design:'—'}, 'Нейминг');
+addService('branding','identity','images/other_services.jpg','Айдентика','Identika','Identity', 0, {deadline:'7–14 дней', format:'гайд', qty:'—', material:'—', design:'включено'}, 'Айдентика');
+addService('branding','guide','images/other_services.jpg','Гайдлайн','Guideline','Guidelines', 0, {deadline:'7–10 дней', format:'PDF', qty:'—', material:'—', design:'включено'}, 'Гайдлайн');
+addService('branding','strategy','images/other_services.jpg','Маркетинг стратегия','Strategiya','Marketing strategy', 0, {deadline:'10–20 дней', format:'документ', qty:'—', material:'—', design:'—'}, 'Стратегияи маркетинг');
 
 /* other */
-addService('other','install','images/other_services.jpg','Монтаж','Montaj','Installation', PRICE.install.base, {deadline:'по записи', format:'—', qty:'—', material:'по запросу', design:'—'});
-addService('other','delivery','images/other_services.jpg','Доставка','Yetkazish','Delivery', PRICE.delivery.base, {deadline:'в течение дня', format:'—', qty:'—', material:'—', design:'—'});
-addService('other','consult','images/other_services.jpg','Консультация','Konsultatsiya','Consultation', PRICE.consult.base, {deadline:'быстро', format:'—', qty:'—', material:'—', design:'—'});
-addService('other','other_services','images/other_services.jpg','Другие услуги','Boshqa xizmatlar','Other services', PRICE.other_services.base, {deadline:'по запросу', format:'—', qty:'—', material:'—', design:'—'});
+addService('other','install','images/other_services.jpg','Монтаж','Montaj','Installation', 0, {deadline:'по записи', format:'—', qty:'—', material:'по запросу', design:'—'}, 'Монтаж');
+addService('other','delivery','images/other_services.jpg','Доставка','Yetkazish','Delivery', 0, {deadline:'в течение дня', format:'—', qty:'—', material:'—', design:'—'}, 'Расондан');
+addService('other','consult','images/other_services.jpg','Консультация','Konsultatsiya','Consultation', 0, {deadline:'быстро', format:'—', qty:'—', material:'—', design:'—'}, 'Машварат');
+addService('other','other_services','images/other_services.jpg','Другие услуги','Boshqa xizmatlar','Other services', 0, {deadline:'по запросу', format:'—', qty:'—', material:'—', design:'—'}, 'Хизматҳои дигар');
 
 const ITEM_INDEX = {};
 for (const c in MENU){ MENU[c].forEach(it => ITEM_INDEX[it.id]=it); }
@@ -1497,33 +1115,20 @@ const POPULAR = [
   MENU.ads.find(x=>x.sub==='target')?.id
 ].filter(Boolean);
 
-const GIFT_ITEMS = [
-  MENU.printing.find(x=>x.sub==='stickers')?.id,
-  MENU.poly.find(x=>x.sub==='posters')?.id,
-  MENU.design.find(x=>x.sub==='social')?.id
-].filter(Boolean);
-
-const SALE_ITEMS = [
-  MENU.printing.find(x=>x.n?.ru?.includes('Визитки'))?.id,
-  MENU.printing.find(x=>x.n?.ru?.includes('Листовки A6'))?.id
-].filter(Boolean);
-
 let lang='ru',
     category = localStorage.getItem('impact_cat') || 'printing',
     subcat   = localStorage.getItem('impact_subcat') || (SUBCATS[category]?.[0]?.k || ''),
-    payment='cash',
     cart={};
 
 if(!MENU[category]) category='printing';
 if(!SUBCATS[category]?.some(s=>s.k===subcat)) subcat = (SUBCATS[category]?.[0]?.k || '');
 
 function escapeHtml(s){return String(s).replace(/[&<>"']/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));}
-function nameOf(id){const it = ITEM_INDEX[id]; return (it && it.n && (it.n[lang] || it.n.ru)) ? (it.n[lang] || it.n.ru) : id;}
-function formatSum(x){const n = Number(x) || 0; return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g,' ');}
-function priceText(p){
-  const n = Number(p)||0;
-  if(n>0) return `${formatSum(n)} ${UI[lang].sum}`;
-  return UI[lang].priceAsk;
+function nameOf(id){
+  const it = ITEM_INDEX[id];
+  if(!it || !it.n) return id;
+  if(lang==='tj') return it.n.tj || it.n.ru || id;
+  return (it.n[lang] || it.n.ru || id);
 }
 
 /* ✅ SEARCH */
@@ -1549,7 +1154,7 @@ function onSearchKey(e){ if(e.key==='Enter') closeSearch(); }
 
 function matchesQuery(it,q){
   if(!q) return true;
-  const all=[it.n?.ru,it.n?.uz,it.n?.en,String(it.id||''),String(it.sub||''),String(category||'')].filter(Boolean).join(' ').toLowerCase();
+  const all=[it.n?.ru,it.n?.uz,it.n?.tj,it.n?.en,String(it.id||''),String(it.sub||''),String(category||'')].filter(Boolean).join(' ').toLowerCase();
   return all.includes(q);
 }
 function searchProducts(){
@@ -1561,7 +1166,6 @@ function searchProducts(){
   for(const c in MENU){
     MENU[c].forEach(it=>{
       if(matchesQuery(it,q)){
-        cart[it.id]=cart[it.id]||0;
         products.innerHTML += cardHTML(it);
         found++;
       }
@@ -1572,9 +1176,9 @@ function searchProducts(){
       ${UI[lang].nothingFound}
     </div>`;
   }
-  updateTotal();
 }
 
+/* menu open/close */
 function openTopMenu(){ closeSearch(); menuBackdrop.classList.add('show'); menuSheet.classList.add('show'); }
 function closeTopMenu(){ menuBackdrop.classList.remove('show'); menuSheet.classList.remove('show'); }
 
@@ -1619,6 +1223,7 @@ function closeSubcats(){
 }
 function subLabel(s){
   if(lang==='uz') return s.uz;
+  if(lang==='tj') return s.tj || s.ru;
   if(lang==='en') return s.en;
   return s.ru;
 }
@@ -1646,20 +1251,13 @@ function pickSubcat(k){
   Telegram.WebApp.HapticFeedback?.notificationOccurred?.('success');
 }
 
-/* cards */
+/* ✅ cards (убрали цену и +/-) */
 function cardHTML(it){
   const id=it.id;
-  const qty=cart[id]||0;
   return `
-  <div class="card">
-    <div class="img"><img src="${it.img}" onerror="this.src='images/logo.png'" onclick="openImage(event,'${id}')"></div>
+  <div class="card" onclick="openServiceConsult(event,'${id}')">
+    <div class="img"><img src="${it.img}" onerror="this.src='images/logo.png'"></div>
     <div class="item-name">${escapeHtml(nameOf(id))}</div>
-    <div class="price">${priceText(it.p)}</div>
-    <div class="counter">
-      <button onclick="chg('${id}',-1)">−</button>
-      <span id="c_${id}">${qty}</span>
-      <button onclick="chg('${id}',1)">+</button>
-    </div>
   </div>`;
 }
 
@@ -1675,154 +1273,105 @@ function renderProducts(){
     products.innerHTML = `<div style="grid-column:1/-1;text-align:center;padding:18px;font-weight:900;opacity:.9;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.10);border-radius:18px;color:#E5E7EB;">
       ${UI[lang].noItems}
     </div>`;
-    updateTotal();
     return;
   }
 
   list.forEach(it=>{
-    cart[it.id]=cart[it.id]||0;
     products.innerHTML += cardHTML(it);
   });
-
-  updateTotal();
 }
 
-/* carousels */
-function popCardHTML(it, prefix){
+/* ✅ Popular carousel (без цены и +/-) */
+function popCardHTML(it){
   const id=it.id;
-  const px = prefix || 'pc_';
   return `
-  <div class="pop-card" onclick="onCardClick(event,'${id}')">
-    <div class="pop-img" onclick="openImage(event,'${id}')"><img src="${it.img}" onerror="this.src='images/logo.png'"></div>
+  <div class="pop-card" onclick="openServiceConsult(event,'${id}')">
+    <div class="pop-img"><img src="${it.img}" onerror="this.src='images/logo.png'"></div>
     <div class="pop-name">${escapeHtml(nameOf(id))}</div>
-    <div class="pop-price">${priceText(it.p)}</div>
-    <div class="pop-counter">
-      <button type="button" onclick="chgFrom(event,'${id}',-1)">−</button>
-      <span id="${px}${id}">${cart[id]||0}</span>
-      <button type="button" onclick="chgFrom(event,'${id}',1)">+</button>
-    </div>
   </div>`;
-}
-function miniCardHTML(it){
-  const id=it.id;
-  return `
-  <div class="mini-card" onclick="onCardClick(event,'${id}')">
-    <div class="mini-img" onclick="openImage(event,'${id}')"><img src="${it.img}" onerror="this.src='images/logo.png'"></div>
-    <div class="mini-name">${escapeHtml(nameOf(id))}</div>
-    <div class="mini-price">${priceText(it.p)}</div>
-    <div class="mini-counter">
-      <button type="button" onclick="chgFrom(event,'${id}',-1)">−</button>
-      <span id="mc_${id}">${cart[id]||0}</span>
-      <button type="button" onclick="chgFrom(event,'${id}',1)">+</button>
-    </div>
-  </div>`;
-}
-
-function renderSale(){
-  saleRow.innerHTML='';
-  if(!SALE_ITEMS.length){ saleWrap.style.display='none'; return; }
-  saleWrap.style.display='block';
-  SALE_ITEMS.forEach(id=>{
-    const it=ITEM_INDEX[id]; if(!it) return;
-    cart[id]=cart[id]||0;
-    saleRow.innerHTML += popCardHTML(it, 'sc_');
-  });
 }
 function renderPopular(){
   popularRow.innerHTML='';
   POPULAR.forEach(id=>{
     const it=ITEM_INDEX[id]; if(!it) return;
-    cart[id]=cart[id]||0;
-    popularRow.innerHTML += popCardHTML(it, 'pc_');
-  });
-}
-function renderGift(){
-  giftRow.innerHTML='';
-  GIFT_ITEMS.forEach(id=>{
-    const it=ITEM_INDEX[id]; if(!it) return;
-    cart[id]=cart[id]||0;
-    giftRow.innerHTML += miniCardHTML(it);
+    popularRow.innerHTML += popCardHTML(it);
   });
 }
 
-/* counters + totals */
-function onCardClick(e,id){
-  if(e?.target?.closest?.('button')) return;
-  if(e?.target?.closest?.('.pop-img, .mini-img')) return;
-  chg(id,1);
+/* ✅ Consultation carousel (вместо Акции) */
+function consultCardHTML(){
+  return `
+  <div class="pop-card" onclick="openConsultModal(event)">
+    <div class="pop-img"><img src="images/logo.png" onerror="this.src='images/logo.png'"></div>
+    <div class="pop-name">${escapeHtml(UI[lang].consult)}</div>
+  </div>`;
 }
-function chgFrom(e,id,delta){
-  e?.preventDefault?.(); e?.stopPropagation?.();
-  chg(id,delta);
-}
-function syncCounters(id){
-  const a=document.getElementById('pc_'+id); if(a) a.innerText=cart[id]||0;
-  const b=document.getElementById('mc_'+id); if(b) b.innerText=cart[id]||0;
-  const c=document.getElementById('c_'+id);  if(c) c.innerText=cart[id]||0;
-  const s=document.getElementById('sc_'+id); if(s) s.innerText=cart[id]||0;
-}
-function calcItemsSum(){
-  let s=0;
-  for(const id in cart){
-    const qty = Number(cart[id]||0);
-    const price = Number(ITEM_INDEX[id]?.p||0);
-    s += qty * price;
-  }
-  return s;
-}
-function updateTotal(){
-  const itemsSum = calcItemsSum();
-  total.innerText = formatSum(itemsSum);
-  grandTotal.innerText = formatSum(itemsSum);
-  stickyTotal.innerText = formatSum(itemsSum);
-}
-function chg(id,delta){
-  cart[id]=Math.max(0,(cart[id]||0)+delta);
-  syncCounters(id);
-  updateTotal();
+function renderConsult(){
+  consultTitle.innerText = UI[lang].consult;
+  consultRow.innerHTML = consultCardHTML();
 }
 
-/* payment */
-function setPayment(p){
-  payment=p;
-  payCash.classList.toggle('active', p==='cash');
-  payClick.classList.toggle('active', p==='click');
-  payOnline.classList.toggle('active', p==='online');
-  onlineBox.style.display = (p==='online') ? 'block' : 'none';
-  clickBox.style.display  = (p==='click')  ? 'block' : 'none';
+/* ✅ Consultation modal actions */
+function openConsultModal(e){
+  try{e?.preventDefault?.();e?.stopPropagation?.();}catch(_){}
+  closeTopMenu();
+  const ph = UI[lang].consultPh || "Например 1000шт визиток";
+  consultInput.placeholder = ph;
+  consultInput.value = '';
+  consultSendBtn.innerText = UI[lang].consultSend;
+  consultCancelBtn.innerText = UI[lang].consultCancel;
+  consultHint.innerText = (lang==='ru') ? "Запрос уйдёт администратору. Мы ответим вам в Telegram."
+                    : (lang==='uz') ? "So‘rov adminga yuboriladi. Sizga Telegram’da javob beramiz."
+                    : (lang==='tj') ? "Дархост ба админ меравад. Мо дар Telegram ҷавоб медиҳем."
+                    : "Request will be sent to admin. We will reply in Telegram.";
+  consultModal.classList.add('show');
+  setTimeout(()=>{ try{ consultInput.focus(); }catch(_){ } }, 80);
+}
+function closeConsultModal(e){
+  try{e?.preventDefault?.();e?.stopPropagation?.();}catch(_){}
+  consultModal.classList.remove('show');
 }
 
-/* cart */
-function openCart(){
-  const el=document.getElementById('cartBox');
-  syncStickyHeight();
-  try{ el.scrollIntoView({behavior:'smooth', block:'start'}); }catch(_){}
-}
-
-/* image modal */
-function openImage(e,id){
-  try{e.preventDefault();e.stopPropagation();}catch(_){}
+/* ✅ При клике на услугу — открываем консультацию с автотекстом */
+function openServiceConsult(e,id){
+  try{e?.preventDefault?.();e?.stopPropagation?.();}catch(_){}
   const it = ITEM_INDEX[id];
-
-  imgModalTitle.innerText = nameOf(id);
-  imgModalImg.src = it?.img || 'images/logo.png';
-  imgModalImg.onerror=function(){this.onerror=null;this.src='images/logo.png';};
-
-  const spec = it?.spec || {};
-  document.getElementById('specModel').innerText   = spec.model   || nameOf(id) || '—';
-  document.getElementById('specRegion').innerText  = spec.region  || '—';
-  document.getElementById('specColor').innerText   = spec.color   || '—';
-  document.getElementById('specMemory').innerText  = spec.memory  || '—';
-  document.getElementById('specBattery').innerText = spec.battery || '—';
-  document.getElementById('specUzime').innerText   = spec.uzime   || '—';
-  document.getElementById('specPrice').innerText   = priceText(it?.p);
-
-  imgModal.classList.add('show');
+  openConsultModal();
+  const name = it ? nameOf(id) : '';
+  const base = UI[lang].consultPh || '';
+  consultInput.value = name ? (name + " — " + base) : base;
 }
-function closeImgModal(e){
-  try{e.preventDefault();e.stopPropagation();}catch(_){}
-  imgModal.classList.remove('show');
-  imgModalImg.src='';
+
+/* ✅ Отправка консультации админу */
+function sendConsultFromCarousel(e){
+  try{e?.preventDefault?.();e?.stopPropagation?.();}catch(_){}
+  const text = (consultInput.value || '').trim();
+  if(!text){
+    showToast(UI[lang].consultEmpty);
+    return;
+  }
+
+  const payload = {
+    action:'consultation',
+    to_admin_id: ADMIN_ID,
+    brand:'IMPACT',
+    branch:'main',
+    branch_title:'IMPACT',
+    branch_address: (lang==='uz') ? MAIN_ADDRESS_UZ : (lang==='tj') ? MAIN_ADDRESS_TJ : (lang==='en') ? MAIN_ADDRESS_EN : MAIN_ADDRESS_RU,
+    tg:{id:tg_id,username:tg_username,first_name:tg_first_name},
+    text,
+    time: new Date().toISOString()
+  };
+
+  try{
+    Telegram.WebApp.HapticFeedback?.notificationOccurred?.('success');
+    Telegram.WebApp.sendData(JSON.stringify(payload));
+    showToast(UI[lang].consultSent);
+    closeConsultModal();
+  }catch(_){
+    showToast("✅");
+    closeConsultModal();
+  }
 }
 
 /* toasts */
@@ -1831,108 +1380,28 @@ function showToast(t){
   popup.classList.add('show');
   popupText.innerText = t || "✅";
   clearTimeout(toastTimer);
-  toastTimer=setTimeout(()=>popup.classList.remove('show'), 1200);
+  toastTimer=setTimeout(()=>popup.classList.remove('show'), 1400);
 }
 
-/* branch + about */
-function toggleBranch(e){
-  try{e?.preventDefault?.();e?.stopPropagation?.();}catch(_){}
-  const w=document.getElementById('branchWrap');
-  w.style.display=(w.style.display==='none'||!w.style.display)?'block':'none';
-  syncBranchUI();
-}
-function syncBranchUI(){
-  const a=document.getElementById('branchMakon');
-  const b=document.getElementById('branchBulvar');
-  if(a) a.classList.toggle('active', branch==='main');
-  if(b) b.classList.toggle('active', branch==='pickup');
-}
-function applyBranchToUI(){
-  const aboutAddrText=document.getElementById('aboutAddrText');
-  if(aboutAddrText) aboutAddrText.innerText = branchAddressForLang();
-
-  const d=document.getElementById('aboutDescText');
-  if(d){
-    const addr = branchAddressForLang();
-    d.innerHTML =
-      (lang==='ru' ? `IMPACT — рекламное агентство в Самарканде.<br>Типография, полиграфия, дизайн, брендинг, SMM и таргет.<br><br><b>📍 Адрес:</b> ${addr}<br><b>🕒 График:</b> ${ABOUT_HOURS}`
-      : lang==='uz' ? `IMPACT — Samarqandda reklama agentligi.<br>Tipografiya, poligrafiya, dizayn, brending, SMM va target.<br><br><b>📍 Manzil:</b> ${addr}<br><b>🕒 Ish vaqti:</b> ${ABOUT_HOURS}`
-      : `IMPACT — advertising agency in Samarkand.<br>Printing, design, branding, SMM and target ads.<br><br><b>📍 Address:</b> ${addr}<br><b>🕒 Hours:</b> ${ABOUT_HOURS}`);
-  }
-
-  const am=document.getElementById('addrMakonMini');
-  const ab=document.getElementById('addrBulvarMini');
-  if(am) am.innerText = BRANCHES.main.addressRU;
-  if(ab) ab.innerText = BRANCHES.pickup.addressRU;
-}
+/* about */
 function toggleAbout(){
   const w=document.getElementById('aboutWrap');
   w.style.display=(w.style.display==='none'||!w.style.display)?'block':'none';
 }
-
-/* vip */
-let needHelp = (localStorage.getItem('impact_need_help')||'0')==='1';
-function toggleVip(e){
-  try{e?.preventDefault?.();e?.stopPropagation?.();}catch(_){}
-  const w=document.getElementById('vipWrap');
-  w.style.display=(w.style.display==='none'||!w.style.display)?'block':'none';
-  syncNeedHelpUI();
-}
-function toggleNeedHelp(){
-  needHelp = !needHelp;
-  localStorage.setItem('impact_need_help', needHelp ? '1' : '0');
-  syncNeedHelpUI();
-}
-function syncNeedHelpUI(){
-  const sw = document.getElementById('vipSwitch');
-  if(sw){
-    sw.style.background = needHelp ? 'rgba(59,130,246,.55)' : 'rgba(255,255,255,.10)';
-    if(!sw.dataset.init){
-      sw.dataset.init='1';
-      const dot=document.createElement('div');
-      dot.style.cssText="position:absolute;top:3px;left:3px;width:24px;height:24px;border-radius:999px;background:#fff;box-shadow:0 10px 18px rgba(0,0,0,.55);transition:.18s;";
-      dot.id='vipDot';
-      sw.appendChild(dot);
-    }
-    const dot=document.getElementById('vipDot');
-    if(dot) dot.style.left = needHelp ? '25px' : '3px';
-  }
-  const btn = document.getElementById('vipSendBtn');
-  if(btn){
-    btn.style.opacity = needHelp ? '1' : '.45';
-    btn.style.pointerEvents = needHelp ? 'auto' : 'none';
-  }
-}
-function sendConsult(e){
-  try{e.preventDefault();e.stopPropagation();}catch(_){}
-  if(!needHelp) return;
-
-  const question = (document.getElementById('vipQuestion')?.value || '').trim();
-  if(!question){
-    showToast(lang==='ru'?'Напишите вопрос':lang==='uz'?'Savol yozing':'Type your question');
-    return;
+function applyAboutToUI(){
+  const aboutAddrText=document.getElementById('aboutAddrText');
+  if(aboutAddrText){
+    aboutAddrText.innerText = (lang==='uz') ? MAIN_ADDRESS_UZ : (lang==='tj') ? MAIN_ADDRESS_TJ : (lang==='en') ? MAIN_ADDRESS_EN : MAIN_ADDRESS_RU;
   }
 
-  const payload = {
-    action:'consultation',
-    to_admin_id: ADMIN_ID,
-    brand:'IMPACT',
-    branch,
-    branch_title: branchTitleForLang(),
-    branch_address: branchAddressForLang(),
-    tg:{id:tg_id,username:tg_username,first_name:tg_first_name},
-    text: question,
-    time: new Date().toISOString()
-  };
-
-  try{
-    Telegram.WebApp.HapticFeedback?.notificationOccurred?.('success');
-    Telegram.WebApp.sendData(JSON.stringify(payload));
-    showToast(UI[lang].consultSent);
-    document.getElementById('vipQuestion').value='';
-    closeTopMenu();
-  }catch(_){
-    showToast("✅");
+  const d=document.getElementById('aboutDescText');
+  if(d){
+    const addr = (lang==='uz') ? MAIN_ADDRESS_UZ : (lang==='tj') ? MAIN_ADDRESS_TJ : (lang==='en') ? MAIN_ADDRESS_EN : MAIN_ADDRESS_RU;
+    d.innerHTML =
+      (lang==='ru' ? `IMPACT — рекламное агентство в Самарканде.<br>Типография, полиграфия, дизайн, брендинг, SMM и таргет.<br><br><b>📍 Адрес:</b> ${addr}<br><b>🕒 График:</b> ${ABOUT_HOURS}`
+      : lang==='uz' ? `IMPACT — Samarqandda reklama agentligi.<br>Tipografiya, poligrafiya, dizayn, brending, SMM va target.<br><br><b>📍 Manzil:</b> ${addr}<br><b>🕒 Ish vaqti:</b> ${ABOUT_HOURS}`
+      : lang==='tj' ? `IMPACT — агентии реклама дар Самарқанд.<br>Типография, полиграфия, дизайн, брендинг, SMM ва таргет.<br><br><b>📍 Суроға:</b> ${addr}<br><b>🕒 Соатҳо:</b> ${ABOUT_HOURS}`
+      : `IMPACT — advertising agency in Samarkand.<br>Printing, design, branding, SMM and target ads.<br><br><b>📍 Address:</b> ${addr}<br><b>🕒 Hours:</b> ${ABOUT_HOURS}`);
   }
 }
 
@@ -1950,20 +1419,8 @@ function renderWelcome(){
 function applyUI(){
   menuTitle.innerText = UI[lang].menu;
 
-  mBranchTitle.innerText = UI[lang].branchPick;
-  mBranchSub.innerText   = UI[lang].branchSub;
-
   mCallTitle.innerText = UI[lang].callTitle;
   mCallSub.innerText   = UI[lang].callSub;
-
-  mVipTitle.innerText = UI[lang].vipTitle;
-  mVipSub.innerText = UI[lang].vipSub;
-  vipToggleTitle.innerText = UI[lang].vipToggleTitle;
-  vipToggleSub.innerText = UI[lang].vipToggleSub;
-  vipSendBtn.innerText = UI[lang].vipCall;
-  vipCloseBtn.innerText = UI[lang].vipClose;
-  vipHint.innerText = UI[lang].vipHint;
-  vipQuestion.placeholder = UI[lang].vipPh;
 
   mInstaSub1.innerText = UI[lang].instaSub;
   const tgSubEl = document.getElementById('mTgSub');
@@ -1983,62 +1440,22 @@ function applyUI(){
   searchTitle.innerText = UI[lang].searchResults;
   searchInput.placeholder = UI[lang].searchPh;
 
-  saleTitle.innerText = UI[lang].sale;
   popularTitle.innerText = UI[lang].popular;
-  giftTitle.innerText = UI[lang].gift;
-
-  cartTitle.innerText = UI[lang].cart;
-  totalLabel.innerText = UI[lang].total;
-  orderBtn.innerText = UI[lang].order;
-  comment.placeholder = UI[lang].comment;
-
-  payCash.innerText = UI[lang].cash;
-  payClick.innerText = UI[lang].click;
-  payOnline.innerText = UI[lang].online;
-
-  clickTitle.innerText = UI[lang].clickTitle;
-  clickHint.innerText = UI[lang].clickHint;
-
-  sumCurrency.innerText = UI[lang].sum;
-  sumWord.innerText = UI[lang].sum;
-  sumWord2.innerText = UI[lang].sum;
-
-  recipLabel.innerText = UI[lang].recip;
-  cardLabel.innerText = UI[lang].card;
-  copyRecip.innerText = UI[lang].copy;
-  copyCard.innerText = UI[lang].copy;
-  onlineHint.innerText = UI[lang].onlineHint;
-
-  stickyCartBtn.innerText = UI[lang].cart;
 
   const headerSub1 = document.getElementById('branchTitle');
   const headerSub2 = document.getElementById('branchTitle2');
   if(headerSub1) headerSub1.innerText = UI[lang].brandSub1;
   if(headerSub2) headerSub2.innerText = UI[lang].brandSub2;
 
-  /* ✅ spec labels */
-  document.getElementById('kModel').innerText = UI[lang].kModel;
-  document.getElementById('kRegion').innerText = UI[lang].kRegion;
-  document.getElementById('kColor').innerText = UI[lang].kColor;
-  document.getElementById('kMemory').innerText = UI[lang].kMemory;
-  document.getElementById('kBattery').innerText = UI[lang].kBattery;
-  document.getElementById('kUzime').innerText = UI[lang].kUzime;
-  document.getElementById('kPrice').innerText = UI[lang].kPrice;
-
   renderWelcome();
-  applyBranchToUI();
-  syncBranchUI();
+  applyAboutToUI();
 
+  renderConsult();
   renderCats();
   renderSubcatsSheet();
-  renderSale();
   renderPopular();
-  renderGift();
 
   if(isSearchOpen()) searchProducts(); else renderProducts();
-  updateTotal();
-
-  setTimeout(syncStickyHeight, 50);
 }
 
 function setLang(l,btn){
@@ -2046,66 +1463,6 @@ function setLang(l,btn){
   document.querySelectorAll('.langs .btn').forEach(b=>b.classList.remove('active'));
   btn.classList.add('active');
   applyUI();
-}
-
-/* order */
-function genOrderId(){
-  const d=new Date();
-  const dd=String(d.getDate()).padStart(2,'0');
-  const mm=String(d.getMonth()+1).padStart(2,'0');
-  const key=`impact_seq_${d.getFullYear()}${mm}${dd}`;
-  let n=Number(localStorage.getItem(key)||0)+1;
-  localStorage.setItem(key,String(n));
-  return `IMP-${dd}${mm}-${String(n).padStart(3,'0')}`;
-}
-function sendOrder(){
-  const items=[];
-  for(const id in cart){
-    const qty=Number(cart[id]||0);
-    if(qty>0){
-      const it=ITEM_INDEX[id]||{};
-      items.push({
-        id, qty, price:it.p||0,
-        name_ru:it.n?.ru||id,
-        name_lang:nameOf(id),
-        sub: it.sub || '',
-        spec: it.spec || {}
-      });
-    }
-  }
-  if(items.length===0){ alert(UI[lang].empty); return; }
-
-  const itemsSum=calcItemsSum();
-
-  const payload={
-    action:'order',
-    brand:'IMPACT',
-    branch,
-    branch_title: branchTitleForLang(),
-    branch_address: branchAddressForLang(),
-    tg:{id:tg_id,username:tg_username,first_name:tg_first_name},
-    items,
-    total_items: formatSum(itemsSum),
-    total_with_delivery: formatSum(itemsSum),
-    total_num: itemsSum,
-    payment,
-    phone: localStorage.getItem('impact_phone') || '',
-    comment:comment.value,
-    order_id: genOrderId(),
-    lang,
-    category,
-    subcat
-  };
-
-  popup.classList.add('show');
-  popupText.innerText = "✅";
-
-  setTimeout(()=>{
-    try{
-      Telegram.WebApp.sendData(JSON.stringify(payload));
-      Telegram.WebApp.close();
-    }catch(_){}
-  },700);
 }
 
 /* init */
@@ -2118,20 +1475,10 @@ lang='ru';
 document.querySelectorAll('.langs .btn').forEach(b=>b.classList.remove('active'));
 document.getElementById('langRU')?.classList.add('active');
 
-phone.value = localStorage.getItem('impact_phone') || PHONE1_DISPLAY;
-phone.addEventListener('input',()=>localStorage.setItem('impact_phone',phone.value));
-
-setPayment('cash');
-
+renderConsult();
 renderCats();
-renderSale();
 renderPopular();
-renderGift();
-
-syncNeedHelpUI();
 applyUI();
-updateTotal();
-setTimeout(syncStickyHeight, 50);
 
 closeSearch();
 
@@ -2144,6 +1491,16 @@ cats.addEventListener('click', (e)=>{
     openSubcats();
   }
 });
+
+/* legacy функций (оставлены, но не используются) */
+function toggleBranch(){ /* скрыто */ }
+function chooseBranchAndRoute(){ /* скрыто */ }
+function toggleVip(){ /* скрыто */ }
+function toggleNeedHelp(){ /* скрыто */ }
+function sendConsult(){ /* скрыто */ }
+function setPayment(){ /* скрыто */ }
+function sendOrder(){ /* скрыто */ }
+
 </script>
 </body>
 </html>
