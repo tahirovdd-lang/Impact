@@ -131,6 +131,15 @@ body{
   line-height:1.15;
   color:rgba(255,255,255,.82);
 }
+.brand-title3{
+  font-family: Inter, -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, Arial, sans-serif;
+  font-weight:900;
+  font-size:13px;
+  letter-spacing:1.1px;
+  line-height:1.15;
+  color:rgba(255,255,255,.78);
+}
+
 .brand-phone{margin-top:2px;display:flex;flex-direction:column;gap:2px;}
 .brand-phone a{color:rgba(255,255,255,.92);text-decoration:none;font-size:14px;font-weight:800;}
 
@@ -207,7 +216,15 @@ body{
 }
 
 /* category buttons */
-.cat-btn{padding:12px 18px;min-width:132px;font-size:14px;border-radius:999px;}
+.cat-btn{padding:12px 18px;min-width:132px;font-size:14px;border-radius:999px;display:flex;align-items:center;justify-content:center;gap:10px;}
+.cat-ic{
+  width:26px;height:26px;border-radius:10px;
+  object-fit:cover;
+  border:1px solid rgba(255,255,255,.14);
+  background:rgba(255,255,255,.06);
+  box-shadow:0 10px 18px rgba(0,0,0,.40);
+  flex:0 0 auto;
+}
 
 /* ✅ language buttons narrower + flags */
 .langs .btn{
@@ -665,7 +682,14 @@ textarea.input{height:90px;}
   color:#fff;
   border:1px solid rgba(255,255,255,.22);
 }
-.sub-emoji{font-size:22px;line-height:1;}
+.sub-emoji{font-size:22px;line-height:1;display:flex;align-items:center;justify-content:center;}
+.sub-logo{
+  width:28px;height:28px;border-radius:12px;
+  object-fit:cover;
+  border:1px solid rgba(255,255,255,.14);
+  background:rgba(255,255,255,.06);
+  box-shadow:0 10px 18px rgba(0,0,0,.40);
+}
 .sub-txt{font-size:11px;line-height:1.15;word-break:break-word;opacity:.95;}
 
 @media (max-width:520px){
@@ -731,14 +755,6 @@ textarea.input{height:90px;}
   ads_target.jpg
   ads_outdoor.jpg
   other_services.jpg
-
-  ✅ НОВОЕ (иконки категорий как фото):
-  cat_printing.jpg
-  cat_poly.jpg
-  cat_ads.jpg
-  cat_design.jpg
-  cat_branding.jpg
-  cat_other.jpg
 -->
 
 <div class="header">
@@ -747,18 +763,14 @@ textarea.input{height:90px;}
   <div class="brand-wrap">
     <div class="brand-title">IMPACT</div>
 
-    <!-- ✅ Шапка: Рекламное агентство -->
+    <!-- ✅ Шапка: 1) Рекламное агентство 2) Типография • Полиграфия -->
     <div class="brand-title2" id="branchTitle">РЕКЛАМНОЕ АГЕНТСТВО</div>
-
-    <!-- ✅ Ниже: Типография Полиграфия -->
-    <div class="brand-title2" id="branchSub2" style="letter-spacing:1.1px;opacity:.86;">
-      Типография • Полиграфия
-    </div>
+    <div class="brand-title3" id="branchTitle2">ТИПОГРАФИЯ • ПОЛИГРАФИЯ</div>
 
     <div class="welcome" id="welcomeLine" style="display:none;"></div>
 
+    <!-- ✅ Телефон в шапке -->
     <div class="brand-phone">
-      <!-- ✅ Новый номер -->
       <a href="tel:+998937289004" onclick="callPhone(event)">+998 (93) 728-90-04</a>
     </div>
   </div>
@@ -815,7 +827,6 @@ textarea.input{height:90px;}
       </div>
     </div>
 
-    <!-- ✅ Телефон в меню тоже новый -->
     <a class="menu-item" href="tel:+998937289004" onclick="closeTopMenu()">
       <div class="menu-left">
         <div class="menu-ic">📞</div>
@@ -860,8 +871,8 @@ textarea.input{height:90px;}
       </div>
     </div>
 
-    <!-- ✅ Instagram: @impactreklama (2 пункта меню оставил, но оба ведут туда же) -->
-    <a class="menu-item" href="#" onclick="openInstagram('main', event)">
+    <!-- ✅ Instagram один: @impactreklama -->
+    <a class="menu-item" href="#" onclick="openInstagram(event)">
       <div class="menu-left">
         <div class="menu-ic">📸</div>
         <div class="menu-txt">
@@ -872,21 +883,10 @@ textarea.input{height:90px;}
       <div class="menu-right">›</div>
     </a>
 
-    <a class="menu-item" href="#" onclick="openInstagram('pickup', event)">
+    <!-- ✅ Telegram channel: @impactreklama -->
+    <a class="menu-item" href="#" onclick="openTelegram(event)">
       <div class="menu-left">
-        <div class="menu-ic">📸</div>
-        <div class="menu-txt">
-          <div class="menu-name">@impactreklama</div>
-          <div class="menu-sub" id="mInstaSub2">Открыть Instagram</div>
-        </div>
-      </div>
-      <div class="menu-right">›</div>
-    </a>
-
-    <!-- ✅ Telegram channel -->
-    <a class="menu-item" href="#" onclick="openTelegramChannel(event)">
-      <div class="menu-left">
-        <div class="menu-ic">📢</div>
+        <div class="menu-ic">✈️</div>
         <div class="menu-txt">
           <div class="menu-name">@impactreklama</div>
           <div class="menu-sub" id="mTgSub">Открыть Telegram канал</div>
@@ -1106,12 +1106,10 @@ const ADMIN_ID = 6013591658;
 /* ✅ PHONES (обновлено) */
 const PHONE1_DISPLAY = "+998 (93) 728-90-04";
 const PHONE1_TEL = "tel:+998937289004";
-const PHONE2_DISPLAY = "";
-const PHONE2_TEL = "";
 
-/* ✅ Instagram / Telegram */
+/* ✅ SOCIAL (обновлено) */
 const INSTAGRAM_URL = "https://www.instagram.com/impactreklama/";
-const TG_CHANNEL_URL = "https://t.me/impactreklama";
+const TELEGRAM_URL  = "https://t.me/impactreklama";
 
 /* ✅ BRANCHES */
 const BRANCHES = {
@@ -1119,15 +1117,13 @@ const BRANCHES = {
     titleRU:"Главный офис", titleUZ:"Bosh ofis", titleEN:"Main office",
     addressRU:"г. Самарканд, ул. (укажите адрес)",
     addressUZ:"Samarqand, (manzilni yozing)",
-    addressEN:"Samarkand, (add address)",
-    insta: INSTAGRAM_URL,
+    addressEN:"Samarkand, (add address)"
   },
   pickup:{
     titleRU:"Пункт выдачи", titleUZ:"Topshirish punkti", titleEN:"Pickup point",
     addressRU:"г. Самарканд, ул. (укажите адрес)",
     addressUZ:"Samarqand, (manzilni yozing)",
-    addressEN:"Samarkand, (add address)",
-    insta: INSTAGRAM_URL,
+    addressEN:"Samarkand, (add address)"
   }
 };
 
@@ -1146,11 +1142,6 @@ function openReview(e){
   try{e?.preventDefault?.();e?.stopPropagation?.();}catch(_){}
   closeTopMenu();
   openLink(REVIEW_URL);
-}
-function openTelegramChannel(e){
-  try{e?.preventDefault?.();e?.stopPropagation?.();}catch(_){}
-  closeTopMenu();
-  openLink(TG_CHANNEL_URL);
 }
 function branchAddressForLang(){
   const b = BRANCHES[branch];
@@ -1182,10 +1173,6 @@ function chooseBranchAndRoute(code, e){
 function callPhone(e){ try{e.preventDefault();e.stopPropagation();}catch(_){}
   try{Telegram.WebApp.openLink(PHONE1_TEL);}catch(_){window.location.href=PHONE1_TEL;}
 }
-function callPhone2(e){ try{e.preventDefault();e.stopPropagation();}catch(_){}
-  if(!PHONE2_TEL) return;
-  try{Telegram.WebApp.openLink(PHONE2_TEL);}catch(_){window.location.href=PHONE2_TEL;}
-}
 function copyText(t){
   const text = String(t || "");
   if(!text) return;
@@ -1202,6 +1189,17 @@ function copyText(t){
     }
     Telegram.WebApp.HapticFeedback?.notificationOccurred?.('success');
   }catch(_){}
+}
+
+function openInstagram(e){
+  try{e?.preventDefault?.();e?.stopPropagation?.();}catch(_){}
+  closeTopMenu();
+  openLink(INSTAGRAM_URL);
+}
+function openTelegram(e){
+  try{e?.preventDefault?.();e?.stopPropagation?.();}catch(_){}
+  closeTopMenu();
+  openLink(TELEGRAM_URL);
 }
 
 const tgUser = Telegram.WebApp.initDataUnsafe?.user || {};
@@ -1239,11 +1237,8 @@ const UI = {
     clickTitle:'CLICK QR',
     clickHint:'Отсканируйте QR в приложении CLICK, затем нажмите «Оформить заявку».',
     welcome:'👋 Добро пожаловать',
-
-    /* ✅ Шапка */
-    brandSub:'РЕКЛАМНОЕ АГЕНТСТВО',
-    brandSub2:'Типография • Полиграфия',
-
+    brandSub1:'РЕКЛАМНОЕ АГЕНТСТВО',
+    brandSub2:'ТИПОГРАФИЯ • ПОЛИГРАФИЯ',
     subcats:'Подкатегории',
     priceAsk:'Цена уточняется',
     nothingFound:'Ничего не найдено',
@@ -1286,11 +1281,8 @@ const UI = {
     clickTitle:'CLICK QR',
     clickHint:"CLICK ilovasida QR ni skaner qiling, so‘ng “Ariza yuborish”ni bosing.",
     welcome:'👋 Xush kelibsiz',
-
-    /* ✅ Шапка */
-    brandSub:'REKLAMA AGENTLIGI',
-    brandSub2:'Tipografiya • Poligrafiya',
-
+    brandSub1:'REKLAMA AGENTLIGI',
+    brandSub2:'TIPOGRAFIYA • POLIGRAFIYA',
     subcats:'Subkategoriyalar',
     priceAsk:'Narx kelishiladi',
     nothingFound:'Hech narsa topilmadi',
@@ -1332,11 +1324,8 @@ const UI = {
     clickTitle:'CLICK QR',
     clickHint:'Scan the QR in CLICK app, then press “Send request”.',
     welcome:'👋 Welcome',
-
-    /* ✅ Шапка */
-    brandSub:'ADVERTISING AGENCY',
-    brandSub2:'Printing • Print products',
-
+    brandSub1:'ADVERTISING AGENCY',
+    brandSub2:'PRINTING • PRINT PRODUCTS',
     subcats:'Subcategories',
     priceAsk:'Ask price',
     nothingFound:'Nothing found',
@@ -1354,24 +1343,14 @@ const UI = {
 
 const ABOUT_HOURS = "09:00–20:00";
 
-/* ✅ Categories (иконка будет фото) */
+/* ✅ Categories (убрали emoji — теперь будет фото-лого временно) */
 const CATS = {
   ru:{printing:'Типография', poly:'Полиграфия', ads:'Реклама', design:'Дизайн', branding:'Брендинг', other:'Услуги'},
   uz:{printing:'Tipografiya', poly:'Poligrafiya', ads:'Reklama', design:'Dizayn', branding:'Brending', other:'Xizmatlar'},
   en:{printing:'Printing', poly:'Print products', ads:'Advertising', design:'Design', branding:'Branding', other:'Services'}
 };
 
-/* ✅ Category images (положи эти файлы в /images) */
-const CAT_IMG = {
-  printing:'images/cat_printing.jpg',
-  poly:'images/cat_poly.jpg',
-  ads:'images/cat_ads.jpg',
-  design:'images/cat_design.jpg',
-  branding:'images/cat_branding.jpg',
-  other:'images/cat_other.jpg'
-};
-
-/* ✅ Subcategories */
+/* ✅ Subcategories (emoji оставили в данных, но в UI временно показываем logo.png) */
 const SUBCATS = {
   printing: [
     {k:'bizcards', e:'💳', ru:'Визитки', uz:'Vizitka', en:'Business cards'},
@@ -1603,16 +1582,12 @@ function closeTopMenu(){ menuBackdrop.classList.remove('show'); menuSheet.classL
 function renderCats(){
   cats.innerHTML='';
   for(const k in MENU){
-    const active = (k===category);
-    const img = CAT_IMG[k] || 'images/logo.png';
     const label = (CATS[lang][k]||k);
-
     cats.innerHTML += `
-      <button class="btn cat-btn ${active?'active':''}" onclick="onCategoryClick('${k}')" style="display:flex;align-items:center;gap:10px;">
-        <img src="${img}" onerror="this.onerror=null;this.src='images/logo.png'" alt="${escapeHtml(label)}" style="width:30px;height:30px;border-radius:10px;object-fit:cover;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.06);">
-        <span style="white-space:nowrap;">${escapeHtml(label)}</span>
-      </button>
-    `;
+      <button class="btn cat-btn ${k===category?'active':''}" onclick="onCategoryClick('${k}')">
+        <img class="cat-ic" src="images/logo.png" alt="" onerror="this.onerror=null;this.src='images/logo.png'">
+        <span>${escapeHtml(label)}</span>
+      </button>`;
   }
 }
 function onCategoryClick(k){
@@ -1654,7 +1629,9 @@ function renderSubcatsSheet(){
     const active = (s.k===subcat);
     subGrid.innerHTML += `
       <button class="sub-icbtn ${active?'active':''}" onclick="pickSubcat('${s.k}')">
-        <div class="sub-emoji">${s.e||'🔹'}</div>
+        <div class="sub-emoji">
+          <img class="sub-logo" src="images/logo.png" alt="" onerror="this.onerror=null;this.src='images/logo.png'">
+        </div>
         <div class="sub-txt">${escapeHtml(subLabel(s))}</div>
       </button>
     `;
@@ -1870,11 +1847,6 @@ function syncBranchUI(){
   if(a) a.classList.toggle('active', branch==='main');
   if(b) b.classList.toggle('active', branch==='pickup');
 }
-function openInstagram(which, e){
-  try{e?.preventDefault?.();e?.stopPropagation?.();}catch(_){}
-  closeTopMenu();
-  openLink(INSTAGRAM_URL);
-}
 function applyBranchToUI(){
   const aboutAddrText=document.getElementById('aboutAddrText');
   if(aboutAddrText) aboutAddrText.innerText = branchAddressForLang();
@@ -1883,9 +1855,9 @@ function applyBranchToUI(){
   if(d){
     const addr = branchAddressForLang();
     d.innerHTML =
-      (lang==='ru' ? `IMPACT — рекламное агентство, типография и дизайн в Самарканде.<br>Визитки, листовки, наклейки, баннеры, брендинг, SMM и таргет.<br><br><b>📍 Адрес:</b> ${addr}<br><b>🕒 График:</b> ${ABOUT_HOURS}`
-      : lang==='uz' ? `IMPACT — Samarqandda reklama agentligi, tipografiya va dizayn xizmatlari.<br>Vizitka, flyer, stiker, banner, brending, SMM va target.<br><br><b>📍 Manzil:</b> ${addr}<br><b>🕒 Ish vaqti:</b> ${ABOUT_HOURS}`
-      : `IMPACT — advertising agency, printing and design services in Samarkand.<br>Business cards, flyers, stickers, banners, branding, SMM and target ads.<br><br><b>📍 Address:</b> ${addr}<br><b>🕒 Hours:</b> ${ABOUT_HOURS}`);
+      (lang==='ru' ? `IMPACT — рекламное агентство в Самарканде.<br>Типография, полиграфия, дизайн, брендинг, SMM и таргет.<br><br><b>📍 Адрес:</b> ${addr}<br><b>🕒 График:</b> ${ABOUT_HOURS}`
+      : lang==='uz' ? `IMPACT — Samarqandda reklama agentligi.<br>Tipografiya, poligrafiya, dizayn, brending, SMM va target.<br><br><b>📍 Manzil:</b> ${addr}<br><b>🕒 Ish vaqti:</b> ${ABOUT_HOURS}`
+      : `IMPACT — advertising agency in Samarkand.<br>Printing, design, branding, SMM and target ads.<br><br><b>📍 Address:</b> ${addr}<br><b>🕒 Hours:</b> ${ABOUT_HOURS}`);
   }
 
   const am=document.getElementById('addrMakonMini');
@@ -1994,10 +1966,8 @@ function applyUI(){
   vipQuestion.placeholder = UI[lang].vipPh;
 
   mInstaSub1.innerText = UI[lang].instaSub;
-  mInstaSub2.innerText = UI[lang].instaSub;
-
-  const tgs = document.getElementById('mTgSub');
-  if(tgs) tgs.innerText = UI[lang].tgSub;
+  const tgSubEl = document.getElementById('mTgSub');
+  if(tgSubEl) tgSubEl.innerText = UI[lang].tgSub;
 
   mReviewTitle.innerText = UI[lang].reviewTitle;
   mReviewSub.innerText = UI[lang].reviewSub;
@@ -2041,12 +2011,9 @@ function applyUI(){
 
   stickyCartBtn.innerText = UI[lang].cart;
 
-  /* ✅ шапка (1-я строка) */
-  const headerSub = document.getElementById('branchTitle');
-  if(headerSub) headerSub.innerText = UI[lang].brandSub;
-
-  /* ✅ шапка (2-я строка) */
-  const headerSub2 = document.getElementById('branchSub2');
+  const headerSub1 = document.getElementById('branchTitle');
+  const headerSub2 = document.getElementById('branchTitle2');
+  if(headerSub1) headerSub1.innerText = UI[lang].brandSub1;
   if(headerSub2) headerSub2.innerText = UI[lang].brandSub2;
 
   /* ✅ spec labels */
@@ -2151,7 +2118,6 @@ lang='ru';
 document.querySelectorAll('.langs .btn').forEach(b=>b.classList.remove('active'));
 document.getElementById('langRU')?.classList.add('active');
 
-/* ✅ скрытый phone — храним новый номер по умолчанию */
 phone.value = localStorage.getItem('impact_phone') || PHONE1_DISPLAY;
 phone.addEventListener('input',()=>localStorage.setItem('impact_phone',phone.value));
 
