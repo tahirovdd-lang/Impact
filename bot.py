@@ -19,44 +19,29 @@ BOT_TOKEN = os.getenv("BOT_TOKEN")
 if not BOT_TOKEN:
     raise RuntimeError("❌ BOT_TOKEN не найден. Добавь переменную окружения BOT_TOKEN.")
 
-# ✅ IMPACT (все данные переименованы)
-BOT_USERNAME = os.getenv("BOT_USERNAME", "impact_webapp_bot").replace("@", "").strip().lower()
+# ✅ Переименовано на IMPACT
+BOT_USERNAME = os.getenv("BOT_USERNAME", "impact_bot").replace("@", "").strip().lower()
 ADMIN_ID = int(os.getenv("ADMIN_ID", "6013591658"))
-CHANNEL_ID = os.getenv("CHANNEL_ID", "@IMPACT_PRINT").strip()
-
+CHANNEL_ID = os.getenv("CHANNEL_ID", "@IMPACT_APP").strip()
 
 def normalize_webapp_url(url: str) -> str:
     url = (url or "").strip()
     if not url:
         return url
-
-    # ✅ фиксим типичную ошибку регистра для GitHub Pages (impact -> Impact)
-    # (GitHub Pages чувствителен к регистру пути)
-    url = url.replace("://tahirovdd-lang.github.io/impact/", "://tahirovdd-lang.github.io/Impact/")
-
     if "github.io" in url:
-        # отделяем query
         if "?" in url:
             base, q = url.split("?", 1)
             q = "?" + q
         else:
             base, q = url, ""
-
         base = base.rstrip("/")
-
-        # если нет .html — добавим /index.html
         if not base.lower().endswith(".html"):
             base = base + "/index.html"
-
         return base + q
-
     return url
 
-
-# ✅ ПРАВИЛЬНЫЙ URL (твоя страница реально открывается тут)
-DEFAULT_WEBAPP = "https://tahirovdd-lang.github.io/Impact/?v=1"
-
-# ✅ IMPACT WebApp (можно переопределить переменной окружения WEBAPP_URL)
+# ✅ Поменял на IMPACT URL
+DEFAULT_WEBAPP = "https://tahirovdd-lang.github.io/Impact/index.html?v=10"
 WEBAPP_URL = normalize_webapp_url(os.getenv("WEBAPP_URL", DEFAULT_WEBAPP))
 
 logging.info(f"WEBAPP_URL (effective) = {WEBAPP_URL}")
@@ -67,7 +52,6 @@ dp = Dispatcher()
 # ====== АНТИ-ДУБЛЬ START ======
 _last_start: dict[int, float] = {}
 
-
 def allow_start(user_id: int, ttl: float = 2.0) -> bool:
     now = time.time()
     prev = _last_start.get(user_id, 0.0)
@@ -76,10 +60,8 @@ def allow_start(user_id: int, ttl: float = 2.0) -> bool:
     _last_start[user_id] = now
     return True
 
-
 # ====== КНОПКИ ======
-BTN_OPEN_MULTI = "IMPACT • Открыть • Ochish • Open"
-
+BTN_OPEN_MULTI = "Ochish • Открыть • Open"
 
 def kb_webapp_reply() -> ReplyKeyboardMarkup:
     return ReplyKeyboardMarkup(
@@ -87,24 +69,21 @@ def kb_webapp_reply() -> ReplyKeyboardMarkup:
         resize_keyboard=True
     )
 
-
 def kb_channel_url() -> InlineKeyboardMarkup:
     return InlineKeyboardMarkup(
         inline_keyboard=[[InlineKeyboardButton(text=BTN_OPEN_MULTI, url=WEBAPP_URL)]]
     )
 
-
 # ====== ТЕКСТ ======
 def welcome_text() -> str:
     return (
-        "🇷🇺 Добро пожаловать в <b>IMPACT</b> 🖨️📣\n"
-        "Выберите услугу и оформите заявку — нажмите «Открыть» ниже.\n\n"
-        "🇺🇿 <b>IMPACT</b> 🖨️📣 ga xush kelibsiz!\n"
-        "Xizmatni tanlang va ariza yuboring — pastdagi «Ochish» tugmasini bosing.\n\n"
-        "🇬🇧 Welcome to <b>IMPACT</b> 🖨️📣\n"
-        "Choose a service and send a request — tap “Open” below."
+        "🇷🇺 Добро пожаловать в <b>IMPACT</b> 🚀\n"
+        "Откройте каталог услуг и оформите заявку — нажмите «Открыть» ниже.\n\n"
+        "🇺🇿 <b>IMPACT</b> 🚀 ga xush kelibsiz!\n"
+        "Xizmatlar katalogini oching va buyurtma bering — pastdagi «Ochish» tugmasini bosing.\n\n"
+        "🇬🇧 Welcome to <b>IMPACT</b> 🚀\n"
+        "Open the services catalog and place a request — tap “Open” below."
     )
-
 
 @dp.message(CommandStart())
 async def start(message: types.Message):
@@ -112,13 +91,11 @@ async def start(message: types.Message):
         return
     await message.answer(welcome_text(), reply_markup=kb_webapp_reply())
 
-
 @dp.message(Command("startapp"))
 async def startapp(message: types.Message):
     if not allow_start(message.from_user.id):
         return
     await message.answer(welcome_text(), reply_markup=kb_webapp_reply())
-
 
 @dp.message(Command("debug_url"))
 async def debug_url(message: types.Message):
@@ -126,16 +103,15 @@ async def debug_url(message: types.Message):
         return
     await message.answer(f"WEBAPP_URL = <code>{WEBAPP_URL}</code>")
 
-
 @dp.message(Command("post_shop"))
 async def post_shop(message: types.Message):
     if message.from_user.id != ADMIN_ID:
         return await message.answer("⛔️ Нет доступа.")
 
     text = (
-        "🇷🇺 <b>IMPACT</b> 🖨️📣\nНажмите кнопку ниже, чтобы открыть каталог услуг.\n\n"
-        "🇺🇿 <b>IMPACT</b> 🖨️📣\nPastdagi tugma orqali xizmatlar katalogini oching.\n\n"
-        "🇬🇧 <b>IMPACT</b> 🖨️📣\nTap the button below to open the services catalog."
+        "🇷🇺 <b>IMPACT</b> 🚀\nНажмите кнопку ниже, чтобы открыть каталог.\n\n"
+        "🇺🇿 <b>IMPACT</b> 🚀\nPastdagi tugma orqali katalogni oching.\n\n"
+        "🇬🇧 <b>IMPACT</b> 🚀\nTap the button below to open the catalog."
     )
 
     try:
@@ -152,7 +128,6 @@ async def post_shop(message: types.Message):
         logging.exception("CHANNEL POST ERROR")
         await message.answer(f"❌ Ошибка отправки в канал: <code>{e}</code>")
 
-
 # ====== ВСПОМОГАТЕЛЬНЫЕ ======
 def fmt_sum(n: int) -> str:
     try:
@@ -161,14 +136,11 @@ def fmt_sum(n: int) -> str:
         n = 0
     return f"{n:,}".replace(",", " ")
 
-
 def tg_label(u: types.User) -> str:
     return f"@{u.username}" if u.username else u.full_name
 
-
 def clean_str(v) -> str:
     return ("" if v is None else str(v)).strip()
-
 
 def safe_int(v, default=0) -> int:
     try:
@@ -182,7 +154,6 @@ def safe_int(v, default=0) -> int:
         return int(float(s))
     except Exception:
         return default
-
 
 def build_order_lines(data: dict) -> list[str]:
     raw_items = data.get("items")
@@ -204,7 +175,6 @@ def build_order_lines(data: dict) -> list[str]:
 
     return lines
 
-
 def is_consultation_payload(data: dict) -> bool:
     action = clean_str(data.get("action")).lower()
     text = clean_str(data.get("text"))
@@ -217,7 +187,6 @@ def is_consultation_payload(data: dict) -> bool:
         return True
     return False
 
-
 def is_order_payload(data: dict) -> bool:
     action = clean_str(data.get("action")).lower()
     items = data.get("items")
@@ -228,7 +197,6 @@ def is_order_payload(data: dict) -> bool:
     if isinstance(items, list) and len(items) > 0:
         return True
     return False
-
 
 # ====== ДАННЫЕ ИЗ WEBAPP ======
 @dp.message(F.web_app_data)
@@ -258,12 +226,12 @@ async def webapp_data(message: types.Message):
     if is_order_payload(data):
         lines = build_order_lines(data)
         if not lines:
-            return await message.answer("⚠️ Корзина пустая. Добавьте услуги и повторите.")
+            return await message.answer("⚠️ Корзина пустая. Добавьте позиции и повторите.")
 
-        total_str = clean_str(data.get("total")) or clean_str(data.get("total_items")) or "0"
+        total_str = clean_str(data.get("total")) or "0"
         payment = clean_str(data.get("payment")) or "—"
-        order_type = clean_str(data.get("type")) or clean_str(data.get("order_type")) or "—"
-        address = clean_str(data.get("address")) or clean_str(data.get("branch_address")) or "—"
+        order_type = clean_str(data.get("type")) or "—"
+        address = clean_str(data.get("address")) or "—"
         comment = clean_str(data.get("comment"))
         order_id = clean_str(data.get("order_id")) or "—"
 
@@ -286,12 +254,10 @@ async def webapp_data(message: types.Message):
     # ✅ 3) если пришло непонятно что — не шлём админу мусор
     await message.answer("⚠️ Данные не распознаны. Откройте каталог и попробуйте снова.")
 
-
 # ====== ЗАПУСК ======
 async def main():
     await bot.delete_webhook(drop_pending_updates=True)
     await dp.start_polling(bot)
-
 
 if __name__ == "__main__":
     asyncio.run(main())
