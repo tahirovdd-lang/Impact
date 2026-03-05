@@ -30,7 +30,10 @@ def normalize_webapp_url(url: str) -> str:
     if not url:
         return url
 
-    # ✅ нормализация GitHub Pages ссылок
+    # ✅ фиксим типичную ошибку регистра для GitHub Pages (impact -> Impact)
+    # (GitHub Pages чувствителен к регистру пути)
+    url = url.replace("://tahirovdd-lang.github.io/impact/", "://tahirovdd-lang.github.io/Impact/")
+
     if "github.io" in url:
         # отделяем query
         if "?" in url:
@@ -50,9 +53,7 @@ def normalize_webapp_url(url: str) -> str:
     return url
 
 
-# ✅ FIX: GitHub Pages чувствителен к регистру пути.
-# Было: .../impact/index.html (часто 404)
-# Стало: .../Impact/ (часто правильный путь)
+# ✅ ПРАВИЛЬНЫЙ URL (твоя страница реально открывается тут)
 DEFAULT_WEBAPP = "https://tahirovdd-lang.github.io/Impact/?v=1"
 
 # ✅ IMPACT WebApp (можно переопределить переменной окружения WEBAPP_URL)
