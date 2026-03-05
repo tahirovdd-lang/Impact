@@ -4,6 +4,21 @@
 <meta charset="UTF-8">
 <title>IMPACT — Рекламное агентство / Типография</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+
+<!-- ✅ FIX 404 GitHub Pages (impact -> Impact). Регистр важен! -->
+<script>
+(function () {
+  try {
+    var p = location.pathname || "";
+    // если открыли /impact/… — редиректим на /Impact/…
+    if (p.indexOf("/impact/") !== -1 && p.indexOf("/Impact/") === -1) {
+      var newPath = p.replace("/impact/", "/Impact/");
+      location.replace(location.origin + newPath + location.search + location.hash);
+    }
+  } catch (e) {}
+})();
+</script>
+
 <script src="https://telegram.org/js/telegram-web-app.js"></script>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700;800;900&display=swap" rel="stylesheet">
