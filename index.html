@@ -731,6 +731,14 @@ textarea.input{height:90px;}
   ads_target.jpg
   ads_outdoor.jpg
   other_services.jpg
+
+  ✅ НОВОЕ (иконки категорий как фото):
+  cat_printing.jpg
+  cat_poly.jpg
+  cat_ads.jpg
+  cat_design.jpg
+  cat_branding.jpg
+  cat_other.jpg
 -->
 
 <div class="header">
@@ -738,13 +746,20 @@ textarea.input{height:90px;}
 
   <div class="brand-wrap">
     <div class="brand-title">IMPACT</div>
-    <div class="brand-title2" id="branchTitle">ТИПОГРАФИЯ • ПОЛИГРАФИЯ • РЕКЛАМА</div>
+
+    <!-- ✅ Шапка: Рекламное агентство -->
+    <div class="brand-title2" id="branchTitle">РЕКЛАМНОЕ АГЕНТСТВО</div>
+
+    <!-- ✅ Ниже: Типография Полиграфия -->
+    <div class="brand-title2" id="branchSub2" style="letter-spacing:1.1px;opacity:.86;">
+      Типография • Полиграфия
+    </div>
 
     <div class="welcome" id="welcomeLine" style="display:none;"></div>
 
     <div class="brand-phone">
-      <a href="tel:+998901001110" onclick="callPhone(event)">+998 90 100 11 10</a>
-      <a href="tel:+998912859999" onclick="callPhone2(event)">+998 91 285 99 99</a>
+      <!-- ✅ Новый номер -->
+      <a href="tel:+998937289004" onclick="callPhone(event)">+998 (93) 728-90-04</a>
     </div>
   </div>
 
@@ -800,12 +815,13 @@ textarea.input{height:90px;}
       </div>
     </div>
 
-    <a class="menu-item" href="tel:+998901001110" onclick="closeTopMenu()">
+    <!-- ✅ Телефон в меню тоже новый -->
+    <a class="menu-item" href="tel:+998937289004" onclick="closeTopMenu()">
       <div class="menu-left">
         <div class="menu-ic">📞</div>
         <div class="menu-txt">
           <div class="menu-name" id="mCallTitle">Позвонить</div>
-          <div class="menu-sub" id="mCallSub">+998 90 100 11 10</div>
+          <div class="menu-sub" id="mCallSub">+998 (93) 728-90-04</div>
         </div>
       </div>
       <div class="menu-right">›</div>
@@ -844,11 +860,12 @@ textarea.input{height:90px;}
       </div>
     </div>
 
+    <!-- ✅ Instagram: @impactreklama (2 пункта меню оставил, но оба ведут туда же) -->
     <a class="menu-item" href="#" onclick="openInstagram('main', event)">
       <div class="menu-left">
         <div class="menu-ic">📸</div>
         <div class="menu-txt">
-          <div class="menu-name">@impact.print</div>
+          <div class="menu-name">@impactreklama</div>
           <div class="menu-sub" id="mInstaSub1">Открыть Instagram</div>
         </div>
       </div>
@@ -859,8 +876,20 @@ textarea.input{height:90px;}
       <div class="menu-left">
         <div class="menu-ic">📸</div>
         <div class="menu-txt">
-          <div class="menu-name">@impact.design</div>
+          <div class="menu-name">@impactreklama</div>
           <div class="menu-sub" id="mInstaSub2">Открыть Instagram</div>
+        </div>
+      </div>
+      <div class="menu-right">›</div>
+    </a>
+
+    <!-- ✅ Telegram channel -->
+    <a class="menu-item" href="#" onclick="openTelegramChannel(event)">
+      <div class="menu-left">
+        <div class="menu-ic">📢</div>
+        <div class="menu-txt">
+          <div class="menu-name">@impactreklama</div>
+          <div class="menu-sub" id="mTgSub">Открыть Telegram канал</div>
         </div>
       </div>
       <div class="menu-right">›</div>
@@ -903,11 +932,8 @@ textarea.input{height:90px;}
 
         <div style="font-weight:900; margin-bottom:6px;" id="aboutPhoneLabel">📞 Телефон</div>
         <div style="display:flex; flex-direction:column; gap:6px;">
-          <a href="tel:+998901001110" onclick="callPhone(event)" style="text-decoration:none; font-weight:900; color:var(--accent);">
-            +998 90 100 11 10
-          </a>
-          <a href="tel:+998912859999" onclick="callPhone2(event)" style="text-decoration:none; font-weight:900; color:var(--accent);">
-            +998 91 285 99 99
+          <a href="tel:+998937289004" onclick="callPhone(event)" style="text-decoration:none; font-weight:900; color:var(--accent);">
+            +998 (93) 728-90-04
           </a>
         </div>
 
@@ -1077,11 +1103,15 @@ const HEADER_LOCATION_URL = "https://yandex.uz/maps/?text=Impact%20типогр�
 const REVIEW_URL = "https://yandex.uz/maps/?text=Impact%20типография%20отзывы";
 const ADMIN_ID = 6013591658;
 
-/* ✅ PHONES */
-const PHONE1_DISPLAY = "+998 90 100 11 10";
-const PHONE1_TEL = "tel:+998901001110";
-const PHONE2_DISPLAY = "+998 91 285 99 99";
-const PHONE2_TEL = "tel:+998912859999";
+/* ✅ PHONES (обновлено) */
+const PHONE1_DISPLAY = "+998 (93) 728-90-04";
+const PHONE1_TEL = "tel:+998937289004";
+const PHONE2_DISPLAY = "";
+const PHONE2_TEL = "";
+
+/* ✅ Instagram / Telegram */
+const INSTAGRAM_URL = "https://www.instagram.com/impactreklama/";
+const TG_CHANNEL_URL = "https://t.me/impactreklama";
 
 /* ✅ BRANCHES */
 const BRANCHES = {
@@ -1090,14 +1120,14 @@ const BRANCHES = {
     addressRU:"г. Самарканд, ул. (укажите адрес)",
     addressUZ:"Samarqand, (manzilni yozing)",
     addressEN:"Samarkand, (add address)",
-    insta:"https://www.instagram.com/impact.print/",
+    insta: INSTAGRAM_URL,
   },
   pickup:{
     titleRU:"Пункт выдачи", titleUZ:"Topshirish punkti", titleEN:"Pickup point",
     addressRU:"г. Самарканд, ул. (укажите адрес)",
     addressUZ:"Samarqand, (manzilni yozing)",
     addressEN:"Samarkand, (add address)",
-    insta:"https://www.instagram.com/impact.design/",
+    insta: INSTAGRAM_URL,
   }
 };
 
@@ -1116,6 +1146,11 @@ function openReview(e){
   try{e?.preventDefault?.();e?.stopPropagation?.();}catch(_){}
   closeTopMenu();
   openLink(REVIEW_URL);
+}
+function openTelegramChannel(e){
+  try{e?.preventDefault?.();e?.stopPropagation?.();}catch(_){}
+  closeTopMenu();
+  openLink(TG_CHANNEL_URL);
 }
 function branchAddressForLang(){
   const b = BRANCHES[branch];
@@ -1148,6 +1183,7 @@ function callPhone(e){ try{e.preventDefault();e.stopPropagation();}catch(_){}
   try{Telegram.WebApp.openLink(PHONE1_TEL);}catch(_){window.location.href=PHONE1_TEL;}
 }
 function callPhone2(e){ try{e.preventDefault();e.stopPropagation();}catch(_){}
+  if(!PHONE2_TEL) return;
   try{Telegram.WebApp.openLink(PHONE2_TEL);}catch(_){window.location.href=PHONE2_TEL;}
 }
 function copyText(t){
@@ -1185,6 +1221,7 @@ const UI = {
     vipPh:'Ваш вопрос (например: визитки 1000 шт + дизайн?)',
     consultSent:'✅ Запрос отправлен',
     instaSub:'Открыть Instagram',
+    tgSub:'Открыть Telegram канал',
     reviewTitle:'Оставить отзыв', reviewSub:'Яндекс Карты',
     aboutTitle:'О нас', aboutSub:'Адрес, телефоны, график',
     aboutAddr:'📍 Адрес', aboutRoute:'📍 Построить маршрут',
@@ -1202,7 +1239,11 @@ const UI = {
     clickTitle:'CLICK QR',
     clickHint:'Отсканируйте QR в приложении CLICK, затем нажмите «Оформить заявку».',
     welcome:'👋 Добро пожаловать',
-    brandSub:'ТИПОГРАФИЯ • ПОЛИГРАФИЯ • РЕКЛАМА',
+
+    /* ✅ Шапка */
+    brandSub:'РЕКЛАМНОЕ АГЕНТСТВО',
+    brandSub2:'Типография • Полиграфия',
+
     subcats:'Подкатегории',
     priceAsk:'Цена уточняется',
     nothingFound:'Ничего не найдено',
@@ -1227,6 +1268,7 @@ const UI = {
     vipPh:'Savolingiz (masalan: vizitka 1000 dona + dizayn?)',
     consultSent:'✅ So‘rov yuborildi',
     instaSub:"Instagramni ochish",
+    tgSub:"Telegram kanalni ochish",
     reviewTitle:'Fikr qoldirish', reviewSub:'Yandex Xaritalar',
     aboutTitle:'Biz haqimizda', aboutSub:'Manzil, telefonlar, ish vaqti',
     aboutAddr:'📍 Manzil', aboutRoute:"📍 Yo‘l ko‘rsatish",
@@ -1244,7 +1286,11 @@ const UI = {
     clickTitle:'CLICK QR',
     clickHint:"CLICK ilovasida QR ni skaner qiling, so‘ng “Ariza yuborish”ni bosing.",
     welcome:'👋 Xush kelibsiz',
-    brandSub:'TIPOGRAFIYA • POLIGRAFIYA • REKLAMA',
+
+    /* ✅ Шапка */
+    brandSub:'REKLAMA AGENTLIGI',
+    brandSub2:'Tipografiya • Poligrafiya',
+
     subcats:'Subkategoriyalar',
     priceAsk:'Narx kelishiladi',
     nothingFound:'Hech narsa topilmadi',
@@ -1268,6 +1314,7 @@ const UI = {
     vipPh:'Your question (e.g. business cards 1000 pcs + design?)',
     consultSent:'✅ Request sent',
     instaSub:'Open Instagram',
+    tgSub:'Open Telegram channel',
     reviewTitle:'Leave a review', reviewSub:'Yandex Maps',
     aboutTitle:'About us', aboutSub:'Address, phones, hours',
     aboutAddr:'📍 Address', aboutRoute:'📍 Get directions',
@@ -1285,7 +1332,11 @@ const UI = {
     clickTitle:'CLICK QR',
     clickHint:'Scan the QR in CLICK app, then press “Send request”.',
     welcome:'👋 Welcome',
-    brandSub:'PRINTING • ADVERTISING • DESIGN',
+
+    /* ✅ Шапка */
+    brandSub:'ADVERTISING AGENCY',
+    brandSub2:'Printing • Print products',
+
     subcats:'Subcategories',
     priceAsk:'Ask price',
     nothingFound:'Nothing found',
@@ -1303,11 +1354,21 @@ const UI = {
 
 const ABOUT_HOURS = "09:00–20:00";
 
-/* ✅ Categories */
+/* ✅ Categories (иконка будет фото) */
 const CATS = {
-  ru:{printing:'🖨️ Типография', poly:'📄 Полиграфия', ads:'📣 Реклама', design:'🎨 Дизайн', branding:'✨ Брендинг', other:'🧩 Услуги'},
-  uz:{printing:'🖨️ Tipografiya', poly:'📄 Poligrafiya', ads:'📣 Reklama', design:'🎨 Dizayn', branding:'✨ Brending', other:'🧩 Xizmatlar'},
-  en:{printing:'🖨️ Printing', poly:'📄 Print products', ads:'📣 Advertising', design:'🎨 Design', branding:'✨ Branding', other:'🧩 Services'}
+  ru:{printing:'Типография', poly:'Полиграфия', ads:'Реклама', design:'Дизайн', branding:'Брендинг', other:'Услуги'},
+  uz:{printing:'Tipografiya', poly:'Poligrafiya', ads:'Reklama', design:'Dizayn', branding:'Brending', other:'Xizmatlar'},
+  en:{printing:'Printing', poly:'Print products', ads:'Advertising', design:'Design', branding:'Branding', other:'Services'}
+};
+
+/* ✅ Category images (положи эти файлы в /images) */
+const CAT_IMG = {
+  printing:'images/cat_printing.jpg',
+  poly:'images/cat_poly.jpg',
+  ads:'images/cat_ads.jpg',
+  design:'images/cat_design.jpg',
+  branding:'images/cat_branding.jpg',
+  other:'images/cat_other.jpg'
 };
 
 /* ✅ Subcategories */
@@ -1542,7 +1603,16 @@ function closeTopMenu(){ menuBackdrop.classList.remove('show'); menuSheet.classL
 function renderCats(){
   cats.innerHTML='';
   for(const k in MENU){
-    cats.innerHTML += `<button class="btn cat-btn ${k===category?'active':''}" onclick="onCategoryClick('${k}')">${CATS[lang][k]||k}</button>`;
+    const active = (k===category);
+    const img = CAT_IMG[k] || 'images/logo.png';
+    const label = (CATS[lang][k]||k);
+
+    cats.innerHTML += `
+      <button class="btn cat-btn ${active?'active':''}" onclick="onCategoryClick('${k}')" style="display:flex;align-items:center;gap:10px;">
+        <img src="${img}" onerror="this.onerror=null;this.src='images/logo.png'" alt="${escapeHtml(label)}" style="width:30px;height:30px;border-radius:10px;object-fit:cover;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.06);">
+        <span style="white-space:nowrap;">${escapeHtml(label)}</span>
+      </button>
+    `;
   }
 }
 function onCategoryClick(k){
@@ -1803,8 +1873,7 @@ function syncBranchUI(){
 function openInstagram(which, e){
   try{e?.preventDefault?.();e?.stopPropagation?.();}catch(_){}
   closeTopMenu();
-  const code = (which==='pickup') ? 'pickup' : 'main';
-  openLink(BRANCHES[code].insta);
+  openLink(INSTAGRAM_URL);
 }
 function applyBranchToUI(){
   const aboutAddrText=document.getElementById('aboutAddrText');
@@ -1814,9 +1883,9 @@ function applyBranchToUI(){
   if(d){
     const addr = branchAddressForLang();
     d.innerHTML =
-      (lang==='ru' ? `IMPACT — рекламные услуги, типография и дизайн в Самарканде.<br>Визитки, листовки, наклейки, баннеры, брендинг, SMM и таргет.<br><br><b>📍 Адрес:</b> ${addr}<br><b>🕒 График:</b> ${ABOUT_HOURS}`
-      : lang==='uz' ? `IMPACT — Samarqandda reklama, tipografiya va dizayn xizmatlari.<br>Vizitka, flyer, stiker, banner, brending, SMM va target.<br><br><b>📍 Manzil:</b> ${addr}<br><b>🕒 Ish vaqti:</b> ${ABOUT_HOURS}`
-      : `IMPACT — printing, advertising and design services in Samarkand.<br>Business cards, flyers, stickers, banners, branding, SMM and target ads.<br><br><b>📍 Address:</b> ${addr}<br><b>🕒 Hours:</b> ${ABOUT_HOURS}`);
+      (lang==='ru' ? `IMPACT — рекламное агентство, типография и дизайн в Самарканде.<br>Визитки, листовки, наклейки, баннеры, брендинг, SMM и таргет.<br><br><b>📍 Адрес:</b> ${addr}<br><b>🕒 График:</b> ${ABOUT_HOURS}`
+      : lang==='uz' ? `IMPACT — Samarqandda reklama agentligi, tipografiya va dizayn xizmatlari.<br>Vizitka, flyer, stiker, banner, brending, SMM va target.<br><br><b>📍 Manzil:</b> ${addr}<br><b>🕒 Ish vaqti:</b> ${ABOUT_HOURS}`
+      : `IMPACT — advertising agency, printing and design services in Samarkand.<br>Business cards, flyers, stickers, banners, branding, SMM and target ads.<br><br><b>📍 Address:</b> ${addr}<br><b>🕒 Hours:</b> ${ABOUT_HOURS}`);
   }
 
   const am=document.getElementById('addrMakonMini');
@@ -1927,6 +1996,9 @@ function applyUI(){
   mInstaSub1.innerText = UI[lang].instaSub;
   mInstaSub2.innerText = UI[lang].instaSub;
 
+  const tgs = document.getElementById('mTgSub');
+  if(tgs) tgs.innerText = UI[lang].tgSub;
+
   mReviewTitle.innerText = UI[lang].reviewTitle;
   mReviewSub.innerText = UI[lang].reviewSub;
 
@@ -1969,8 +2041,13 @@ function applyUI(){
 
   stickyCartBtn.innerText = UI[lang].cart;
 
+  /* ✅ шапка (1-я строка) */
   const headerSub = document.getElementById('branchTitle');
   if(headerSub) headerSub.innerText = UI[lang].brandSub;
+
+  /* ✅ шапка (2-я строка) */
+  const headerSub2 = document.getElementById('branchSub2');
+  if(headerSub2) headerSub2.innerText = UI[lang].brandSub2;
 
   /* ✅ spec labels */
   document.getElementById('kModel').innerText = UI[lang].kModel;
@@ -2074,6 +2151,7 @@ lang='ru';
 document.querySelectorAll('.langs .btn').forEach(b=>b.classList.remove('active'));
 document.getElementById('langRU')?.classList.add('active');
 
+/* ✅ скрытый phone — храним новый номер по умолчанию */
 phone.value = localStorage.getItem('impact_phone') || PHONE1_DISPLAY;
 phone.addEventListener('input',()=>localStorage.setItem('impact_phone',phone.value));
 
